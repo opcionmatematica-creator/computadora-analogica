@@ -3,7 +3,8 @@
 //   node server.js            -> sirve el proyecto en http://127.0.0.1:8642/web/ y abre la ventana
 //   node server.js --no-open  -> solo el servidor
 // La web es estática; este servidor añade solo /api/* para abrir los proyectos en KiCad.
-// Se cierra solo cuando la ventana deja de enviar latidos.
+// Funciona en Windows y Linux. Se cierra solo cuando ya no queda ninguna ventana de la app
+// (si se abrió en el navegador predeterminado, sigue en marcha y se reutiliza).
 const http = require("http");
 const fs = require("fs");
 const path = require("path");
@@ -12,7 +13,13 @@ const { spawn, execFile } = require("child_process");
 const ROOT = __dirname;
 const PORT = +process.env.PORT || 8642;
 const HOST = "127.0.0.1";
-const KICAD = path.join(process.env.LOCALAPPDATA || "", "Programs", "KiCad", "10.0", "bin", "kicad.exe");
+const WIN = process.platform === "win32";
+// Busca un ejecutable en el PATH (Linux/macOS).
+const which = name => (process.env.PATH || "").split(path.delimiter).map(d => path.join(d, name)).find(f => fs.existsSync(f));
+const KICAD = WIN
+  ? path.join(process.env.LOCALAPPDATA || "", "Programs", "KiCad", "10.0", "bin", "kicad.exe")
+  : which("kicad") || "/usr/bin/kicad";
+const OPEN_FOLDER = WIN ? "explorer.exe" : process.platform === "darwin" ? "open" : "xdg-open";
 const TYPES = {
   ".html": "text/html; charset=utf-8", ".js": "text/javascript; charset=utf-8", ".css": "text/css; charset=utf-8",
   ".json": "application/json", ".svg": "image/svg+xml", ".png": "image/png", ".jpeg": "image/jpeg", ".jpg": "image/jpeg",
@@ -37,7 +44,7 @@ function api(req, res, url) {
     return send(200, { ok: true });
   }
   if (url.pathname === "/api/folder") {
-    spawn("explorer.exe", [dir], { detached: true, stdio: "ignore" }).unref();
+    spawn(OPEN_FOLDER, [dir], { detached: true, stdio: "ignore" }).unref();
     return send(200, { ok: true });
   }
   send(404, { error: "?" });
@@ -69,17 +76,33 @@ const server = http.createServer((req, res) => {
   });
 });
 
+// Devuelve true si abrió una ventana propia (Edge/Chrome/Chromium con --app), que se puede vigilar
+// para apagar el servidor; false si tuvo que usar el navegador predeterminado.
 function openWindow() {
   const app = `http://${HOST}:${PORT}/web/`;
-  const edges = [
+  const edges = WIN ? [
     path.join(process.env["ProgramFiles(x86)"] || "", "Microsoft", "Edge", "Application", "msedge.exe"),
     path.join(process.env.ProgramFiles || "", "Microsoft", "Edge", "Application", "msedge.exe"),
     path.join(process.env.ProgramFiles || "", "Google", "Chrome", "Application", "chrome.exe"),
-  ];
-  const exe = edges.find(e => fs.existsSync(e));
-  const profile = path.join(process.env.LOCALAPPDATA || ROOT, "ComputadoraAnalogica", "perfil");
-  if (exe) spawn(exe, [`--app=${app}`, `--user-data-dir=${profile}`, "--start-maximized", "--no-first-run"], { detached: true, stdio: "ignore" }).unref();
-  else spawn("cmd", ["/c", "start", "", app], { detached: true, stdio: "ignore" }).unref();
+  ] : ["microsoft-edge", "google-chrome", "google-chrome-stable", "chromium", "chromium-browser"].map(which);
+  const exe = edges.find(e => e && fs.existsSync(e));
+  const base = WIN ? process.env.LOCALAPPDATA || ROOT : process.env.XDG_CONFIG_HOME || path.join(require("os").homedir(), ".config");
+  const profile = path.join(base, "ComputadoraAnalogica", "perfil");
+  const bg = { detached: true, stdio: "ignore" };
+  if (exe) { spawn(exe, [`--app=${app}`, `--user-data-dir=${profile}`, "--start-maximized", "--no-first-run"], bg).unref(); return true; }
+  if (WIN) spawn("cmd", ["/c", "start", "", app], bg).unref();
+  else spawn(process.platform === "darwin" ? "open" : "xdg-open", [app], bg).unref();
+  return false;
+}
+
+// Cuenta las ventanas de la app (navegador lanzado con el perfil ComputadoraAnalogica).
+function countWindows(cb) {
+  if (WIN) return execFile("powershell", ["-NoProfile", "-Command",
+    "(Get-CimInstance Win32_Process -Filter \"Name='msedge.exe' or Name='chrome.exe'\" | Where-Object { $_.CommandLine -like '*ComputadoraAnalogica*' }).Count"],
+    { windowsHide: true }, (err, out) => cb(err, parseInt(out, 10) || 0));
+  // pgrep sale con código 1 cuando no encuentra nada: eso es «0 ventanas», no un error.
+  execFile("pgrep", ["-fc", "user-data-dir=.*ComputadoraAnalogica"], (err, out) =>
+    cb(err && err.code !== 1 ? err : null, parseInt(out, 10) || 0));
 }
 
 server.on("error", e => {
@@ -89,19 +112,17 @@ server.on("error", e => {
 server.listen(PORT, HOST, () => {
   console.log(`Computadora analógica: http://${HOST}:${PORT}/web/`);
   if (!process.argv.includes("--no-open")) {
-    openWindow();
-    // Se apaga cuando ya no queda ninguna ventana de la app (Edge con el perfil
+    // Se apaga cuando ya no queda ninguna ventana de la app (Edge/Chrome con el perfil
     // ComputadoraAnalogica). No depende de latidos: Edge frena los temporizadores de las
     // ventanas minimizadas y el servidor se cerraba con la app aún abierta.
+    // Si se abrió en el navegador predeterminado (p. ej. Firefox en Linux) no hay forma de
+    // saber cuándo se cierra la pestaña: el servidor sigue en marcha y se reutiliza.
+    if (!openWindow()) return;
     let empty = 0;
-    setInterval(() => {
-      execFile("powershell", ["-NoProfile", "-Command",
-        "(Get-CimInstance Win32_Process -Filter \"Name='msedge.exe' or Name='chrome.exe'\" | Where-Object { $_.CommandLine -like '*ComputadoraAnalogica*' }).Count"],
-        { windowsHide: true }, (err, out) => {
-          if (err) return;
-          empty = (parseInt(out, 10) || 0) === 0 ? empty + 1 : 0;
-          if (empty >= 3) process.exit(0);     // ~3 min sin ventanas
-        });
-    }, 60000);
+    setInterval(() => countWindows((err, n) => {
+      if (err) return;
+      empty = n === 0 ? empty + 1 : 0;
+      if (empty >= 3) process.exit(0);     // ~3 min sin ventanas
+    }), 60000);
   }
 });

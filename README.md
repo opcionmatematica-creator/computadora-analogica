@@ -9,6 +9,9 @@ cualquiera puede montar y probar uno por uno, con una aplicación web/escritorio
 - **Escritorio:** doble clic en `Computadora Analogica.vbs` (o en el acceso directo del Escritorio;
   `crear_acceso_directo.ps1` lo vuelve a crear). Se abre como ventana propia; necesita Node.js y Edge
   o Chrome. Con la app de escritorio, los botones «Abrir en KiCad» abren cada proyecto.
+- **Linux:** `node server.js` abre la app en Chrome/Chromium/Edge como ventana propia (y se cierra con
+  ella) o, si no hay ninguno, en el navegador predeterminado (el servidor sigue en marcha y se reutiliza).
+  «Abrir en KiCad» usa el `kicad` del PATH (hace falta KiCad 10: los proyectos son de esa versión).
 - **Web:** `node server.js` y abre http://127.0.0.1:8642/web/ en el navegador.
 - **Publicar:** la carpeta es un sitio estático (`web/`, `docs/`, `simulaciones/`). Súbela tal cual a
   GitHub Pages, Netlify o similar y entra por `/web/`.
