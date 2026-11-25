@@ -1,0 +1,6 @@
+"Referencias","Valor","Huella","Cantidad"
+"C1,C2","100nF","Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm","2"
+"J1","BUS","Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical","1"
+"J2","X1 X2 Y1 Y2 Z GND","Connector_PinHeader_2.54mm:PinHeader_1x06_P2.54mm_Vertical","1"
+"J3","W","Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical","1"
+"U1","AD633JN","Package_DIP:DIP-8_W7.62mm_Socket","1"

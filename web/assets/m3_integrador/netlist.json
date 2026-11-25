@@ -1,0 +1,214 @@
+{
+"parts": [
+{
+"ref": "C1",
+"value": "1uF film",
+"fp": "C_Rect_L7.2mm_W5.5mm_P5.00mm_FKS2_FKP2_MKS2_MKP2",
+"lib": "Device:C",
+"pins": {
+"2": "OUT",
+"1": "Net-(SW1-A)"
+}
+},
+{
+"ref": "C2",
+"value": "100nF film",
+"fp": "C_Rect_L7.2mm_W5.5mm_P5.00mm_FKS2_FKP2_MKS2_MKP2",
+"lib": "Device:C",
+"pins": {
+"2": "OUT",
+"1": "Net-(SW1-C)"
+}
+},
+{
+"ref": "C3",
+"value": "100nF",
+"fp": "C_Disc_D5.0mm_W2.5mm_P5.00mm",
+"lib": "Device:C",
+"pins": {
+"1": "+15V",
+"2": "GND"
+}
+},
+{
+"ref": "C4",
+"value": "100nF",
+"fp": "C_Disc_D5.0mm_W2.5mm_P5.00mm",
+"lib": "Device:C",
+"pins": {
+"2": "-15V",
+"1": "GND"
+}
+},
+{
+"ref": "D1",
+"value": "1N4148",
+"fp": "D_DO-35_SOD27_P7.62mm_Horizontal",
+"lib": "Diode:1N4148",
+"pins": {
+"1": "OP",
+"2": "GND"
+}
+},
+{
+"ref": "J1",
+"value": "BUS",
+"fp": "PinHeader_1x04_P2.54mm_Vertical",
+"lib": "Connector_Generic:Conn_01x04",
+"pins": {
+"1": "+15V",
+"3": "-15V",
+"4": "OP",
+"2": "GND"
+}
+},
+{
+"ref": "J2",
+"value": "ENTRADAS",
+"fp": "PinHeader_1x06_P2.54mm_Vertical",
+"lib": "Connector_Generic:Conn_01x06",
+"pins": {
+"1": "IN_X1",
+"2": "IN_X10",
+"3": "IN_X100A",
+"4": "IN_X100B",
+"5": "IN_X1000",
+"6": "SUMIN"
+}
+},
+{
+"ref": "J3",
+"value": "COND. INICIAL",
+"fp": "PinHeader_1x02_P2.54mm_Vertical",
+"lib": "Connector_Generic:Conn_01x02",
+"pins": {
+"1": "IC_IN",
+"2": "GND"
+}
+},
+{
+"ref": "J4",
+"value": "SALIDA",
+"fp": "PinHeader_1x03_P2.54mm_Vertical",
+"lib": "Connector_Generic:Conn_01x03",
+"pins": {
+"1": "OUT_BUF",
+"2": "OUT_BUF",
+"3": "GND"
+}
+},
+{
+"ref": "K1",
+"value": "G5V-2 12V",
+"fp": "Relay_DPDT_Omron_G5V-2",
+"lib": "Relay:G5V-2",
+"pins": {
+"4": "ICN",
+"6": "INV",
+"9": "INV",
+"1": "OP",
+"13": "SUMIN",
+"11": "GND",
+"16": "GND",
+"8": "GND"
+}
+},
+{
+"ref": "R1",
+"value": "1M",
+"fp": "R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal",
+"lib": "Device:R",
+"pins": {
+"1": "IN_X1",
+"2": "SUMIN"
+}
+},
+{
+"ref": "R2",
+"value": "100k",
+"fp": "R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal",
+"lib": "Device:R",
+"pins": {
+"1": "IN_X10",
+"2": "SUMIN"
+}
+},
+{
+"ref": "R3",
+"value": "10k",
+"fp": "R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal",
+"lib": "Device:R",
+"pins": {
+"1": "IN_X100A",
+"2": "SUMIN"
+}
+},
+{
+"ref": "R4",
+"value": "10k",
+"fp": "R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal",
+"lib": "Device:R",
+"pins": {
+"1": "IN_X100B",
+"2": "SUMIN"
+}
+},
+{
+"ref": "R5",
+"value": "1k",
+"fp": "R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal",
+"lib": "Device:R",
+"pins": {
+"1": "IN_X1000",
+"2": "SUMIN"
+}
+},
+{
+"ref": "R6",
+"value": "10k",
+"fp": "R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal",
+"lib": "Device:R",
+"pins": {
+"2": "ICN",
+"1": "IC_IN"
+}
+},
+{
+"ref": "R7",
+"value": "10k",
+"fp": "R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal",
+"lib": "Device:R",
+"pins": {
+"1": "ICN",
+"2": "OUT"
+}
+},
+{
+"ref": "SW1",
+"value": "VELOCIDAD x1/x10",
+"fp": "SW_E-Switch_EG1271_SPDT",
+"lib": "Switch:SW_SPDT",
+"pins": {
+"2": "INV",
+"1": "Net-(SW1-A)",
+"3": "Net-(SW1-C)"
+}
+},
+{
+"ref": "U1",
+"value": "LF412",
+"fp": "DIP-8_W7.62mm_Socket",
+"lib": "Amplifier_Operational:TL072",
+"pins": {
+"8": "+15V",
+"4": "-15V",
+"2": "INV",
+"1": "OUT",
+"5": "OUT",
+"6": "OUT_BUF",
+"7": "OUT_BUF",
+"3": "GND"
+}
+}
+]
+}

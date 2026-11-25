@@ -1,0 +1,76 @@
+{
+"parts": [
+{
+"ref": "C1",
+"value": "100nF",
+"fp": "C_Disc_D5.0mm_W2.5mm_P5.00mm",
+"lib": "Device:C",
+"pins": {
+"1": "+15V",
+"2": "GND"
+}
+},
+{
+"ref": "C2",
+"value": "100nF",
+"fp": "C_Disc_D5.0mm_W2.5mm_P5.00mm",
+"lib": "Device:C",
+"pins": {
+"2": "-15V",
+"1": "GND"
+}
+},
+{
+"ref": "J1",
+"value": "BUS",
+"fp": "PinHeader_1x04_P2.54mm_Vertical",
+"lib": "Connector_Generic:Conn_01x04",
+"pins": {
+"1": "+15V",
+"3": "-15V",
+"2": "GND",
+"4": "unconnected-(J1-Pin_4-Pad4)"
+}
+},
+{
+"ref": "J2",
+"value": "X1 X2 Y1 Y2 Z GND",
+"fp": "PinHeader_1x06_P2.54mm_Vertical",
+"lib": "Connector_Generic:Conn_01x06",
+"pins": {
+"1": "MX1",
+"2": "MX2",
+"3": "MY1",
+"4": "MY2",
+"5": "MZ",
+"6": "GND"
+}
+},
+{
+"ref": "J3",
+"value": "W",
+"fp": "PinHeader_1x02_P2.54mm_Vertical",
+"lib": "Connector_Generic:Conn_01x02",
+"pins": {
+"1": "MW",
+"2": "GND"
+}
+},
+{
+"ref": "U1",
+"value": "AD633JN",
+"fp": "DIP-8_W7.62mm_Socket",
+"lib": "m7_multiplicador_func:AD633",
+"pins": {
+"8": "+15V",
+"5": "-15V",
+"7": "MW",
+"1": "MX1",
+"2": "MX2",
+"3": "MY1",
+"4": "MY2",
+"6": "MZ"
+}
+}
+]
+}

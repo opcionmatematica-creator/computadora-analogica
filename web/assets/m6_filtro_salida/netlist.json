@@ -1,0 +1,75 @@
+{
+"parts": [
+{
+"ref": "C1",
+"value": "100nF",
+"fp": "C_Disc_D5.0mm_W2.5mm_P5.00mm",
+"lib": "Device:C",
+"pins": {
+"2": "GND",
+"1": "Net-(J2-In)"
+}
+},
+{
+"ref": "C2",
+"value": "100nF",
+"fp": "C_Disc_D5.0mm_W2.5mm_P5.00mm",
+"lib": "Device:C",
+"pins": {
+"2": "GND",
+"1": "Net-(J3-In)"
+}
+},
+{
+"ref": "J1",
+"value": "X / Y / GND",
+"fp": "PinHeader_1x03_P2.54mm_Vertical",
+"lib": "Connector_Generic:Conn_01x03",
+"pins": {
+"1": "X_IN",
+"2": "Y_IN",
+"3": "GND"
+}
+},
+{
+"ref": "J2",
+"value": "BNC X",
+"fp": "BNC_Amphenol_B6252HB-NPP3G-50_Horizontal",
+"lib": "Connector:Conn_Coaxial",
+"pins": {
+"2": "GND",
+"1": "Net-(J2-In)"
+}
+},
+{
+"ref": "J3",
+"value": "BNC Y",
+"fp": "BNC_Amphenol_B6252HB-NPP3G-50_Horizontal",
+"lib": "Connector:Conn_Coaxial",
+"pins": {
+"2": "GND",
+"1": "Net-(J3-In)"
+}
+},
+{
+"ref": "R1",
+"value": "10k",
+"fp": "R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal",
+"lib": "Device:R",
+"pins": {
+"1": "X_IN",
+"2": "Net-(J2-In)"
+}
+},
+{
+"ref": "R2",
+"value": "10k",
+"fp": "R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal",
+"lib": "Device:R",
+"pins": {
+"1": "Y_IN",
+"2": "Net-(J3-In)"
+}
+}
+]
+}

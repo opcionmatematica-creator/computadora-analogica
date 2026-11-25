@@ -1,0 +1,168 @@
+{
+"parts": [
+{
+"ref": "C1",
+"value": "100nF",
+"fp": "C_Disc_D5.0mm_W2.5mm_P5.00mm",
+"lib": "Device:C",
+"pins": {
+"1": "+15V",
+"2": "GND"
+}
+},
+{
+"ref": "C2",
+"value": "100nF",
+"fp": "C_Disc_D5.0mm_W2.5mm_P5.00mm",
+"lib": "Device:C",
+"pins": {
+"2": "-15V",
+"1": "GND"
+}
+},
+{
+"ref": "C3",
+"value": "100nF",
+"fp": "C_Disc_D5.0mm_W2.5mm_P5.00mm",
+"lib": "Device:C",
+"pins": {
+"1": "+15V",
+"2": "GND"
+}
+},
+{
+"ref": "C4",
+"value": "100nF",
+"fp": "C_Disc_D5.0mm_W2.5mm_P5.00mm",
+"lib": "Device:C",
+"pins": {
+"2": "-15V",
+"1": "GND"
+}
+},
+{
+"ref": "J1",
+"value": "BUS",
+"fp": "PinHeader_1x04_P2.54mm_Vertical",
+"lib": "Connector_Generic:Conn_01x04",
+"pins": {
+"1": "+15V",
+"3": "-15V",
+"2": "GND",
+"4": "unconnected-(J1-Pin_4-Pad4)"
+}
+},
+{
+"ref": "J2",
+"value": "ENTRADAS",
+"fp": "PinHeader_1x04_P2.54mm_Vertical",
+"lib": "Connector_Generic:Conn_01x04",
+"pins": {
+"1": "CIN1",
+"2": "CIN2",
+"3": "CIN3",
+"4": "CIN4"
+}
+},
+{
+"ref": "J3",
+"value": "SALIDAS",
+"fp": "PinHeader_1x05_P2.54mm_Vertical",
+"lib": "Connector_Generic:Conn_01x05",
+"pins": {
+"1": "COUT1",
+"2": "COUT2",
+"3": "COUT3",
+"4": "COUT4",
+"5": "GND"
+}
+},
+{
+"ref": "J4",
+"value": "REF",
+"fp": "PinHeader_1x03_P2.54mm_Vertical",
+"lib": "Connector_Generic:Conn_01x03",
+"pins": {
+"1": "+15V",
+"3": "-15V",
+"2": "GND"
+}
+},
+{
+"ref": "RV1",
+"value": "10k lineal",
+"fp": "Potentiometer_Alps_RK09K_Single_Vertical",
+"lib": "Device:R_Potentiometer",
+"pins": {
+"3": "CIN1",
+"2": "WIP1",
+"1": "GND"
+}
+},
+{
+"ref": "RV2",
+"value": "10k lineal",
+"fp": "Potentiometer_Alps_RK09K_Single_Vertical",
+"lib": "Device:R_Potentiometer",
+"pins": {
+"3": "CIN2",
+"2": "WIP2",
+"1": "GND"
+}
+},
+{
+"ref": "RV3",
+"value": "10k lineal",
+"fp": "Potentiometer_Alps_RK09K_Single_Vertical",
+"lib": "Device:R_Potentiometer",
+"pins": {
+"3": "CIN3",
+"2": "WIP3",
+"1": "GND"
+}
+},
+{
+"ref": "RV4",
+"value": "10k lineal",
+"fp": "Potentiometer_Alps_RK09K_Single_Vertical",
+"lib": "Device:R_Potentiometer",
+"pins": {
+"3": "CIN4",
+"2": "WIP4",
+"1": "GND"
+}
+},
+{
+"ref": "U1",
+"value": "LF412",
+"fp": "DIP-8_W7.62mm_Socket",
+"lib": "Amplifier_Operational:TL072",
+"pins": {
+"8": "+15V",
+"4": "-15V",
+"1": "COUT1",
+"2": "COUT1",
+"6": "COUT2",
+"7": "COUT2",
+"3": "WIP1",
+"5": "WIP2"
+}
+},
+{
+"ref": "U2",
+"value": "LF412",
+"fp": "DIP-8_W7.62mm_Socket",
+"lib": "Amplifier_Operational:TL072",
+"pins": {
+"8": "+15V",
+"4": "-15V",
+"1": "COUT3",
+"2": "COUT3",
+"6": "COUT4",
+"7": "COUT4",
+"3": "WIP3",
+"5": "WIP4"
+}
+}
+]
+}

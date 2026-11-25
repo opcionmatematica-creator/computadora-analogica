@@ -1,0 +1,6 @@
+M6 filtro RC 10k / 100nF
+Vin x_in 0 AC 1
+R1 x_in x_out 10k
+C1 x_out 0 100n
+.ac dec 50 1 100k
+.end

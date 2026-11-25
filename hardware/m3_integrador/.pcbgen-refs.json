@@ -1,0 +1,154 @@
+{
+ "C1": {
+  "angle": 0.0,
+  "dx": -2.639,
+  "dy": 0.0,
+  "flipped": false,
+  "pinned": false,
+  "visible": true
+ },
+ "C2": {
+  "angle": 0.0,
+  "dx": 2.5,
+  "dy": 4.065,
+  "flipped": false,
+  "pinned": false,
+  "visible": true
+ },
+ "C3": {
+  "angle": 0.0,
+  "dx": -2.339,
+  "dy": 0.0,
+  "flipped": false,
+  "pinned": false,
+  "visible": true
+ },
+ "C4": {
+  "angle": 0.0,
+  "dx": 2.5,
+  "dy": 2.565,
+  "flipped": false,
+  "pinned": false,
+  "visible": true
+ },
+ "D1": {
+  "angle": 0.0,
+  "dx": 3.81,
+  "dy": 2.315,
+  "flipped": false,
+  "pinned": false,
+  "visible": true
+ },
+ "J1": {
+  "angle": 0.0,
+  "dx": 0.0,
+  "dy": -2.835,
+  "flipped": false,
+  "pinned": false,
+  "visible": true
+ },
+ "J2": {
+  "angle": 0.0,
+  "dx": -2.951,
+  "dy": 6.35,
+  "flipped": false,
+  "pinned": false,
+  "visible": true
+ },
+ "J3": {
+  "angle": 0.0,
+  "dx": 0.0,
+  "dy": 5.385,
+  "flipped": false,
+  "pinned": false,
+  "visible": true
+ },
+ "J4": {
+  "angle": 0.0,
+  "dx": 0.0,
+  "dy": -2.835,
+  "flipped": false,
+  "pinned": false,
+  "visible": true
+ },
+ "K1": {
+  "angle": 0.0,
+  "dx": 3.763,
+  "dy": -2.65,
+  "flipped": false,
+  "pinned": false,
+  "visible": true
+ },
+ "R1": {
+  "angle": 0.0,
+  "dx": 5.08,
+  "dy": -2.565,
+  "flipped": false,
+  "pinned": false,
+  "visible": true
+ },
+ "R2": {
+  "angle": 0.0,
+  "dx": -2.339,
+  "dy": 0.0,
+  "flipped": false,
+  "pinned": false,
+  "visible": true
+ },
+ "R3": {
+  "angle": 0.0,
+  "dx": -2.339,
+  "dy": 0.0,
+  "flipped": false,
+  "pinned": false,
+  "visible": true
+ },
+ "R4": {
+  "angle": 0.0,
+  "dx": -2.339,
+  "dy": 0.0,
+  "flipped": false,
+  "pinned": false,
+  "visible": true
+ },
+ "R5": {
+  "angle": 0.0,
+  "dx": -2.339,
+  "dy": 0.0,
+  "flipped": false,
+  "pinned": false,
+  "visible": true
+ },
+ "R6": {
+  "angle": 0.0,
+  "dx": -2.339,
+  "dy": -0.0,
+  "flipped": false,
+  "pinned": false,
+  "visible": true
+ },
+ "R7": {
+  "angle": 0.0,
+  "dx": 5.08,
+  "dy": 2.565,
+  "flipped": false,
+  "pinned": false,
+  "visible": true
+ },
+ "SW1": {
+  "angle": 0.0,
+  "dx": 2.408,
+  "dy": -2.115,
+  "flipped": false,
+  "pinned": false,
+  "visible": true
+ },
+ "U1": {
+  "angle": 0.0,
+  "dx": 3.81,
+  "dy": -2.645,
+  "flipped": false,
+  "pinned": false,
+  "visible": true
+ }
+}

@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Computadora Analógica</title>
+  <meta name="description" content="Construye una computadora analógica por módulos: esquemáticos KiCad, PCB, 3D, simulación y guía de montaje.">
+  <link rel="icon" href="assets/icon.svg">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="css/style.css">
+  <script type="importmap">{ "imports": { "three": "./vendor/three/build/three.module.min.js" } }</script>
+</head>
+<body>
+  <header class="top">
+    <button id="menuBtn" class="iconbtn" aria-label="Menú">☰</button>
+    <a href="#/" class="brand"><img src="assets/icon.svg" alt=""><span>Computadora <b>Analógica</b></span></a>
+    <span class="grow"></span>
+    <span class="badge desk-only">app de escritorio</span>
+    <button id="themeBtn" class="iconbtn" aria-label="Tema claro/oscuro">◐</button>
+  </header>
+  <div class="layout">
+    <nav id="nav"></nav>
+    <main id="main"></main>
+  </div>
+  <div id="offline" hidden></div>
+  <script>
+    // Abierto con doble clic (file://): el navegador bloquea los módulos y los datos.
+    if (location.protocol === "file:") {
+      document.getElementById("main").innerHTML =
+        '<div class="tip" style="margin:40px"><h2>Abre la aplicación con su lanzador</h2>' +
+        '<p>Este archivo no funciona abierto directamente. Usa el acceso directo <b>Computadora Analogica</b> del Escritorio ' +
+        '(o <code>Computadora Analogica.vbs</code>), o ejecuta <code>node server.js</code> y entra en ' +
+        '<a href="http://127.0.0.1:8642/web/">http://127.0.0.1:8642/web/</a>.</p></div>';
+    }
+  </script>
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

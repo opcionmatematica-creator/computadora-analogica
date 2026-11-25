@@ -1,0 +1,8 @@
+"Referencias","Valor","Huella","Cantidad"
+"C1-C4","100nF","Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm","4"
+"J1","BUS","Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical","1"
+"J2","ENTRADAS","Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical","1"
+"J3","SALIDAS","Connector_PinHeader_2.54mm:PinHeader_1x05_P2.54mm_Vertical","1"
+"J4","REF","Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical","1"
+"RV1-RV4","10k lineal","Potentiometer_THT:Potentiometer_Alps_RK09K_Single_Vertical","4"
+"U1,U2","LF412","Package_DIP:DIP-8_W7.62mm_Socket","2"

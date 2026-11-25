@@ -1,0 +1,6 @@
+"Referencias","Valor","Huella","Cantidad"
+"C1,C2","100nF","Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm","2"
+"J1","BUS","Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical","1"
+"J2","-Vic","Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical","1"
+"RV1","10k multivuelta","Potentiometer_THT:Potentiometer_Bourns_3386P_Vertical","1"
+"U1","LF412","Package_DIP:DIP-8_W7.62mm_Socket","1"

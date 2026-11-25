@@ -1,0 +1,7 @@
+"Referencias","Valor","Huella","Cantidad"
+"J1","FUENTE","Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical","1"
+"J2","RLOAD (R o LED)","Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical","1"
+"Q1,Q2","2N3904","Package_TO_SOT_THT:TO-92_Inline","2"
+"R1","10k","Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal","1"
+"R2","1k","Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal","1"
+"RS1","68 (10 mA) / 33 (20 mA)","Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal","1"

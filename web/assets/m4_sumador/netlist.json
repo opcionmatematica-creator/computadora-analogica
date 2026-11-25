@@ -1,0 +1,159 @@
+{
+"parts": [
+{
+"ref": "C1",
+"value": "100nF",
+"fp": "C_Disc_D5.0mm_W2.5mm_P5.00mm",
+"lib": "Device:C",
+"pins": {
+"1": "+15V",
+"2": "GND"
+}
+},
+{
+"ref": "C2",
+"value": "100nF",
+"fp": "C_Disc_D5.0mm_W2.5mm_P5.00mm",
+"lib": "Device:C",
+"pins": {
+"2": "-15V",
+"1": "GND"
+}
+},
+{
+"ref": "J1",
+"value": "BUS",
+"fp": "PinHeader_1x04_P2.54mm_Vertical",
+"lib": "Connector_Generic:Conn_01x04",
+"pins": {
+"1": "+15V",
+"3": "-15V",
+"2": "GND",
+"4": "unconnected-(J1-Pin_4-Pad4)"
+}
+},
+{
+"ref": "J2",
+"value": "ENTRADAS",
+"fp": "PinHeader_1x06_P2.54mm_Vertical",
+"lib": "Connector_Generic:Conn_01x06",
+"pins": {
+"4": "IN_X01A",
+"2": "IN_X1A",
+"5": "IN_X01B",
+"3": "IN_X1B",
+"1": "IN_X10",
+"6": "SUMIN"
+}
+},
+{
+"ref": "J3",
+"value": "SALIDA",
+"fp": "PinHeader_1x03_P2.54mm_Vertical",
+"lib": "Connector_Generic:Conn_01x03",
+"pins": {
+"1": "OUT",
+"2": "OUT",
+"3": "GND"
+}
+},
+{
+"ref": "R1",
+"value": "1k",
+"fp": "R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal",
+"lib": "Device:R",
+"pins": {
+"1": "IN_X10",
+"2": "SUMIN"
+}
+},
+{
+"ref": "R2",
+"value": "10k",
+"fp": "R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal",
+"lib": "Device:R",
+"pins": {
+"1": "IN_X1A",
+"2": "SUMIN"
+}
+},
+{
+"ref": "R3",
+"value": "10k",
+"fp": "R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal",
+"lib": "Device:R",
+"pins": {
+"1": "IN_X1B",
+"2": "SUMIN"
+}
+},
+{
+"ref": "R4",
+"value": "100k",
+"fp": "R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal",
+"lib": "Device:R",
+"pins": {
+"1": "IN_X01A",
+"2": "SUMIN"
+}
+},
+{
+"ref": "R5",
+"value": "100k",
+"fp": "R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal",
+"lib": "Device:R",
+"pins": {
+"1": "IN_X01B",
+"2": "SUMIN"
+}
+},
+{
+"ref": "R6",
+"value": "10k",
+"fp": "R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal",
+"lib": "Device:R",
+"pins": {
+"1": "SUMIN",
+"2": "Net-(SW1-A)"
+}
+},
+{
+"ref": "RV1",
+"value": "100k",
+"fp": "Potentiometer_Bourns_3386P_Vertical",
+"lib": "Device:R_Potentiometer_Trim",
+"pins": {
+"1": "SUMIN",
+"3": "Net-(SW1-C)",
+"2": "unconnected-(RV1-Pad2)"
+}
+},
+{
+"ref": "SW1",
+"value": "GANANCIA",
+"fp": "SW_E-Switch_EG1271_SPDT",
+"lib": "Switch:SW_SPDT",
+"pins": {
+"2": "OUT",
+"1": "Net-(SW1-A)",
+"3": "Net-(SW1-C)"
+}
+},
+{
+"ref": "U1",
+"value": "LF412",
+"fp": "DIP-8_W7.62mm_Socket",
+"lib": "Amplifier_Operational:TL072",
+"pins": {
+"8": "+15V",
+"4": "-15V",
+"1": "OUT",
+"2": "SUMIN",
+"3": "GND",
+"5": "GND",
+"6": "Net-(U1B--)",
+"7": "Net-(U1B--)"
+}
+}
+]
+}

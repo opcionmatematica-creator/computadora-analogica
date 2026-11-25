@@ -1,0 +1,80 @@
+Programa caida libre (Fig. 12) con modulos M3, M2 y M5
+
+* LF412 (macro-modelo): Aol 2e5, GBW ~3 MHz, salida limitada a +/-13.5 V
+.subckt LF412 inp inn out
+Rin inp inn 1e12
+E1 n1 0 inp inn 2e5
+R1 n1 n2 1k
+C1 n2 0 10.6u
+B1 out 0 V = 13.5*tanh(V(n2)/13.5)
+.ends
+* AD633: W = (X1-X2)(Y1-Y2)/10 + Z, salida limitada a +/-11 V
+.subckt AD633 x1 x2 y1 y2 z w
+B1 w 0 V = 11*tanh(((V(x1)-V(x2))*(V(y1)-V(y2))/10 + V(z))/11)
+.ends
+* Rele G5V-2 como conmutadores controlados por OP (umbral 6 V)
+.model RELNO SW(Vt=6 Vh=0.5 Ron=0.05 Roff=1e10)
+.model RELNC SW(Vt=-6 Vh=0.5 Ron=0.05 Roff=1e10)
+* Transistores (modelos SPICE publicados por los fabricantes)
+.model 2N3904 NPN(Is=6.734f Xti=3 Eg=1.11 Vaf=74.03 Bf=416.4 Ne=1.259 Ise=6.734f Ikf=66.78m Xtb=1.5
++ Br=.7371 Nc=2 Isc=0 Ikr=0 Rc=1 Cjc=3.638p Mjc=.3085 Vjc=.75 Fc=.5 Cje=4.493p Mje=.2593 Vje=.75
++ Tr=239.5n Tf=301.2p Itf=.4 Vtf=4 Xtf=2 Rb=10)
+.model 2N3906 PNP(Is=1.41f Xti=3 Eg=1.11 Vaf=18.7 Bf=180.7 Ne=1.5 Ise=0 Ikf=80m Xtb=1.5 Br=4.977
++ Nc=2 Isc=0 Ikr=0 Rc=2.5 Cjc=9.728p Mjc=.5776 Vjc=.75 Fc=.5 Cje=8.063p Mje=.3677 Vje=.75 Tr=33.42n
++ Tf=179.3p Itf=.4 Vtf=4 Xtf=6 Rb=10)
+.model BD139 NPN(Is=2.3985E-13 Bf=244.9 Vaf=100 Ikf=1.0 Ise=1.0E-14 Ne=1.5 Br=7.0 Rb=0.5 Rc=0.15 Re=0.1
++ Cje=1.4E-10 Cjc=4.0E-11 Tf=1.0E-9 Tr=2.0E-7)
+.model BD140 PNP(Is=2.3985E-13 Bf=150 Vaf=100 Ikf=1.0 Ise=1.0E-14 Ne=1.5 Br=7.0 Rb=0.5 Rc=0.15 Re=0.1
++ Cje=1.4E-10 Cjc=4.0E-11 Tf=1.0E-9 Tr=2.0E-7)
+.model LEDR D(Is=1e-19 N=1.7 Rs=5 Cjo=30p)
+.model LEDG D(Is=1e-21 N=1.8 Rs=5 Cjo=30p)
+.model 1N4148 D(Is=2.52n Rs=.568 N=1.752 Cjo=4p M=.4 Tt=20n)
+.model 1N4007 D(Is=7.02767n Rs=0.0341512 N=1.80803 Cjo=1e-11 M=0.3 Tt=1e-6)
+
+* coeficientes (M5) y condiciones iniciales (M2)
+Vg gneg 0 -12.0
+Vvx vxneg 0 -7.071
+Vicvy icvy 0 7.071
+Vicy icy 0 -2.0
+Vicx icx 0 0
+Vop op 0 PWL(0 0 0.2 0 0.201 12 2.6 12)
+* INT1: -vy = -(vy0 - g t)      entrada -g por 1M
+* --- integrador vyn ---
+Rvyni0 gneg vyn_sum 1Meg
+Rvyn6 icvy vyn_icn 10k
+Rvyn7 vyn_icn vyn 10k
+Svyna vyn_icn vyn_inv 0 op RELNC
+Svynb vyn_icn 0 op 0 RELNO
+Svync vyn_sum 0 0 op RELNC
+Svynd vyn_sum vyn_inv op 0 RELNO
+Cvyn vyn_inv vyn 1u
+Xvyn 0 vyn_inv vyn LF412
+* INT2: y = y0 + int(vy)          entrada -vy por 1M
+* --- integrador ypos ---
+Ryposi0 vyn ypos_sum 1Meg
+Rypos6 icy ypos_icn 10k
+Rypos7 ypos_icn ypos 10k
+Syposa ypos_icn ypos_inv 0 op RELNC
+Syposb ypos_icn 0 op 0 RELNO
+Syposc ypos_sum 0 0 op RELNC
+Syposd ypos_sum ypos_inv op 0 RELNO
+Cypos ypos_inv ypos 1u
+Xypos 0 ypos_inv ypos LF412
+* INT3: x = int(vx)               entrada -vx por 1M
+* --- integrador xpos ---
+Rxposi0 vxneg xpos_sum 1Meg
+Rxpos6 icx xpos_icn 10k
+Rxpos7 xpos_icn xpos 10k
+Sxposa xpos_icn xpos_inv 0 op RELNC
+Sxposb xpos_icn 0 op 0 RELNO
+Sxposc xpos_sum 0 0 op RELNC
+Sxposd xpos_sum xpos_inv op 0 RELNO
+Cxpos xpos_inv xpos 1u
+Xxpos 0 xpos_inv xpos LF412
+* filtros de salida (M6)
+Rfx xpos xs 10k
+Cfx xs 0 100n
+Rfy ypos ys 10k
+Cfy ys 0 100n
+.tran 2m 1.8 0 1m uic
+.end

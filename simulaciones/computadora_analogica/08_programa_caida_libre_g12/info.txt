@@ -1,0 +1,5 @@
+Caída libre, g = 12 m/s² (Fig. 15 del artículo)
+
+Modo X-Y del osciloscopio. 1 V = 1 m, tiempo real (1 MΩ · 1 µF = 1 s).
+
+

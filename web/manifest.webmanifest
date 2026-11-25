@@ -1,0 +1,9 @@
+{
+  "name": "Computadora Analógica",
+  "short_name": "Analógica",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0e1512",
+  "theme_color": "#0e1512",
+  "icons": [{ "src": "assets/icon.svg", "sizes": "any", "type": "image/svg+xml" }]
+}

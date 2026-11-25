@@ -1,0 +1,138 @@
+{
+ "C1": {
+  "angle": 0.0,
+  "dx": 1.182,
+  "dy": -4.465,
+  "flipped": false,
+  "pinned": false,
+  "visible": true
+ },
+ "C2": {
+  "angle": 0.0,
+  "dx": 1.182,
+  "dy": 4.465,
+  "flipped": false,
+  "pinned": false,
+  "visible": true
+ },
+ "C3": {
+  "angle": 0.0,
+  "dx": -2.339,
+  "dy": -0.0,
+  "flipped": false,
+  "pinned": false,
+  "visible": true
+ },
+ "C4": {
+  "angle": 0.0,
+  "dx": 2.5,
+  "dy": 2.565,
+  "flipped": false,
+  "pinned": false,
+  "visible": true
+ },
+ "D1": {
+  "angle": 0.0,
+  "dx": -2.439,
+  "dy": 0.0,
+  "flipped": false,
+  "pinned": false,
+  "visible": true
+ },
+ "D2": {
+  "angle": 0.0,
+  "dx": -2.439,
+  "dy": 0.0,
+  "flipped": false,
+  "pinned": false,
+  "visible": true
+ },
+ "D3": {
+  "angle": 0.0,
+  "dx": 1.27,
+  "dy": 3.275,
+  "flipped": false,
+  "pinned": false,
+  "visible": true
+ },
+ "J1": {
+  "angle": 270.0,
+  "dx": 14.065,
+  "dy": -0.173,
+  "flipped": false,
+  "pinned": false,
+  "visible": true
+ },
+ "J2": {
+  "angle": 0.0,
+  "dx": 0.0,
+  "dy": -2.835,
+  "flipped": false,
+  "pinned": false,
+  "visible": true
+ },
+ "J3": {
+  "angle": 0.0,
+  "dx": 0.0,
+  "dy": 10.455,
+  "flipped": false,
+  "pinned": false,
+  "visible": true
+ },
+ "J4": {
+  "angle": 0.0,
+  "dx": 0.0,
+  "dy": -2.835,
+  "flipped": false,
+  "pinned": false,
+  "visible": true
+ },
+ "J5": {
+  "angle": 0.0,
+  "dx": 0.0,
+  "dy": 10.455,
+  "flipped": false,
+  "pinned": false,
+  "visible": true
+ },
+ "R1": {
+  "angle": 0.0,
+  "dx": 5.08,
+  "dy": -2.565,
+  "flipped": false,
+  "pinned": false,
+  "visible": true
+ },
+ "R2": {
+  "angle": 0.0,
+  "dx": 5.08,
+  "dy": 2.565,
+  "flipped": false,
+  "pinned": false,
+  "visible": true
+ },
+ "R3": {
+  "angle": 0.0,
+  "dx": -2.339,
+  "dy": 0.0,
+  "flipped": false,
+  "pinned": false,
+  "visible": true
+ },
+ "SW1": {
+  "angle": 0.0,
+  "dx": 2.408,
+  "dy": -2.115,
+  "flipped": false,
+  "pinned": false,
+  "visible": true
+ },
+ "U1": {
+  "angle": 0.0,
+  "dx": 2.54,
+  "dy": -4.465,
+  "flipped": false,
+  "pinned": false,
+  "visible": true
+ }
+}

@@ -1,0 +1,5 @@
+Salida del seguidor vs. posición del potenciómetro
+
+El LF412 satura a ±13.5 V: el rango útil de condición inicial es ±13 V.
+
+

@@ -1,0 +1,6 @@
+"Referencias","Valor","Huella","Cantidad"
+"C1,C2","100nF","Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm","2"
+"J1","X / Y / GND","Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical","1"
+"J2","BNC X","Connector_Coaxial:BNC_Amphenol_B6252HB-NPP3G-50_Horizontal","1"
+"J3","BNC Y","Connector_Coaxial:BNC_Amphenol_B6252HB-NPP3G-50_Horizontal","1"
+"R1,R2","10k","Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal","2"

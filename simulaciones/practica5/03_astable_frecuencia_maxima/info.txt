@@ -1,0 +1,11 @@
+Frecuencia frente a C (RB = 10 kΩ, RC = 1 kΩ)
+
+Mientras f sigue a 0.72/(RC) el circuito es un astable correcto; donde se separa, mandan la recarga por RC y los tiempos de conmutación del 2N3904.
+
+C=1e-05  f_sim=8.9  f_teo=7.2  amplitud=3.46 V
+C=1e-06  f_sim=89.4  f_teo=72.2  amplitud=3.47 V
+C=1e-07  f_sim=894.1  f_teo=721.5  amplitud=3.46 V
+C=1e-08  f_sim=8904.6  f_teo=7215.0  amplitud=3.46 V
+C=1e-09  f_sim=89729.8  f_teo=72150.1  amplitud=3.49 V
+C=2e-10  f_sim=433138.1  f_teo=327954.9  amplitud=3.41 V
+C=5e-11  f_sim=0.0  f_teo=1535107.9  amplitud=0.00 V

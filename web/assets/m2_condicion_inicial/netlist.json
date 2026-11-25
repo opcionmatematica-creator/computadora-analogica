@@ -1,0 +1,73 @@
+{
+"parts": [
+{
+"ref": "C1",
+"value": "100nF",
+"fp": "C_Disc_D5.0mm_W2.5mm_P5.00mm",
+"lib": "Device:C",
+"pins": {
+"1": "+15V",
+"2": "GND"
+}
+},
+{
+"ref": "C2",
+"value": "100nF",
+"fp": "C_Disc_D5.0mm_W2.5mm_P5.00mm",
+"lib": "Device:C",
+"pins": {
+"2": "-15V",
+"1": "GND"
+}
+},
+{
+"ref": "J1",
+"value": "BUS",
+"fp": "PinHeader_1x04_P2.54mm_Vertical",
+"lib": "Connector_Generic:Conn_01x04",
+"pins": {
+"1": "+15V",
+"3": "-15V",
+"2": "GND",
+"4": "unconnected-(J1-Pin_4-Pad4)"
+}
+},
+{
+"ref": "J2",
+"value": "-Vic",
+"fp": "PinHeader_1x02_P2.54mm_Vertical",
+"lib": "Connector_Generic:Conn_01x02",
+"pins": {
+"1": "IC_OUT",
+"2": "GND"
+}
+},
+{
+"ref": "RV1",
+"value": "10k multivuelta",
+"fp": "Potentiometer_Bourns_3386P_Vertical",
+"lib": "Device:R_Potentiometer",
+"pins": {
+"3": "+15V",
+"1": "-15V",
+"2": "WIPER"
+}
+},
+{
+"ref": "U1",
+"value": "LF412",
+"fp": "DIP-8_W7.62mm_Socket",
+"lib": "Amplifier_Operational:TL072",
+"pins": {
+"8": "+15V",
+"4": "-15V",
+"1": "IC_OUT",
+"2": "IC_OUT",
+"3": "WIPER",
+"5": "GND",
+"6": "Net-(U1B--)",
+"7": "Net-(U1B--)"
+}
+}
+]
+}

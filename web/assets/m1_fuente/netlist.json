@@ -1,0 +1,185 @@
+{
+"parts": [
+{
+"ref": "C1",
+"value": "100uF 25V",
+"fp": "CP_Radial_D6.3mm_P2.50mm",
+"lib": "Device:C_Polarized",
+"pins": {
+"1": "+15V",
+"2": "GND"
+}
+},
+{
+"ref": "C2",
+"value": "100uF 25V",
+"fp": "CP_Radial_D6.3mm_P2.50mm",
+"lib": "Device:C_Polarized",
+"pins": {
+"2": "-15V",
+"1": "GND"
+}
+},
+{
+"ref": "C3",
+"value": "330nF",
+"fp": "C_Disc_D5.0mm_W2.5mm_P5.00mm",
+"lib": "Device:C",
+"pins": {
+"1": "+15V",
+"2": "GND"
+}
+},
+{
+"ref": "C4",
+"value": "100nF",
+"fp": "C_Disc_D5.0mm_W2.5mm_P5.00mm",
+"lib": "Device:C",
+"pins": {
+"2": "GND",
+"1": "Net-(SW1-A)"
+}
+},
+{
+"ref": "D1",
+"value": "VERDE +15V",
+"fp": "LED_D3.0mm",
+"lib": "Device:LED",
+"pins": {
+"1": "GND",
+"2": "Net-(D1-A)"
+}
+},
+{
+"ref": "D2",
+"value": "ROJO -15V",
+"fp": "LED_D3.0mm",
+"lib": "Device:LED",
+"pins": {
+"2": "GND",
+"1": "Net-(D2-K)"
+}
+},
+{
+"ref": "D3",
+"value": "AMARILLO OPERAR",
+"fp": "LED_D3.0mm",
+"lib": "Device:LED",
+"pins": {
+"1": "GND",
+"2": "Net-(D3-A)"
+}
+},
+{
+"ref": "J1",
+"value": "+15 / GND / -15",
+"fp": "TerminalBlock_Phoenix_MKDS-1,5-3_1x03_P5.00mm_Horizontal",
+"lib": "Connector:Screw_Terminal_01x03",
+"pins": {
+"1": "+15V",
+"3": "-15V",
+"2": "GND"
+}
+},
+{
+"ref": "J2",
+"value": "BUS",
+"fp": "PinHeader_1x04_P2.54mm_Vertical",
+"lib": "Connector_Generic:Conn_01x04",
+"pins": {
+"1": "+15V",
+"3": "-15V",
+"4": "OP",
+"2": "GND"
+}
+},
+{
+"ref": "J3",
+"value": "BUS",
+"fp": "PinHeader_1x04_P2.54mm_Vertical",
+"lib": "Connector_Generic:Conn_01x04",
+"pins": {
+"1": "+15V",
+"3": "-15V",
+"4": "OP",
+"2": "GND"
+}
+},
+{
+"ref": "J4",
+"value": "BUS",
+"fp": "PinHeader_1x04_P2.54mm_Vertical",
+"lib": "Connector_Generic:Conn_01x04",
+"pins": {
+"1": "+15V",
+"3": "-15V",
+"4": "OP",
+"2": "GND"
+}
+},
+{
+"ref": "J5",
+"value": "BUS",
+"fp": "PinHeader_1x04_P2.54mm_Vertical",
+"lib": "Connector_Generic:Conn_01x04",
+"pins": {
+"1": "+15V",
+"3": "-15V",
+"4": "OP",
+"2": "GND"
+}
+},
+{
+"ref": "R1",
+"value": "4.7k",
+"fp": "R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal",
+"lib": "Device:R",
+"pins": {
+"1": "+15V",
+"2": "Net-(D1-A)"
+}
+},
+{
+"ref": "R2",
+"value": "4.7k",
+"fp": "R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal",
+"lib": "Device:R",
+"pins": {
+"2": "-15V",
+"1": "Net-(D2-K)"
+}
+},
+{
+"ref": "R3",
+"value": "1k",
+"fp": "R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal",
+"lib": "Device:R",
+"pins": {
+"1": "OP",
+"2": "Net-(D3-A)"
+}
+},
+{
+"ref": "SW1",
+"value": "IC/OPERAR",
+"fp": "SW_E-Switch_EG1271_SPDT",
+"lib": "Switch:SW_SPDT",
+"pins": {
+"2": "OP",
+"3": "GND",
+"1": "Net-(SW1-A)"
+}
+},
+{
+"ref": "U1",
+"value": "L7812",
+"fp": "TO-220-3_Vertical",
+"lib": "Regulator_Linear:L7812",
+"pins": {
+"1": "+15V",
+"2": "GND",
+"3": "Net-(SW1-A)"
+}
+}
+]
+}

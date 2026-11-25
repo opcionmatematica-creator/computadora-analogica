@@ -1,0 +1,21 @@
+Corriente del buzzer frente al voltaje del sensor
+
+La etapa 2 se activa cuando el sensor supera la referencia de 2.5 V (R1 = R2).
+
+{
+ "R3 < R4 (1k, 15k: Figura 2)": {
+  "I_max_mA": 173.48070547382613,
+  "V_10%": 2.429999999999992,
+  "V_90%": 3.379999999999972
+ },
+ "R3 = R4 (15k, 15k)": {
+  "I_max_mA": 173.48070547382613,
+  "V_10%": 1.7000000000000013,
+  "V_90%": 3.379999999999972
+ },
+ "R3 > R4 (47k, 15k)": {
+  "I_max_mA": 173.480705473824,
+  "V_10%": 1.6100000000000012,
+  "V_90%": 3.379999999999972
+ }
+}

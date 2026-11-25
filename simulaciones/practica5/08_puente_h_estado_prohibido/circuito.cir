@@ -1,0 +1,66 @@
+Puente H (diseño de referencia, Vm = 9 V, motor 15 ohm + 2 mH)
+
+* LF412 (macro-modelo): Aol 2e5, GBW ~3 MHz, salida limitada a +/-13.5 V
+.subckt LF412 inp inn out
+Rin inp inn 1e12
+E1 n1 0 inp inn 2e5
+R1 n1 n2 1k
+C1 n2 0 10.6u
+B1 out 0 V = 13.5*tanh(V(n2)/13.5)
+.ends
+* AD633: W = (X1-X2)(Y1-Y2)/10 + Z, salida limitada a +/-11 V
+.subckt AD633 x1 x2 y1 y2 z w
+B1 w 0 V = 11*tanh(((V(x1)-V(x2))*(V(y1)-V(y2))/10 + V(z))/11)
+.ends
+* Rele G5V-2 como conmutadores controlados por OP (umbral 6 V)
+.model RELNO SW(Vt=6 Vh=0.5 Ron=0.05 Roff=1e10)
+.model RELNC SW(Vt=-6 Vh=0.5 Ron=0.05 Roff=1e10)
+* Transistores (modelos SPICE publicados por los fabricantes)
+.model 2N3904 NPN(Is=6.734f Xti=3 Eg=1.11 Vaf=74.03 Bf=416.4 Ne=1.259 Ise=6.734f Ikf=66.78m Xtb=1.5
++ Br=.7371 Nc=2 Isc=0 Ikr=0 Rc=1 Cjc=3.638p Mjc=.3085 Vjc=.75 Fc=.5 Cje=4.493p Mje=.2593 Vje=.75
++ Tr=239.5n Tf=301.2p Itf=.4 Vtf=4 Xtf=2 Rb=10)
+.model 2N3906 PNP(Is=1.41f Xti=3 Eg=1.11 Vaf=18.7 Bf=180.7 Ne=1.5 Ise=0 Ikf=80m Xtb=1.5 Br=4.977
++ Nc=2 Isc=0 Ikr=0 Rc=2.5 Cjc=9.728p Mjc=.5776 Vjc=.75 Fc=.5 Cje=8.063p Mje=.3677 Vje=.75 Tr=33.42n
++ Tf=179.3p Itf=.4 Vtf=4 Xtf=6 Rb=10)
+.model BD139 NPN(Is=2.3985E-13 Bf=244.9 Vaf=100 Ikf=1.0 Ise=1.0E-14 Ne=1.5 Br=7.0 Rb=0.5 Rc=0.15 Re=0.1
++ Cje=1.4E-10 Cjc=4.0E-11 Tf=1.0E-9 Tr=2.0E-7)
+.model BD140 PNP(Is=2.3985E-13 Bf=150 Vaf=100 Ikf=1.0 Ise=1.0E-14 Ne=1.5 Br=7.0 Rb=0.5 Rc=0.15 Re=0.1
++ Cje=1.4E-10 Cjc=4.0E-11 Tf=1.0E-9 Tr=2.0E-7)
+.model LEDR D(Is=1e-19 N=1.7 Rs=5 Cjo=30p)
+.model LEDG D(Is=1e-21 N=1.8 Rs=5 Cjo=30p)
+.model 1N4148 D(Is=2.52n Rs=.568 N=1.752 Cjo=4p M=.4 Tt=20n)
+.model 1N4007 D(Is=7.02767n Rs=0.0341512 N=1.80803 Cjo=1e-11 M=0.3 Tt=1e-6)
+
+VM vm 0 9
+VIA ina 0 PWL(0 0 5m 0 5.01m 5 10m 5 10.01m 0 15m 0)
+VIB inb 0 PWL(0 0 5m 0 5.01m 5 10m 5 10.01m 0 15m 0)
+* medio puente A
+Q1 ma b1 vm BD140
+R5 vm b1x 1k
+VIB1 b1x b1 0
+R3 b1x c5 180
+Q5 c5 b5 bl_b 2N3904
+R1 ina b5x 820
+VIB5 b5x b5 0
+Q3 ma bl_a 0 BD139
+R7 bl_a 0 1k
+D1 ma vm 1N4007
+D3 0 ma 1N4007
+* medio puente B
+Q2 mb b2 vm BD140
+R6 vm b2x 1k
+VIB2 b2x b2 0
+R4 b2x c6 180
+Q6 c6 b6 bl_a 2N3904
+R2 inb b6 820
+Q4 mbx bl_b 0 BD139
+VIC4 mb mbx 0
+R8 bl_b 0 1k
+D2 mb vm 1N4007
+D4 0 mb 1N4007
+* motor
+RMOT ma mm 15
+LMOT mm mmi 2m
+VIMOT mmi mb 0
+.tran 20u 15m 0 20u
+.end

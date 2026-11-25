@@ -1,0 +1,148 @@
+{
+"parts": [
+{
+"ref": "BZ1",
+"value": "Buzzer 5V (L=100uH, R=24)",
+"fp": "Buzzer_12x9.5RM7.6",
+"lib": "Device:Buzzer",
+"pins": {
+"2": "GND",
+"1": "Net-(BZ1-+)"
+}
+},
+{
+"ref": "D1",
+"value": "1N4007",
+"fp": "D_DO-41_SOD81_P10.16mm_Horizontal",
+"lib": "Device:D",
+"pins": {
+"2": "GND",
+"1": "Net-(BZ1-+)"
+}
+},
+{
+"ref": "J1",
+"value": "FUENTE",
+"fp": "PinHeader_1x02_P2.54mm_Vertical",
+"lib": "Connector_Generic:Conn_01x02",
+"pins": {
+"1": "+5V",
+"2": "GND"
+}
+},
+{
+"ref": "R1",
+"value": "2.2k",
+"fp": "R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal",
+"lib": "Device:R",
+"pins": {
+"2": "GND",
+"1": "Net-(U1-B)"
+}
+},
+{
+"ref": "R2",
+"value": "2.2k",
+"fp": "R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal",
+"lib": "Device:R",
+"pins": {
+"1": "+5V",
+"2": "Net-(U1-B)"
+}
+},
+{
+"ref": "R3",
+"value": "1k",
+"fp": "R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal",
+"lib": "Device:R",
+"pins": {
+"1": "+5V",
+"2": "Net-(U1-C)"
+}
+},
+{
+"ref": "R4",
+"value": "15k",
+"fp": "R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal",
+"lib": "Device:R",
+"pins": {
+"1": "+5V",
+"2": "C_U2"
+}
+},
+{
+"ref": "R5",
+"value": "1k",
+"fp": "R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal",
+"lib": "Device:R",
+"pins": {
+"2": "GND",
+"1": "Net-(U1-E)"
+}
+},
+{
+"ref": "R6",
+"value": "1k",
+"fp": "R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal",
+"lib": "Device:R",
+"pins": {
+"1": "SENSOR",
+"2": "Net-(U2-B)"
+}
+},
+{
+"ref": "R7",
+"value": "200",
+"fp": "R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal",
+"lib": "Device:R",
+"pins": {
+"1": "C_U2",
+"2": "Net-(U3-B)"
+}
+},
+{
+"ref": "RV1",
+"value": "10k (sensor)",
+"fp": "Potentiometer_Bourns_3386P_Vertical",
+"lib": "Device:R_Potentiometer",
+"pins": {
+"3": "+5V",
+"2": "SENSOR",
+"1": "GND"
+}
+},
+{
+"ref": "U1",
+"value": "2N3904",
+"fp": "TO-92_Inline",
+"lib": "Transistor_BJT:2N3904",
+"pins": {
+"2": "Net-(U1-B)",
+"3": "Net-(U1-C)",
+"1": "Net-(U1-E)"
+}
+},
+{
+"ref": "U2",
+"value": "2N3904",
+"fp": "TO-92_Inline",
+"lib": "Transistor_BJT:2N3904",
+"pins": {
+"3": "C_U2",
+"1": "Net-(U1-E)",
+"2": "Net-(U2-B)"
+}
+},
+{
+"ref": "U3",
+"value": "2N3906",
+"fp": "TO-92_Inline",
+"lib": "Transistor_BJT:2N3906",
+"pins": {
+"1": "+5V",
+"3": "Net-(BZ1-+)",
+"2": "Net-(U3-B)"
+}
+}
+]
+}
