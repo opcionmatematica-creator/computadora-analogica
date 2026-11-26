@@ -1,5 +1,0 @@
-Astable (Figura 1): f = 8.91 Hz
-
-La base baja a unos -4 V cuando el otro transistor se satura (el condensador transfiere el salto del colector) y sube por R9/R11 hasta 0.65 V: ahí conmuta.
-
-Frecuencia simulada 8.906 Hz; teórica 1/(1.386 R C) = 7.215 Hz

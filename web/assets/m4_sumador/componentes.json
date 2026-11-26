@@ -1,0 +1,653 @@
+{
+"placa": {
+"x": 99.95,
+"y": 49.95,
+"w": 86.6,
+"h": 46.2,
+"grosor": 1.6
+},
+"componentes": [
+{
+"ref": "C1",
+"valor": "100nF",
+"huella": "C_Disc_D5.0mm_W2.5mm_P5.00mm",
+"descripcion": "C, Disc series, Radial, pin pitch=5.00mm, diameter*width=5*2.5mm^2, Capacitor, http://cdn-reichelt.de/documents/datenblatt/B300/DS_KERKO_TC.pdf",
+"x": 155.57,
+"y": 75.44,
+"giro": 0.0,
+"lado": "arriba",
+"courtyard": [
+154.475,
+73.895,
+161.665,
+76.985
+],
+"sin_modelo": false,
+"pads": [
+{
+"n": "1",
+"x": 155.57,
+"y": 75.44,
+"red": "+15V"
+},
+{
+"n": "2",
+"x": 160.57,
+"y": 75.44,
+"red": "GND"
+}
+]
+},
+{
+"ref": "C2",
+"valor": "100nF",
+"huella": "C_Disc_D5.0mm_W2.5mm_P5.00mm",
+"descripcion": "C, Disc series, Radial, pin pitch=5.00mm, diameter*width=5*2.5mm^2, Capacitor, http://cdn-reichelt.de/documents/datenblatt/B300/DS_KERKO_TC.pdf",
+"x": 155.57,
+"y": 80.09,
+"giro": 0.0,
+"lado": "arriba",
+"courtyard": [
+154.475,
+78.545,
+161.665,
+81.635
+],
+"sin_modelo": false,
+"pads": [
+{
+"n": "1",
+"x": 155.57,
+"y": 80.09,
+"red": "GND"
+},
+{
+"n": "2",
+"x": 160.57,
+"y": 80.09,
+"red": "-15V"
+}
+]
+},
+{
+"ref": "H1",
+"valor": "MountingHole_3.2mm",
+"huella": "",
+"descripcion": "",
+"x": 103.5,
+"y": 53.5,
+"giro": 0.0,
+"lado": "arriba",
+"courtyard": [
+0.0,
+0.0,
+0.0,
+0.0
+],
+"sin_modelo": true,
+"pads": [
+{
+"n": "",
+"x": 103.5,
+"y": 53.5,
+"red": ""
+}
+]
+},
+{
+"ref": "H2",
+"valor": "MountingHole_3.2mm",
+"huella": "",
+"descripcion": "",
+"x": 183.0,
+"y": 53.5,
+"giro": 0.0,
+"lado": "arriba",
+"courtyard": [
+0.0,
+0.0,
+0.0,
+0.0
+],
+"sin_modelo": true,
+"pads": [
+{
+"n": "",
+"x": 183.0,
+"y": 53.5,
+"red": ""
+}
+]
+},
+{
+"ref": "H3",
+"valor": "MountingHole_3.2mm",
+"huella": "",
+"descripcion": "",
+"x": 103.5,
+"y": 92.6,
+"giro": 0.0,
+"lado": "arriba",
+"courtyard": [
+0.0,
+0.0,
+0.0,
+0.0
+],
+"sin_modelo": true,
+"pads": [
+{
+"n": "",
+"x": 103.5,
+"y": 92.6,
+"red": ""
+}
+]
+},
+{
+"ref": "H4",
+"valor": "MountingHole_3.2mm",
+"huella": "",
+"descripcion": "",
+"x": 183.0,
+"y": 92.6,
+"giro": 0.0,
+"lado": "arriba",
+"courtyard": [
+0.0,
+0.0,
+0.0,
+0.0
+],
+"sin_modelo": true,
+"pads": [
+{
+"n": "",
+"x": 183.0,
+"y": 92.6,
+"red": ""
+}
+]
+},
+{
+"ref": "J1",
+"valor": "BUS",
+"huella": "PinHeader_1x04_P2.54mm_Vertical",
+"descripcion": "Through hole straight pin header, 1x04, 2.54mm pitch, single row",
+"x": 108.8,
+"y": 58.79,
+"giro": 0.0,
+"lado": "arriba",
+"courtyard": [
+106.985,
+56.975,
+110.615,
+68.225
+],
+"sin_modelo": false,
+"pads": [
+{
+"n": "1",
+"x": 108.8,
+"y": 58.79,
+"red": "+15V"
+},
+{
+"n": "2",
+"x": 108.8,
+"y": 61.33,
+"red": "GND"
+},
+{
+"n": "3",
+"x": 108.8,
+"y": 63.87,
+"red": "-15V"
+},
+{
+"n": "4",
+"x": 108.8,
+"y": 66.41,
+"red": "unconnected-(J1-Pin_4-Pad4)"
+}
+]
+},
+{
+"ref": "J2",
+"valor": "ENTRADAS",
+"huella": "PinHeader_1x06_P2.54mm_Vertical",
+"descripcion": "Through hole straight pin header, 1x06, 2.54mm pitch, single row",
+"x": 108.8,
+"y": 71.61,
+"giro": 0.0,
+"lado": "arriba",
+"courtyard": [
+106.985,
+69.795,
+110.615,
+86.125
+],
+"sin_modelo": false,
+"pads": [
+{
+"n": "1",
+"x": 108.8,
+"y": 71.61,
+"red": "/IN_X10"
+},
+{
+"n": "2",
+"x": 108.8,
+"y": 74.15,
+"red": "/IN_X1A"
+},
+{
+"n": "3",
+"x": 108.8,
+"y": 76.69,
+"red": "/IN_X1B"
+},
+{
+"n": "4",
+"x": 108.8,
+"y": 79.23,
+"red": "/IN_X01A"
+},
+{
+"n": "5",
+"x": 108.8,
+"y": 81.77,
+"red": "/IN_X01B"
+},
+{
+"n": "6",
+"x": 108.8,
+"y": 84.31,
+"red": "/SUMIN"
+}
+]
+},
+{
+"ref": "J3",
+"valor": "SALIDA",
+"huella": "PinHeader_1x03_P2.54mm_Vertical",
+"descripcion": "Through hole straight pin header, 1x03, 2.54mm pitch, single row",
+"x": 177.72,
+"y": 69.01,
+"giro": 0.0,
+"lado": "arriba",
+"courtyard": [
+175.905,
+67.195,
+179.535,
+75.905
+],
+"sin_modelo": false,
+"pads": [
+{
+"n": "1",
+"x": 177.72,
+"y": 69.01,
+"red": "/OUT"
+},
+{
+"n": "2",
+"x": 177.72,
+"y": 71.55,
+"red": "/OUT"
+},
+{
+"n": "3",
+"x": 177.72,
+"y": 74.09,
+"red": "GND"
+}
+]
+},
+{
+"ref": "R1",
+"valor": "1k",
+"huella": "R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal",
+"descripcion": "Resistor, Axial_DIN0207 series, Axial, Horizontal, pin pitch=10.16mm, 0.25W = 1/4W, length*diameter=6.3*2.5mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf",
+"x": 124.17,
+"y": 62.25,
+"giro": 0.0,
+"lado": "arriba",
+"courtyard": [
+123.075,
+60.705,
+135.425,
+63.795
+],
+"sin_modelo": false,
+"pads": [
+{
+"n": "1",
+"x": 124.17,
+"y": 62.25,
+"red": "/IN_X10"
+},
+{
+"n": "2",
+"x": 134.33,
+"y": 62.25,
+"red": "/SUMIN"
+}
+]
+},
+{
+"ref": "R2",
+"valor": "10k",
+"huella": "R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal",
+"descripcion": "Resistor, Axial_DIN0207 series, Axial, Horizontal, pin pitch=10.16mm, 0.25W = 1/4W, length*diameter=6.3*2.5mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf",
+"x": 124.17,
+"y": 66.9,
+"giro": 0.0,
+"lado": "arriba",
+"courtyard": [
+123.075,
+65.355,
+135.425,
+68.445
+],
+"sin_modelo": false,
+"pads": [
+{
+"n": "1",
+"x": 124.17,
+"y": 66.9,
+"red": "/IN_X1A"
+},
+{
+"n": "2",
+"x": 134.33,
+"y": 66.9,
+"red": "/SUMIN"
+}
+]
+},
+{
+"ref": "R3",
+"valor": "10k",
+"huella": "R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal",
+"descripcion": "Resistor, Axial_DIN0207 series, Axial, Horizontal, pin pitch=10.16mm, 0.25W = 1/4W, length*diameter=6.3*2.5mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf",
+"x": 124.17,
+"y": 71.55,
+"giro": 0.0,
+"lado": "arriba",
+"courtyard": [
+123.075,
+70.005,
+135.425,
+73.095
+],
+"sin_modelo": false,
+"pads": [
+{
+"n": "1",
+"x": 124.17,
+"y": 71.55,
+"red": "/IN_X1B"
+},
+{
+"n": "2",
+"x": 134.33,
+"y": 71.55,
+"red": "/SUMIN"
+}
+]
+},
+{
+"ref": "R4",
+"valor": "100k",
+"huella": "R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal",
+"descripcion": "Resistor, Axial_DIN0207 series, Axial, Horizontal, pin pitch=10.16mm, 0.25W = 1/4W, length*diameter=6.3*2.5mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf",
+"x": 124.17,
+"y": 76.2,
+"giro": 0.0,
+"lado": "arriba",
+"courtyard": [
+123.075,
+74.655,
+135.425,
+77.745
+],
+"sin_modelo": false,
+"pads": [
+{
+"n": "1",
+"x": 124.17,
+"y": 76.2,
+"red": "/IN_X01A"
+},
+{
+"n": "2",
+"x": 134.33,
+"y": 76.2,
+"red": "/SUMIN"
+}
+]
+},
+{
+"ref": "R5",
+"valor": "100k",
+"huella": "R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal",
+"descripcion": "Resistor, Axial_DIN0207 series, Axial, Horizontal, pin pitch=10.16mm, 0.25W = 1/4W, length*diameter=6.3*2.5mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf",
+"x": 124.17,
+"y": 80.85,
+"giro": 0.0,
+"lado": "arriba",
+"courtyard": [
+123.075,
+79.305,
+135.425,
+82.395
+],
+"sin_modelo": false,
+"pads": [
+{
+"n": "1",
+"x": 124.17,
+"y": 80.85,
+"red": "/IN_X01B"
+},
+{
+"n": "2",
+"x": 134.33,
+"y": 80.85,
+"red": "/SUMIN"
+}
+]
+},
+{
+"ref": "R6",
+"valor": "10k",
+"huella": "R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal",
+"descripcion": "Resistor, Axial_DIN0207 series, Axial, Horizontal, pin pitch=10.16mm, 0.25W = 1/4W, length*diameter=6.3*2.5mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf",
+"x": 138.98,
+"y": 69.18,
+"giro": 0.0,
+"lado": "arriba",
+"courtyard": [
+137.885,
+67.635,
+150.235,
+70.725
+],
+"sin_modelo": false,
+"pads": [
+{
+"n": "1",
+"x": 138.98,
+"y": 69.18,
+"red": "/SUMIN"
+},
+{
+"n": "2",
+"x": 149.14,
+"y": 69.18,
+"red": "Net-(SW1-A)"
+}
+]
+},
+{
+"ref": "RV1",
+"valor": "100k",
+"huella": "Potentiometer_Bourns_3386P_Vertical",
+"descripcion": "Potentiometer, vertical, Bourns 3386P, https://www.bourns.com/pdfs/3386.pdf",
+"x": 144.07,
+"y": 79.89,
+"giro": 0.0,
+"lado": "arriba",
+"courtyard": [
+138.995,
+72.285,
+149.115,
+82.415
+],
+"sin_modelo": true,
+"pads": [
+{
+"n": "1",
+"x": 144.07,
+"y": 79.89,
+"red": "/SUMIN"
+},
+{
+"n": "2",
+"x": 146.61,
+"y": 77.35,
+"red": "unconnected-(RV1-Pad2)"
+},
+{
+"n": "3",
+"x": 144.07,
+"y": 74.81,
+"red": "Net-(SW1-C)"
+}
+]
+},
+{
+"ref": "SW1",
+"valor": "GANANCIA",
+"huella": "SW_E-Switch_EG1271_SPDT",
+"descripcion": "E-Switch sub miniature slide switch, EG series, SPDT, https://www.e-switch.com/wp-content/uploads/2022/06/EG.pdf",
+"x": 141.65,
+"y": 61.78,
+"giro": 0.0,
+"lado": "arriba",
+"courtyard": [
+139.605,
+60.685,
+148.695,
+66.075
+],
+"sin_modelo": true,
+"pads": [
+{
+"n": "1",
+"x": 141.65,
+"y": 61.78,
+"red": "Net-(SW1-A)"
+},
+{
+"n": "2",
+"x": 144.15,
+"y": 61.78,
+"red": "/OUT"
+},
+{
+"n": "3",
+"x": 146.65,
+"y": 61.78,
+"red": "Net-(SW1-C)"
+},
+{
+"n": "4",
+"x": 141.65,
+"y": 64.98,
+"red": ""
+},
+{
+"n": "5",
+"x": 144.15,
+"y": 64.98,
+"red": ""
+},
+{
+"n": "6",
+"x": 146.65,
+"y": 64.98,
+"red": ""
+}
+]
+},
+{
+"ref": "U1",
+"valor": "LF412",
+"huella": "DIP-8_W7.62mm_Socket",
+"descripcion": "8-lead though-hole mounted DIP package, row spacing 7.62mm (300 mils), Socket",
+"x": 154.26,
+"y": 63.09,
+"giro": 0.0,
+"lado": "arriba",
+"courtyard": [
+152.695,
+61.465,
+163.445,
+72.335
+],
+"sin_modelo": false,
+"pads": [
+{
+"n": "1",
+"x": 154.26,
+"y": 63.09,
+"red": "/OUT"
+},
+{
+"n": "2",
+"x": 154.26,
+"y": 65.63,
+"red": "/SUMIN"
+},
+{
+"n": "3",
+"x": 154.26,
+"y": 68.17,
+"red": "GND"
+},
+{
+"n": "4",
+"x": 154.26,
+"y": 70.71,
+"red": "-15V"
+},
+{
+"n": "5",
+"x": 161.88,
+"y": 70.71,
+"red": "GND"
+},
+{
+"n": "6",
+"x": 161.88,
+"y": 68.17,
+"red": "Net-(U1B--)"
+},
+{
+"n": "7",
+"x": 161.88,
+"y": 65.63,
+"red": "Net-(U1B--)"
+},
+{
+"n": "8",
+"x": 161.88,
+"y": 63.09,
+"red": "+15V"
+}
+]
+}
+]
+}

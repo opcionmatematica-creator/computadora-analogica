@@ -1,0 +1,27 @@
+[
+ {
+  "titulo": "BUS",
+  "img": "p1.svg",
+  "ancho_mm": 68.5
+ },
+ {
+  "titulo": "ENTRADAS",
+  "img": "p2.svg",
+  "ancho_mm": 57.7
+ },
+ {
+  "titulo": "SUMADOR (U1A)",
+  "img": "p3.svg",
+  "ancho_mm": 97.8
+ },
+ {
+  "titulo": "SALIDA",
+  "img": "p4.svg",
+  "ancho_mm": 50.7
+ },
+ {
+  "titulo": "ALIMENTACIÓN U1",
+  "img": "p5.svg",
+  "ancho_mm": 120.4
+ }
+]

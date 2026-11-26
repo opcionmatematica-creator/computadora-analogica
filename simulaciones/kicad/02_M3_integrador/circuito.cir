@@ -1,0 +1,24 @@
+.title KiCad schematic
+.include "C:/Users/opcio/1-Proyectos-Business/computadora-analogica/simulaciones/kicad/modelos.lib"
+.tran 2m 3 0 1m uic
+R7 Net-_K1-Pad4_ Net-_U1B-+_ 10k
+R6 Net-_R6-Pad1_ Net-_K1-Pad4_ 10k
+D1 GND Net-_D1-K_ 1N4148
+XK1 Net-_D1-K_ Net-_K1-Pad4_ Net-_SW1-B_ GND Net-_SW1-B_ GND Net-_K1-Pad13_ GND G5V2
+XU1 Net-_U1B-+_ Net-_SW1-B_ GND -15V Net-_U1B-+_ Net-_U1B--_ Net-_U1B--_ +15V LF412
+C1 Net-_SW1-A_ Net-_U1B-+_ 1u
+C2 Net-_SW1-C_ Net-_U1B-+_ 100n
+XSW1 Net-_SW1-A_ Net-_SW1-B_ Net-_SW1-C_ SPDT_A
+R3 unconnected-_R3-Pad1_ Net-_K1-Pad13_ 10k
+R5 unconnected-_R5-Pad1_ Net-_K1-Pad13_ 1k
+R4 unconnected-_R4-Pad1_ Net-_K1-Pad13_ 10k
+V3 Net-_R1-Pad1_ GND DC 1 
+R1 Net-_R1-Pad1_ Net-_K1-Pad13_ 1Meg
+R2 unconnected-_R2-Pad1_ Net-_K1-Pad13_ 100k
+V4 Net-_D1-K_ GND PWL( 0 0 0.5 0 0.501 12 3 12 ) 
+V5 Net-_R6-Pad1_ GND DC 2 
+V1 +15V GND DC 15 
+C3 +15V GND 100n
+V2 GND -15V DC 15 
+C4 GND -15V 100n
+.end

@@ -1,0 +1,22 @@
+[
+ {
+  "titulo": "ENTRADA FUENTE DE LABORATORIO",
+  "img": "p1.svg",
+  "ancho_mm": 133.0
+ },
+ {
+  "titulo": "INDICADORES",
+  "img": "p2.svg",
+  "ancho_mm": 66.4
+ },
+ {
+  "titulo": "CONTROL IC / OPERAR",
+  "img": "p3.svg",
+  "ancho_mm": 110.5
+ },
+ {
+  "titulo": "SALIDAS DEL BUS (a cada módulo)",
+  "img": "p4.svg",
+  "ancho_mm": 166.5
+ }
+]

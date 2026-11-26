@@ -1,0 +1,351 @@
+{
+"placa": {
+"x": 99.95,
+"y": 49.95,
+"w": 69.6,
+"h": 37.2,
+"grosor": 1.6
+},
+"componentes": [
+{
+"ref": "C1",
+"valor": "100nF",
+"huella": "C_Disc_D5.0mm_W2.5mm_P5.00mm",
+"descripcion": "C, Disc series, Radial, pin pitch=5.00mm, diameter*width=5*2.5mm^2, Capacitor, http://cdn-reichelt.de/documents/datenblatt/B300/DS_KERKO_TC.pdf",
+"x": 138.53,
+"y": 70.94,
+"giro": 0.0,
+"lado": "arriba",
+"courtyard": [
+137.435,
+69.395,
+144.625,
+72.485
+],
+"sin_modelo": false,
+"pads": [
+{
+"n": "1",
+"x": 138.53,
+"y": 70.94,
+"red": "+15V"
+},
+{
+"n": "2",
+"x": 143.53,
+"y": 70.94,
+"red": "GND"
+}
+]
+},
+{
+"ref": "C2",
+"valor": "100nF",
+"huella": "C_Disc_D5.0mm_W2.5mm_P5.00mm",
+"descripcion": "C, Disc series, Radial, pin pitch=5.00mm, diameter*width=5*2.5mm^2, Capacitor, http://cdn-reichelt.de/documents/datenblatt/B300/DS_KERKO_TC.pdf",
+"x": 138.53,
+"y": 75.59,
+"giro": 0.0,
+"lado": "arriba",
+"courtyard": [
+137.435,
+74.045,
+144.625,
+77.135
+],
+"sin_modelo": false,
+"pads": [
+{
+"n": "1",
+"x": 138.53,
+"y": 75.59,
+"red": "GND"
+},
+{
+"n": "2",
+"x": 143.53,
+"y": 75.59,
+"red": "-15V"
+}
+]
+},
+{
+"ref": "H1",
+"valor": "MountingHole_3.2mm",
+"huella": "",
+"descripcion": "",
+"x": 103.5,
+"y": 53.5,
+"giro": 0.0,
+"lado": "arriba",
+"courtyard": [
+0.0,
+0.0,
+0.0,
+0.0
+],
+"sin_modelo": true,
+"pads": [
+{
+"n": "",
+"x": 103.5,
+"y": 53.5,
+"red": ""
+}
+]
+},
+{
+"ref": "H2",
+"valor": "MountingHole_3.2mm",
+"huella": "",
+"descripcion": "",
+"x": 166.0,
+"y": 53.5,
+"giro": 0.0,
+"lado": "arriba",
+"courtyard": [
+0.0,
+0.0,
+0.0,
+0.0
+],
+"sin_modelo": true,
+"pads": [
+{
+"n": "",
+"x": 166.0,
+"y": 53.5,
+"red": ""
+}
+]
+},
+{
+"ref": "H3",
+"valor": "MountingHole_3.2mm",
+"huella": "",
+"descripcion": "",
+"x": 103.5,
+"y": 83.6,
+"giro": 0.0,
+"lado": "arriba",
+"courtyard": [
+0.0,
+0.0,
+0.0,
+0.0
+],
+"sin_modelo": true,
+"pads": [
+{
+"n": "",
+"x": 103.5,
+"y": 83.6,
+"red": ""
+}
+]
+},
+{
+"ref": "H4",
+"valor": "MountingHole_3.2mm",
+"huella": "",
+"descripcion": "",
+"x": 166.0,
+"y": 83.6,
+"giro": 0.0,
+"lado": "arriba",
+"courtyard": [
+0.0,
+0.0,
+0.0,
+0.0
+],
+"sin_modelo": true,
+"pads": [
+{
+"n": "",
+"x": 166.0,
+"y": 83.6,
+"red": ""
+}
+]
+},
+{
+"ref": "J1",
+"valor": "BUS",
+"huella": "PinHeader_1x04_P2.54mm_Vertical",
+"descripcion": "Through hole straight pin header, 1x04, 2.54mm pitch, single row",
+"x": 108.8,
+"y": 63.24,
+"giro": 0.0,
+"lado": "arriba",
+"courtyard": [
+106.985,
+61.425,
+110.615,
+72.675
+],
+"sin_modelo": false,
+"pads": [
+{
+"n": "1",
+"x": 108.8,
+"y": 63.24,
+"red": "+15V"
+},
+{
+"n": "2",
+"x": 108.8,
+"y": 65.78,
+"red": "GND"
+},
+{
+"n": "3",
+"x": 108.8,
+"y": 68.32,
+"red": "-15V"
+},
+{
+"n": "4",
+"x": 108.8,
+"y": 70.86,
+"red": "unconnected-(J1-Pin_4-Pad4)"
+}
+]
+},
+{
+"ref": "J2",
+"valor": "-Vic",
+"huella": "PinHeader_1x02_P2.54mm_Vertical",
+"descripcion": "Through hole straight pin header, 1x02, 2.54mm pitch, single row",
+"x": 160.68,
+"y": 65.78,
+"giro": 0.0,
+"lado": "arriba",
+"courtyard": [
+158.865,
+63.965,
+162.495,
+70.145
+],
+"sin_modelo": false,
+"pads": [
+{
+"n": "1",
+"x": 160.68,
+"y": 65.78,
+"red": "/IC_OUT"
+},
+{
+"n": "2",
+"x": 160.68,
+"y": 68.32,
+"red": "GND"
+}
+]
+},
+{
+"ref": "RV1",
+"valor": "10k multivuelta",
+"huella": "Potentiometer_Bourns_3386P_Vertical",
+"descripcion": "Potentiometer, vertical, Bourns 3386P, https://www.bourns.com/pdfs/3386.pdf",
+"x": 128.15,
+"y": 69.59,
+"giro": 0.0,
+"lado": "arriba",
+"courtyard": [
+123.075,
+61.985,
+133.195,
+72.115
+],
+"sin_modelo": true,
+"pads": [
+{
+"n": "1",
+"x": 128.15,
+"y": 69.59,
+"red": "-15V"
+},
+{
+"n": "2",
+"x": 130.69,
+"y": 67.05,
+"red": "/WIPER"
+},
+{
+"n": "3",
+"x": 128.15,
+"y": 64.51,
+"red": "+15V"
+}
+]
+},
+{
+"ref": "U1",
+"valor": "LF412",
+"huella": "DIP-8_W7.62mm_Socket",
+"descripcion": "8-lead though-hole mounted DIP package, row spacing 7.62mm (300 mils), Socket",
+"x": 137.22,
+"y": 58.59,
+"giro": 0.0,
+"lado": "arriba",
+"courtyard": [
+135.655,
+56.965,
+146.405,
+67.835
+],
+"sin_modelo": false,
+"pads": [
+{
+"n": "1",
+"x": 137.22,
+"y": 58.59,
+"red": "/IC_OUT"
+},
+{
+"n": "2",
+"x": 137.22,
+"y": 61.13,
+"red": "/IC_OUT"
+},
+{
+"n": "3",
+"x": 137.22,
+"y": 63.67,
+"red": "/WIPER"
+},
+{
+"n": "4",
+"x": 137.22,
+"y": 66.21,
+"red": "-15V"
+},
+{
+"n": "5",
+"x": 144.84,
+"y": 66.21,
+"red": "GND"
+},
+{
+"n": "6",
+"x": 144.84,
+"y": 63.67,
+"red": "Net-(U1B--)"
+},
+{
+"n": "7",
+"x": 144.84,
+"y": 61.13,
+"red": "Net-(U1B--)"
+},
+{
+"n": "8",
+"x": 144.84,
+"y": 58.59,
+"red": "+15V"
+}
+]
+}
+]
+}

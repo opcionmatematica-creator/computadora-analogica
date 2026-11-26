@@ -941,8 +941,9 @@ class Sheet:
 
     # ---- placement ---------------------------------------------------------
     def place(self, ref, lib_id, value, x, y, rot=0, mirror=None, unit=1,
-              props=None, dnp=False, in_bom=True, on_board=True):
-        """Place a part. `props` become hidden fields (Footprint, MPN, LCSC...)."""
+              props=None, dnp=False, in_bom=True, on_board=True, sim=True):
+        """Place a part. `props` become hidden fields (Footprint, MPN, LCSC...).
+        sim=False marks it "exclude from simulation" (connectors, test points)."""
         if any(s["ref"] == ref and s["unit"] == unit for s in self.symbols):
             raise ValueError(f"{ref} unit {unit} placed twice on {self.filename}")
         sym = self.lib.get(lib_id)
@@ -951,7 +952,7 @@ class Sheet:
         self.symbols.append(dict(ref=ref, lib_id=lib_id, value=value, x=x, y=y,
                                  rot=rot, mirror=mirror, unit=unit,
                                  props=dict(props or {}), power=False, dnp=dnp,
-                                 in_bom=in_bom, on_board=on_board))
+                                 in_bom=in_bom, on_board=on_board, sim=sim))
         return ref
 
     def power(self, kind, x, y, rot=0):
@@ -3895,7 +3896,8 @@ def _emit(sheet, project, title_block, root_uuid=None, pwr_counter=None):
         p.append("\t(symbol\n"
                  f'\t\t(lib_id "{q(s["lib_id"])}")\n'
                  f"\t\t(at {fmt(x)} {fmt(y)} {rot})\n{mir}"
-                 f'\t\t(unit {s["unit"]})\n\t\t(body_style 1)\n\t\t(exclude_from_sim no)\n'
+                 f'\t\t(unit {s["unit"]})\n\t\t(body_style 1)\n'
+                 f'\t\t(exclude_from_sim {"no" if s.get("sim", True) else "yes"})\n'
                  f'\t\t(in_bom {"yes" if s["in_bom"] else "no"})\n'
                  f'\t\t(on_board {"yes" if s["on_board"] else "no"})\n'
                  "\t\t(in_pos_files yes)\n"

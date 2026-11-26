@@ -1,5 +1,0 @@
-Puente H: giro A (0-20 ms), libre, giro B (30-50 ms)
-
-La corriente invierte su signo al invertir el giro; D1-D4 conducen la corriente de la bobina del motor al apagar (los picos breves tras 20 y 50 ms).
-
-

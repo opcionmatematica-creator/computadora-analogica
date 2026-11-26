@@ -1,0 +1,18 @@
+.title KiCad schematic
+.include "C:/Users/opcio/1-Proyectos-Business/computadora-analogica/simulaciones/kicad/modelos.lib"
+.tran 2m 2
+C3 +15V GND 100n
+XU1 Net-_U1A--_ Net-_U1A--_ Net-_U1A-+_ -15V Net-_U1B-+_ Net-_U1B--_ Net-_U1B--_ +15V LF412
+C2 GND -15V 100n
+C4 GND -15V 100n
+XU2 Net-_U2A--_ Net-_U2A--_ Net-_U2A-+_ -15V Net-_U2B-+_ Net-_U2B--_ Net-_U2B--_ +15V LF412
+C1 +15V GND 100n
+V2 GND -15V DC 15 
+V1 +15V GND DC 15 
+XRV3 GND Net-_U2A-+_ unconnected-_RV3-Pad3_ POT r=10k pos=0.5
+XRV4 GND Net-_U2B-+_ unconnected-_RV4-Pad3_ POT r=10k pos=0.5
+V3 Net-_RV1-Pad3_ GND DC 0 SIN( 0 10 1 ) 
+V4 Net-_RV2-Pad3_ GND DC 0 SIN( 0 10 1 ) 
+XRV1 GND Net-_U1A-+_ Net-_RV1-Pad3_ POT r=10k pos=0.3
+XRV2 GND Net-_U1B-+_ Net-_RV2-Pad3_ POT r=10k pos=0.7
+.end

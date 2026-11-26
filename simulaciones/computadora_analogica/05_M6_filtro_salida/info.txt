@@ -1,5 +1,0 @@
-Respuesta del filtro paso bajo (fc = 159 Hz)
-
--3 dB a 159 Hz; a 1 Hz (soluciones típicas) la atenuación es 0.0002 dB.
-
-

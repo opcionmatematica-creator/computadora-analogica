@@ -1,0 +1,34 @@
+{
+ "id": "prog_lorenz",
+ "modulo": null,
+ "esquematico": "programa_lorenz_sim.kicad_sch",
+ "puntos": [
+  {
+   "ref": "TP1",
+   "nombre": "TP1 -X",
+   "que": "Salida de INT1 = -X (x/10)",
+   "esperado": "Oscila de forma caótica, saltando entre los dos lóbulos (unos ±2 V)"
+  },
+  {
+   "ref": "TP2",
+   "nombre": "TP2 Y",
+   "que": "Salida de INT2 = Y (y/10)",
+   "esperado": "Caótica, unos ±2.7 V"
+  },
+  {
+   "ref": "TP3",
+   "nombre": "TP3 Z",
+   "que": "Salida del inversor = Z (z/10)",
+   "esperado": "Siempre positiva, entre 0.5 y 4.8 V"
+  }
+ ],
+ "titulo": "Programa: atractor de Lorenz (Fig. 18)",
+ "xy": [
+  "TP1",
+  "TP3"
+ ],
+ "invertir": [
+  "TP1"
+ ],
+ "desde": 0.1
+}

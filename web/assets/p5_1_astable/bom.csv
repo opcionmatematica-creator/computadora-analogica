@@ -1,8 +1,0 @@
-"Referencias","Valor","Huella","Cantidad"
-"C5,C6","10uF","Capacitor_THT:CP_Radial_D5.0mm_P2.50mm","2"
-"D8,D9","LED rojo","LED_THT:LED_D5.0mm","2"
-"J1","FUENTE","Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical","1"
-"Q5,Q6","2N3904","Package_TO_SOT_THT:TO-92_Inline","2"
-"R9,R11","10k","Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal","2"
-"R10,R12","1k","Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal","2"
-"RV1,RV2","50k","Potentiometer_THT:Potentiometer_Bourns_3386P_Vertical","2"

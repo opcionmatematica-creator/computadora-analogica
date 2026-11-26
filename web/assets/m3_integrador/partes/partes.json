@@ -1,0 +1,42 @@
+[
+ {
+  "titulo": "BUS",
+  "img": "p1.svg",
+  "ancho_mm": 68.5
+ },
+ {
+  "titulo": "ENTRADAS",
+  "img": "p2.svg",
+  "ancho_mm": 55.9
+ },
+ {
+  "titulo": "RED DE ENTRADA (suma)",
+  "img": "p3.svg",
+  "ancho_mm": 65.7
+ },
+ {
+  "titulo": "CONDICIÓN INICIAL (R6 / R7)",
+  "img": "p4.svg",
+  "ancho_mm": 71.9
+ },
+ {
+  "titulo": "RELÉ IC / OPERAR",
+  "img": "p5.svg",
+  "ancho_mm": 80.9
+ },
+ {
+  "titulo": "INTEGRADOR (U1A) Y VELOCIDAD",
+  "img": "p6.svg",
+  "ancho_mm": 67.6
+ },
+ {
+  "titulo": "BUFFER DE SALIDA (U1B)",
+  "img": "p7.svg",
+  "ancho_mm": 77.4
+ },
+ {
+  "titulo": "ALIMENTACIÓN U1",
+  "img": "p8.svg",
+  "ancho_mm": 72.6
+ }
+]

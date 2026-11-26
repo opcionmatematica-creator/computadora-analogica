@@ -1,5 +1,0 @@
-Atractor de Lorenz en el circuito (Fig. 18)
-
-3 integradores + 2 multiplicadores AD633 + 1 inversor. Resistencias del artículo: 100k, 35.7k, 1M, 10k, 374k con C = 1 µF.
-
-

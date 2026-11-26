@@ -1,0 +1,16 @@
+.title KiCad schematic
+.include "C:/Users/opcio/1-Proyectos-Business/computadora-analogica/simulaciones/kicad/modelos.lib"
+.tran 2m 1.88 0 1m uic
+XB5 Net-_B5--Vic_ +15V -15V M2_IC pos=0.50000
+V2 GND -15V DC 15 
+V1 +15V GND DC 15 
+XB7 Net-_B6-SALIDA_ unconnected-_B7-X10__100k_-Pad2_ unconnected-_B7-X100A__10k_-Pad3_ unconnected-_B7-X100B__10k_-Pad4_ unconnected-_B7-X1000__1k_-Pad5_ unconnected-_B7-SUMIN-Pad6_ Net-_B3--Vic_ Net-_B7-SALIDA_ Net-_B6-OP_ +15V -15V M3_INT
+XB9 Net-_B8-SALIDA_ Net-_B7-SALIDA_ Net-_B9-BNC_X_ Net-_B9-BNC_Y_ M6_FILT
+XB2 Net-_B2--Vic_ +15V -15V M2_IC pos=0.73570
+XB1 Net-_B1--Vic_ +15V -15V M2_IC pos=0.10000
+XB8 Net-_B4--Vic_ unconnected-_B8-X10__100k_-Pad2_ unconnected-_B8-X100A__10k_-Pad3_ unconnected-_B8-X100B__10k_-Pad4_ unconnected-_B8-X1000__1k_-Pad5_ unconnected-_B8-SUMIN-Pad6_ Net-_B5--Vic_ Net-_B8-SALIDA_ Net-_B6-OP_ +15V -15V M3_INT
+XB4 Net-_B4--Vic_ +15V -15V M2_IC pos=0.26430
+XB3 Net-_B3--Vic_ +15V -15V M2_IC pos=0.43333
+V3 Net-_B6-OP_ GND PWL( 0 0 0.2 0 0.201 12 4 12 ) 
+XB6 Net-_B1--Vic_ unconnected-_B6-X10__100k_-Pad2_ unconnected-_B6-X100A__10k_-Pad3_ unconnected-_B6-X100B__10k_-Pad4_ unconnected-_B6-X1000__1k_-Pad5_ unconnected-_B6-SUMIN-Pad6_ Net-_B2--Vic_ Net-_B6-SALIDA_ Net-_B6-OP_ +15V -15V M3_INT
+.end

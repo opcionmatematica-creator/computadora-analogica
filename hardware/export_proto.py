@@ -45,6 +45,6 @@ def export(pdir):
 
 
 if __name__ == "__main__":
-    for p in sorted(glob.glob(os.path.join(HERE, "m*_*")) + glob.glob(os.path.join(HERE, "practica5", "p5_*"))):
+    for p in sorted(glob.glob(os.path.join(HERE, "m*_*"))):
         if os.path.isdir(p):
             export(p)

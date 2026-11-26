@@ -1,0 +1,369 @@
+{
+"placa": {
+"x": 99.95,
+"y": 49.95,
+"w": 57.0,
+"h": 46.2,
+"grosor": 1.6
+},
+"componentes": [
+{
+"ref": "C1",
+"valor": "100nF",
+"huella": "C_Disc_D5.0mm_W2.5mm_P5.00mm",
+"descripcion": "C, Disc series, Radial, pin pitch=5.00mm, diameter*width=5*2.5mm^2, Capacitor, http://cdn-reichelt.de/documents/datenblatt/B300/DS_KERKO_TC.pdf",
+"x": 125.95,
+"y": 75.44,
+"giro": 0.0,
+"lado": "arriba",
+"courtyard": [
+124.855,
+73.895,
+132.045,
+76.985
+],
+"sin_modelo": false,
+"pads": [
+{
+"n": "1",
+"x": 125.95,
+"y": 75.44,
+"red": "+15V"
+},
+{
+"n": "2",
+"x": 130.95,
+"y": 75.44,
+"red": "GND"
+}
+]
+},
+{
+"ref": "C2",
+"valor": "100nF",
+"huella": "C_Disc_D5.0mm_W2.5mm_P5.00mm",
+"descripcion": "C, Disc series, Radial, pin pitch=5.00mm, diameter*width=5*2.5mm^2, Capacitor, http://cdn-reichelt.de/documents/datenblatt/B300/DS_KERKO_TC.pdf",
+"x": 125.95,
+"y": 80.09,
+"giro": 0.0,
+"lado": "arriba",
+"courtyard": [
+124.855,
+78.545,
+132.045,
+81.635
+],
+"sin_modelo": false,
+"pads": [
+{
+"n": "1",
+"x": 125.95,
+"y": 80.09,
+"red": "GND"
+},
+{
+"n": "2",
+"x": 130.95,
+"y": 80.09,
+"red": "-15V"
+}
+]
+},
+{
+"ref": "H1",
+"valor": "MountingHole_3.2mm",
+"huella": "",
+"descripcion": "",
+"x": 103.5,
+"y": 53.5,
+"giro": 0.0,
+"lado": "arriba",
+"courtyard": [
+0.0,
+0.0,
+0.0,
+0.0
+],
+"sin_modelo": true,
+"pads": [
+{
+"n": "",
+"x": 103.5,
+"y": 53.5,
+"red": ""
+}
+]
+},
+{
+"ref": "H2",
+"valor": "MountingHole_3.2mm",
+"huella": "",
+"descripcion": "",
+"x": 153.4,
+"y": 53.5,
+"giro": 0.0,
+"lado": "arriba",
+"courtyard": [
+0.0,
+0.0,
+0.0,
+0.0
+],
+"sin_modelo": true,
+"pads": [
+{
+"n": "",
+"x": 153.4,
+"y": 53.5,
+"red": ""
+}
+]
+},
+{
+"ref": "H3",
+"valor": "MountingHole_3.2mm",
+"huella": "",
+"descripcion": "",
+"x": 103.5,
+"y": 92.6,
+"giro": 0.0,
+"lado": "arriba",
+"courtyard": [
+0.0,
+0.0,
+0.0,
+0.0
+],
+"sin_modelo": true,
+"pads": [
+{
+"n": "",
+"x": 103.5,
+"y": 92.6,
+"red": ""
+}
+]
+},
+{
+"ref": "H4",
+"valor": "MountingHole_3.2mm",
+"huella": "",
+"descripcion": "",
+"x": 153.4,
+"y": 92.6,
+"giro": 0.0,
+"lado": "arriba",
+"courtyard": [
+0.0,
+0.0,
+0.0,
+0.0
+],
+"sin_modelo": true,
+"pads": [
+{
+"n": "",
+"x": 153.4,
+"y": 92.6,
+"red": ""
+}
+]
+},
+{
+"ref": "J1",
+"valor": "BUS",
+"huella": "PinHeader_1x04_P2.54mm_Vertical",
+"descripcion": "Through hole straight pin header, 1x04, 2.54mm pitch, single row",
+"x": 108.8,
+"y": 58.79,
+"giro": 0.0,
+"lado": "arriba",
+"courtyard": [
+106.985,
+56.975,
+110.615,
+68.225
+],
+"sin_modelo": false,
+"pads": [
+{
+"n": "1",
+"x": 108.8,
+"y": 58.79,
+"red": "+15V"
+},
+{
+"n": "2",
+"x": 108.8,
+"y": 61.33,
+"red": "GND"
+},
+{
+"n": "3",
+"x": 108.8,
+"y": 63.87,
+"red": "-15V"
+},
+{
+"n": "4",
+"x": 108.8,
+"y": 66.41,
+"red": "unconnected-(J1-Pin_4-Pad4)"
+}
+]
+},
+{
+"ref": "J2",
+"valor": "X1 X2 Y1 Y2 Z GND",
+"huella": "PinHeader_1x06_P2.54mm_Vertical",
+"descripcion": "Through hole straight pin header, 1x06, 2.54mm pitch, single row",
+"x": 108.8,
+"y": 71.61,
+"giro": 0.0,
+"lado": "arriba",
+"courtyard": [
+106.985,
+69.795,
+110.615,
+86.125
+],
+"sin_modelo": false,
+"pads": [
+{
+"n": "1",
+"x": 108.8,
+"y": 71.61,
+"red": "/MX1"
+},
+{
+"n": "2",
+"x": 108.8,
+"y": 74.15,
+"red": "/MX2"
+},
+{
+"n": "3",
+"x": 108.8,
+"y": 76.69,
+"red": "/MY1"
+},
+{
+"n": "4",
+"x": 108.8,
+"y": 79.23,
+"red": "/MY2"
+},
+{
+"n": "5",
+"x": 108.8,
+"y": 81.77,
+"red": "/MZ"
+},
+{
+"n": "6",
+"x": 108.8,
+"y": 84.31,
+"red": "GND"
+}
+]
+},
+{
+"ref": "J3",
+"valor": "W",
+"huella": "PinHeader_1x02_P2.54mm_Vertical",
+"descripcion": "Through hole straight pin header, 1x02, 2.54mm pitch, single row",
+"x": 148.1,
+"y": 70.28,
+"giro": 0.0,
+"lado": "arriba",
+"courtyard": [
+146.285,
+68.465,
+149.915,
+74.645
+],
+"sin_modelo": false,
+"pads": [
+{
+"n": "1",
+"x": 148.1,
+"y": 70.28,
+"red": "/MW"
+},
+{
+"n": "2",
+"x": 148.1,
+"y": 72.82,
+"red": "GND"
+}
+]
+},
+{
+"ref": "U1",
+"valor": "AD633JN",
+"huella": "DIP-8_W7.62mm_Socket",
+"descripcion": "8-lead though-hole mounted DIP package, row spacing 7.62mm (300 mils), Socket",
+"x": 124.64,
+"y": 63.09,
+"giro": 0.0,
+"lado": "arriba",
+"courtyard": [
+123.075,
+61.465,
+133.825,
+72.335
+],
+"sin_modelo": false,
+"pads": [
+{
+"n": "1",
+"x": 124.64,
+"y": 63.09,
+"red": "/MX1"
+},
+{
+"n": "2",
+"x": 124.64,
+"y": 65.63,
+"red": "/MX2"
+},
+{
+"n": "3",
+"x": 124.64,
+"y": 68.17,
+"red": "/MY1"
+},
+{
+"n": "4",
+"x": 124.64,
+"y": 70.71,
+"red": "/MY2"
+},
+{
+"n": "5",
+"x": 132.26,
+"y": 70.71,
+"red": "-15V"
+},
+{
+"n": "6",
+"x": 132.26,
+"y": 68.17,
+"red": "/MZ"
+},
+{
+"n": "7",
+"x": 132.26,
+"y": 65.63,
+"red": "/MW"
+},
+{
+"n": "8",
+"x": 132.26,
+"y": 63.09,
+"red": "+15V"
+}
+]
+}
+]
+}

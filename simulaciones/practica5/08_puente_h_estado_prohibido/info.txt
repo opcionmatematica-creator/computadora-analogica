@@ -1,5 +1,0 @@
-Estado prohibido IN_A = IN_B = 1 (5-10 ms): corto a través del puente
-
-Las cuatro llaves conducen y la fuente queda en corto por Q1-Q3 y Q2-Q4: la corriente la limita solo la beta de los transistores. Con una fuente sin límite se queman.
-
-

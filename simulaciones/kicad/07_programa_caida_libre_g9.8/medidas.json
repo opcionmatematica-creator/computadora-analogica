@@ -1,0 +1,44 @@
+{
+ "id": "prog_caida_libre",
+ "modulo": null,
+ "esquematico": "programa_caida_libre_sim.kicad_sch",
+ "puntos": [
+  {
+   "ref": "TP1",
+   "nombre": "TP1 X (BNC X)",
+   "que": "Posición horizontal x (1 V = 1 m)",
+   "esperado": "Recta: x = 7.071 t"
+  },
+  {
+   "ref": "TP2",
+   "nombre": "TP2 Y (BNC Y)",
+   "que": "Altura y (1 V = 1 m)",
+   "esperado": "Parábola: y = 2.0 + 7.071 t - 9.8/2 t², máximo 4.551 m"
+  },
+  {
+   "ref": "TP3",
+   "nombre": "TP3 -vy",
+   "que": "Salida de INT1 = -vy",
+   "esperado": "Empieza en -7.071 V y sube 9.8 V/s"
+  },
+  {
+   "ref": "TP4",
+   "nombre": "TP4 OP",
+   "que": "Control OP (interruptor de M1)",
+   "esperado": "0 V (IC) y 12 V desde t = 0.2 s (OPERAR)"
+  }
+ ],
+ "titulo": "Programa: caida libre, g = 9.8 m/s^2 (Fig. 13)",
+ "xy": [
+  "TP1",
+  "TP2"
+ ],
+ "desde": 0.2,
+ "hasta_suelo": "TP2",
+ "teoria": {
+  "g": 9.8,
+  "vx": 7.071,
+  "vy": 7.071,
+  "y0": 2.0
+ }
+}

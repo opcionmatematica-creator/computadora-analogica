@@ -1,0 +1,24 @@
+{
+ "modulo": "m7_multiplicador",
+ "esquematico": "m7_multiplicador_sim.kicad_sch",
+ "puntos": [
+  {
+   "ref": "TP1",
+   "nombre": "TP1 X",
+   "que": "Entrada X1",
+   "esperado": "Seno de 5 V a 1 Hz"
+  },
+  {
+   "ref": "TP2",
+   "nombre": "TP2 Y",
+   "que": "Entrada Y1",
+   "esperado": "Seno de 8 V a 3 Hz"
+  },
+  {
+   "ref": "TP3",
+   "nombre": "TP3 W",
+   "que": "Salida W = X·Y/10",
+   "esperado": "Producto: llega a ±4 V (5 × 8 / 10) y cambia de signo con cada factor"
+  }
+ ]
+}

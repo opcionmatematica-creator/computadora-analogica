@@ -1,0 +1,17 @@
+[
+ {
+  "titulo": "ENTRADAS",
+  "img": "p1.svg",
+  "ancho_mm": 49.5
+ },
+ {
+  "titulo": "CANAL X",
+  "img": "p2.svg",
+  "ancho_mm": 73.3
+ },
+ {
+  "titulo": "CANAL Y",
+  "img": "p3.svg",
+  "ancho_mm": 73.2
+ }
+]

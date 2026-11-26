@@ -1,0 +1,15 @@
+[package]
+name = "computadora-analogica"
+version = "1.0.0"
+edition = "2021"
+description = "Aplicación de escritorio de la computadora analógica: servidor local + ventana (sin dependencias)"
+license = "MIT"
+
+[[bin]]
+name = "computadora-analogica"
+path = "src/main.rs"
+
+[profile.release]
+opt-level = "s"
+lto = true
+strip = true

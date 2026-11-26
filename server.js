@@ -24,22 +24,41 @@ const TYPES = {
   ".html": "text/html; charset=utf-8", ".js": "text/javascript; charset=utf-8", ".css": "text/css; charset=utf-8",
   ".json": "application/json", ".svg": "image/svg+xml", ".png": "image/png", ".jpeg": "image/jpeg", ".jpg": "image/jpeg",
   ".glb": "model/gltf-binary", ".pdf": "application/pdf", ".csv": "text/csv; charset=utf-8", ".zip": "application/zip",
-  ".cir": "text/plain; charset=utf-8", ".webmanifest": "application/manifest+json",
+  ".cir": "text/plain; charset=utf-8", ".lib": "text/plain; charset=utf-8", ".ico": "image/x-icon", ".webmanifest": "application/manifest+json",
 };
 
 let lastBeat = Date.now();
-const modDir = m => (/^m\d_[a-z_]+$/.test(m || "") ? path.join(ROOT, "hardware", m) : null);
+// Carpeta y nombre del proyecto KiCad: módulo (?mod=), su esquemático completo (?mod=&completo) o una simulación (?sim=id).
+function project(q) {
+  const ok = v => /^[a-z0-9_]+$/i.test(v || "");
+  const m = q.get("mod"), sim = q.get("sim");
+  if (ok(m)) return q.has("completo") ? [path.join(ROOT, "hardware", m, "completo"), m + "_completo"] : [path.join(ROOT, "hardware", m), m];
+  if (ok(sim)) {
+    const kdir = path.join(ROOT, "simulaciones", "kicad");
+    for (const d of fs.existsSync(kdir) ? fs.readdirSync(kdir) : []) {
+      const med = path.join(kdir, d, "medidas.json");
+      if (!fs.existsSync(med)) continue;
+      const j = JSON.parse(fs.readFileSync(med, "utf8"));
+      if (j.id === sim || j.modulo === sim) {
+        const pro = fs.readdirSync(path.join(kdir, d)).find(f => f.endsWith(".kicad_pro"));
+        if (pro) return [path.join(kdir, d), pro.replace(/\.kicad_pro$/, "")];
+      }
+    }
+  }
+  return null;
+}
 
 function api(req, res, url) {
   const send = (code, body) => { res.writeHead(code, { "Content-Type": "application/json" }); res.end(JSON.stringify(body)); };
   if (url.pathname === "/api/info") return send(200, { desktop: true, kicad: fs.existsSync(KICAD) });
   if (url.pathname === "/api/ping") { lastBeat = Date.now(); return send(200, { ok: true }); }
   if (req.method !== "POST") return send(405, { error: "POST" });
-  const dir = modDir(url.searchParams.get("mod"));
-  if (!dir || !fs.existsSync(dir)) return send(404, { error: "módulo desconocido" });
+  const pr = project(url.searchParams);
+  if (!pr || !fs.existsSync(pr[0])) return send(404, { error: "proyecto desconocido" });
+  const [dir, stem] = pr;
   if (url.pathname === "/api/kicad") {
     if (!fs.existsSync(KICAD)) return send(500, { error: "KiCad no encontrado en " + KICAD });
-    const pro = path.join(dir, path.basename(dir) + ".kicad_pro");
+    const pro = path.join(dir, stem + (fs.existsSync(path.join(dir, stem + ".kicad_pro")) ? ".kicad_pro" : ".kicad_sch"));
     spawn(KICAD, [pro], { detached: true, stdio: "ignore" }).unref();
     return send(200, { ok: true });
   }

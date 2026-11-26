@@ -1,0 +1,100 @@
+* Modelos SPICE de la computadora analógica para el simulador de KiCad.
+* Los usan los esquemáticos de simulación (campo Sim.Library = modelos.lib).
+
+* LF412 doble (DIP-8, mismo patillaje que el TL072):
+*   1 OUTA  2 -A  3 +A  4 V-  5 +B  6 -B  7 OUTB  8 V+
+* Macromodelo: ganancia 2e5, GBW ~3 MHz, salida que se satura (suave) a 1.5 V de cada riel.
+.subckt LF412 1 2 3 4 5 6 7 8
+XA 3 2 1 8 4 LF412_HALF
+XB 5 6 7 8 4 LF412_HALF
+.ends
+
+.subckt LF412_HALF inp inn out vcc vee
+Rin inp inn 1e12
+E1 n1 0 inp inn 2e5
+R1 n1 n2 1k
+C1 n2 0 10.6u
+Bout out 0 V = (V(vcc)+V(vee))/2 + ((V(vcc)-V(vee))/2-1.5)*tanh((V(n2)-(V(vcc)+V(vee))/2)/((V(vcc)-V(vee))/2-1.5))
+.ends
+
+* AD633 (DIP-8): 1 X1  2 X2  3 Y1  4 Y2  5 -VS  6 Z  7 W  8 +VS
+*   W = (X1-X2)(Y1-Y2)/10 V + Z, salida limitada a +/-11 V
+.subckt AD633 1 2 3 4 5 6 7 8
+Bw 7 0 V = 11*tanh(((V(1)-V(2))*(V(3)-V(4))/10 + V(6))/11)
+.ends
+
+* Relé Omron G5V-2 (DPDT), bobina 12 V entre 1 y 16. Conmuta con más de 6 V.
+*   1 bobina+  4 COM1  6 NC1  8 NO1  9 NO2  11 NC2  13 COM2  16 bobina-
+.subckt G5V2 1 4 6 8 9 11 13 16
+Rcoil 1 16 1k
+S1 4 6 16 1 RNC
+S2 4 8 1 16 RNO
+S3 13 11 16 1 RNC
+S4 13 9 1 16 RNO
+.model RNO SW(Vt=6 Vh=0.5 Ron=0.05 Roff=1e10)
+.model RNC SW(Vt=-6 Vh=0.5 Ron=0.05 Roff=1e10)
+.ends
+
+* Conmutador SPDT (1 A, 2 común, 3 C) en una posición fija para la simulación.
+.subckt SPDT_A 1 2 3
+R1 2 1 0.01
+R3 2 3 1e12
+.ends
+.subckt SPDT_C 1 2 3
+R1 2 1 1e12
+R3 2 3 0.01
+.ends
+
+.model 1N4148 D(Is=2.52n Rs=.568 N=1.752 Cjo=4p M=.4 Tt=20n)
+
+* Potenciómetro: 1 y 3 extremos, 2 cursor. pos = fracción del recorrido desde el pin 1
+* (pos = 0: cursor en el pin 1; pos = 1: cursor en el pin 3).
+.subckt POT 1 2 3 params: r=10k pos=0.5
+R1 1 2 {max(r*pos, 1m)}
+R2 2 3 {max(r*(1-pos), 1m)}
+.ends
+
+* ---------------------------------------------------------------------------
+* Módulos completos como bloques, para los esquemáticos de los programas.
+* Cada subcircuito es el circuito del módulo (mismas resistencias, relé y LF412).
+* ---------------------------------------------------------------------------
+* M2: potenciómetro de 10k entre -15 V y +15 V + seguidor. OUT = -15 + 30*pos
+.subckt M2_IC out vcc vee params: pos=0.5
+XP vee w vcc POT r=10k pos={pos}
+XA w out out vcc vee LF412_HALF
+.ends
+
+* M3: integrador sumador con condición inicial y relé IC/OPERAR (OP = 0 V: IC, 12 V: OPERAR)
+.subckt M3_INT x1 x10 x100a x100b x1000 sumin icin out op vcc vee params: c=1u
+R1 x1 sumin 1Meg
+R2 x10 sumin 100k
+R3 x100a sumin 10k
+R4 x100b sumin 10k
+R5 x1000 sumin 1k
+R6 icin icn 10k
+R7 icn o 10k
+XK op icn inv 0 inv 0 sumin 0 G5V2
+D1 0 op 1N4148
+C1 inv o {c}
+XA 0 inv o vcc vee LF412_HALF
+XB o out out vcc vee LF412_HALF
+.ends
+
+* M4: sumador inversor, Rf = 10k
+.subckt M4_SUM x10 x1a x1b x01a x01b sumin out vcc vee
+R1 x10 sumin 1k
+R2 x1a sumin 10k
+R3 x1b sumin 10k
+R4 x01a sumin 100k
+R5 x01b sumin 100k
+R6 sumin out 10k
+XA 0 sumin out vcc vee LF412_HALF
+.ends
+
+* M6: filtros RC 10k / 100nF de los canales X e Y
+.subckt M6_FILT xin yin xout yout
+R1 xin xout 10k
+C1 xout 0 100n
+R2 yin yout 10k
+C2 yout 0 100n
+.ends

@@ -1,5 +1,0 @@
-Coeficiente a·Vin (0 ≤ a ≤ 1), salida con buffer
-
-El buffer permite cargar la salida con 1 kΩ sin alterar el coeficiente.
-
-

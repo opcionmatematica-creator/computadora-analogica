@@ -1,0 +1,737 @@
+{
+"placa": {
+"x": 99.95,
+"y": 49.95,
+"w": 104.1,
+"h": 51.4,
+"grosor": 1.6
+},
+"componentes": [
+{
+"ref": "C1",
+"valor": "100nF",
+"huella": "C_Disc_D5.0mm_W2.5mm_P5.00mm",
+"descripcion": "C, Disc series, Radial, pin pitch=5.00mm, diameter*width=5*2.5mm^2, Capacitor, http://cdn-reichelt.de/documents/datenblatt/B300/DS_KERKO_TC.pdf",
+"x": 159.85,
+"y": 78.04,
+"giro": 0.0,
+"lado": "arriba",
+"courtyard": [
+158.755,
+76.495,
+165.945,
+79.585
+],
+"sin_modelo": false,
+"pads": [
+{
+"n": "1",
+"x": 159.85,
+"y": 78.04,
+"red": "+15V"
+},
+{
+"n": "2",
+"x": 164.85,
+"y": 78.04,
+"red": "GND"
+}
+]
+},
+{
+"ref": "C2",
+"valor": "100nF",
+"huella": "C_Disc_D5.0mm_W2.5mm_P5.00mm",
+"descripcion": "C, Disc series, Radial, pin pitch=5.00mm, diameter*width=5*2.5mm^2, Capacitor, http://cdn-reichelt.de/documents/datenblatt/B300/DS_KERKO_TC.pdf",
+"x": 159.85,
+"y": 82.69,
+"giro": 0.0,
+"lado": "arriba",
+"courtyard": [
+158.755,
+81.145,
+165.945,
+84.235
+],
+"sin_modelo": false,
+"pads": [
+{
+"n": "1",
+"x": 159.85,
+"y": 82.69,
+"red": "GND"
+},
+{
+"n": "2",
+"x": 164.85,
+"y": 82.69,
+"red": "-15V"
+}
+]
+},
+{
+"ref": "C3",
+"valor": "100nF",
+"huella": "C_Disc_D5.0mm_W2.5mm_P5.00mm",
+"descripcion": "C, Disc series, Radial, pin pitch=5.00mm, diameter*width=5*2.5mm^2, Capacitor, http://cdn-reichelt.de/documents/datenblatt/B300/DS_KERKO_TC.pdf",
+"x": 173.06,
+"y": 78.04,
+"giro": 0.0,
+"lado": "arriba",
+"courtyard": [
+171.965,
+76.495,
+179.155,
+79.585
+],
+"sin_modelo": false,
+"pads": [
+{
+"n": "1",
+"x": 173.06,
+"y": 78.04,
+"red": "+15V"
+},
+{
+"n": "2",
+"x": 178.06,
+"y": 78.04,
+"red": "GND"
+}
+]
+},
+{
+"ref": "C4",
+"valor": "100nF",
+"huella": "C_Disc_D5.0mm_W2.5mm_P5.00mm",
+"descripcion": "C, Disc series, Radial, pin pitch=5.00mm, diameter*width=5*2.5mm^2, Capacitor, http://cdn-reichelt.de/documents/datenblatt/B300/DS_KERKO_TC.pdf",
+"x": 173.06,
+"y": 82.69,
+"giro": 0.0,
+"lado": "arriba",
+"courtyard": [
+171.965,
+81.145,
+179.155,
+84.235
+],
+"sin_modelo": false,
+"pads": [
+{
+"n": "1",
+"x": 173.06,
+"y": 82.69,
+"red": "GND"
+},
+{
+"n": "2",
+"x": 178.06,
+"y": 82.69,
+"red": "-15V"
+}
+]
+},
+{
+"ref": "H1",
+"valor": "MountingHole_3.2mm",
+"huella": "",
+"descripcion": "",
+"x": 103.5,
+"y": 53.5,
+"giro": 0.0,
+"lado": "arriba",
+"courtyard": [
+0.0,
+0.0,
+0.0,
+0.0
+],
+"sin_modelo": true,
+"pads": [
+{
+"n": "",
+"x": 103.5,
+"y": 53.5,
+"red": ""
+}
+]
+},
+{
+"ref": "H2",
+"valor": "MountingHole_3.2mm",
+"huella": "",
+"descripcion": "",
+"x": 200.5,
+"y": 53.5,
+"giro": 0.0,
+"lado": "arriba",
+"courtyard": [
+0.0,
+0.0,
+0.0,
+0.0
+],
+"sin_modelo": true,
+"pads": [
+{
+"n": "",
+"x": 200.5,
+"y": 53.5,
+"red": ""
+}
+]
+},
+{
+"ref": "H3",
+"valor": "MountingHole_3.2mm",
+"huella": "",
+"descripcion": "",
+"x": 103.5,
+"y": 97.8,
+"giro": 0.0,
+"lado": "arriba",
+"courtyard": [
+0.0,
+0.0,
+0.0,
+0.0
+],
+"sin_modelo": true,
+"pads": [
+{
+"n": "",
+"x": 103.5,
+"y": 97.8,
+"red": ""
+}
+]
+},
+{
+"ref": "H4",
+"valor": "MountingHole_3.2mm",
+"huella": "",
+"descripcion": "",
+"x": 200.5,
+"y": 97.8,
+"giro": 0.0,
+"lado": "arriba",
+"courtyard": [
+0.0,
+0.0,
+0.0,
+0.0
+],
+"sin_modelo": true,
+"pads": [
+{
+"n": "",
+"x": 200.5,
+"y": 97.8,
+"red": ""
+}
+]
+},
+{
+"ref": "J1",
+"valor": "BUS",
+"huella": "PinHeader_1x04_P2.54mm_Vertical",
+"descripcion": "Through hole straight pin header, 1x04, 2.54mm pitch, single row",
+"x": 108.8,
+"y": 58.8,
+"giro": 0.0,
+"lado": "arriba",
+"courtyard": [
+106.985,
+56.985,
+110.615,
+68.235
+],
+"sin_modelo": false,
+"pads": [
+{
+"n": "1",
+"x": 108.8,
+"y": 58.8,
+"red": "+15V"
+},
+{
+"n": "2",
+"x": 108.8,
+"y": 61.34,
+"red": "GND"
+},
+{
+"n": "3",
+"x": 108.8,
+"y": 63.88,
+"red": "-15V"
+},
+{
+"n": "4",
+"x": 108.8,
+"y": 66.42,
+"red": "unconnected-(J1-Pin_4-Pad4)"
+}
+]
+},
+{
+"ref": "J2",
+"valor": "ENTRADAS",
+"huella": "PinHeader_1x04_P2.54mm_Vertical",
+"descripcion": "Through hole straight pin header, 1x04, 2.54mm pitch, single row",
+"x": 108.8,
+"y": 71.61,
+"giro": 0.0,
+"lado": "arriba",
+"courtyard": [
+106.985,
+69.795,
+110.615,
+81.045
+],
+"sin_modelo": false,
+"pads": [
+{
+"n": "1",
+"x": 108.8,
+"y": 71.61,
+"red": "/CIN1"
+},
+{
+"n": "2",
+"x": 108.8,
+"y": 74.15,
+"red": "/CIN2"
+},
+{
+"n": "3",
+"x": 108.8,
+"y": 76.69,
+"red": "/CIN3"
+},
+{
+"n": "4",
+"x": 108.8,
+"y": 79.23,
+"red": "/CIN4"
+}
+]
+},
+{
+"ref": "J3",
+"valor": "SALIDAS",
+"huella": "PinHeader_1x05_P2.54mm_Vertical",
+"descripcion": "Through hole straight pin header, 1x05, 2.54mm pitch, single row",
+"x": 195.21,
+"y": 69.07,
+"giro": 0.0,
+"lado": "arriba",
+"courtyard": [
+193.395,
+67.255,
+197.025,
+81.045
+],
+"sin_modelo": false,
+"pads": [
+{
+"n": "1",
+"x": 195.21,
+"y": 69.07,
+"red": "/COUT1"
+},
+{
+"n": "2",
+"x": 195.21,
+"y": 71.61,
+"red": "/COUT2"
+},
+{
+"n": "3",
+"x": 195.21,
+"y": 74.15,
+"red": "/COUT3"
+},
+{
+"n": "4",
+"x": 195.21,
+"y": 76.69,
+"red": "/COUT4"
+},
+{
+"n": "5",
+"x": 195.21,
+"y": 79.23,
+"red": "GND"
+}
+]
+},
+{
+"ref": "J4",
+"valor": "REF",
+"huella": "PinHeader_1x03_P2.54mm_Vertical",
+"descripcion": "Through hole straight pin header, 1x03, 2.54mm pitch, single row",
+"x": 108.8,
+"y": 84.42,
+"giro": 0.0,
+"lado": "arriba",
+"courtyard": [
+106.985,
+82.605,
+110.615,
+91.315
+],
+"sin_modelo": false,
+"pads": [
+{
+"n": "1",
+"x": 108.8,
+"y": 84.42,
+"red": "+15V"
+},
+{
+"n": "2",
+"x": 108.8,
+"y": 86.96,
+"red": "GND"
+},
+{
+"n": "3",
+"x": 108.8,
+"y": 89.5,
+"red": "-15V"
+}
+]
+},
+{
+"ref": "RV1",
+"valor": "10k lineal",
+"huella": "Potentiometer_Alps_RK09K_Single_Vertical",
+"descripcion": "113004U 1130A6S 11300DR 1130A8G 1130081 1130A5R 1130AP5 1130AST  D1130C3W D1130C1B D1130C3C D1130C2P Potentiometer, vertical, Alps RK09K Single, https://tech.alpsalpine.com/prod/e/pdf/potentiometer/rotarypotentiometers/rk09k/rk09k.pdf",
+"x": 124.27,
+"y": 64.18,
+"giro": 0.0,
+"lado": "arriba",
+"courtyard": [
+123.075,
+59.985,
+137.565,
+73.375
+],
+"sin_modelo": true,
+"pads": [
+{
+"n": "1",
+"x": 124.27,
+"y": 64.18,
+"red": "GND"
+},
+{
+"n": "2",
+"x": 124.27,
+"y": 66.68,
+"red": "/WIP1"
+},
+{
+"n": "3",
+"x": 124.27,
+"y": 69.18,
+"red": "/CIN1"
+},
+{
+"n": "MP",
+"x": 131.27,
+"y": 62.28,
+"red": ""
+},
+{
+"n": "MP",
+"x": 131.27,
+"y": 71.08,
+"red": ""
+}
+]
+},
+{
+"ref": "RV2",
+"valor": "10k lineal",
+"huella": "Potentiometer_Alps_RK09K_Single_Vertical",
+"descripcion": "113004U 1130A6S 11300DR 1130A8G 1130081 1130A5R 1130AP5 1130AST  D1130C3W D1130C1B D1130C3C D1130C2P Potentiometer, vertical, Alps RK09K Single, https://tech.alpsalpine.com/prod/e/pdf/potentiometer/rotarypotentiometers/rk09k/rk09k.pdf",
+"x": 124.27,
+"y": 79.12,
+"giro": 0.0,
+"lado": "arriba",
+"courtyard": [
+123.075,
+74.925,
+137.565,
+88.315
+],
+"sin_modelo": true,
+"pads": [
+{
+"n": "1",
+"x": 124.27,
+"y": 79.12,
+"red": "GND"
+},
+{
+"n": "2",
+"x": 124.27,
+"y": 81.62,
+"red": "/WIP2"
+},
+{
+"n": "3",
+"x": 124.27,
+"y": 84.12,
+"red": "/CIN2"
+},
+{
+"n": "MP",
+"x": 131.27,
+"y": 77.22,
+"red": ""
+},
+{
+"n": "MP",
+"x": 131.27,
+"y": 86.02,
+"red": ""
+}
+]
+},
+{
+"ref": "RV3",
+"valor": "10k lineal",
+"huella": "Potentiometer_Alps_RK09K_Single_Vertical",
+"descripcion": "113004U 1130A6S 11300DR 1130A8G 1130081 1130A5R 1130AP5 1130AST  D1130C3W D1130C1B D1130C3C D1130C2P Potentiometer, vertical, Alps RK09K Single, https://tech.alpsalpine.com/prod/e/pdf/potentiometer/rotarypotentiometers/rk09k/rk09k.pdf",
+"x": 141.22,
+"y": 64.18,
+"giro": 0.0,
+"lado": "arriba",
+"courtyard": [
+140.025,
+59.985,
+154.515,
+73.375
+],
+"sin_modelo": true,
+"pads": [
+{
+"n": "1",
+"x": 141.22,
+"y": 64.18,
+"red": "GND"
+},
+{
+"n": "2",
+"x": 141.22,
+"y": 66.68,
+"red": "/WIP3"
+},
+{
+"n": "3",
+"x": 141.22,
+"y": 69.18,
+"red": "/CIN3"
+},
+{
+"n": "MP",
+"x": 148.22,
+"y": 62.28,
+"red": ""
+},
+{
+"n": "MP",
+"x": 148.22,
+"y": 71.08,
+"red": ""
+}
+]
+},
+{
+"ref": "RV4",
+"valor": "10k lineal",
+"huella": "Potentiometer_Alps_RK09K_Single_Vertical",
+"descripcion": "113004U 1130A6S 11300DR 1130A8G 1130081 1130A5R 1130AP5 1130AST  D1130C3W D1130C1B D1130C3C D1130C2P Potentiometer, vertical, Alps RK09K Single, https://tech.alpsalpine.com/prod/e/pdf/potentiometer/rotarypotentiometers/rk09k/rk09k.pdf",
+"x": 141.22,
+"y": 79.12,
+"giro": 0.0,
+"lado": "arriba",
+"courtyard": [
+140.025,
+74.925,
+154.515,
+88.315
+],
+"sin_modelo": true,
+"pads": [
+{
+"n": "1",
+"x": 141.22,
+"y": 79.12,
+"red": "GND"
+},
+{
+"n": "2",
+"x": 141.22,
+"y": 81.62,
+"red": "/WIP4"
+},
+{
+"n": "3",
+"x": 141.22,
+"y": 84.12,
+"red": "/CIN4"
+},
+{
+"n": "MP",
+"x": 148.22,
+"y": 77.22,
+"red": ""
+},
+{
+"n": "MP",
+"x": 148.22,
+"y": 86.02,
+"red": ""
+}
+]
+},
+{
+"ref": "U1",
+"valor": "LF412",
+"huella": "DIP-8_W7.62mm_Socket",
+"descripcion": "8-lead though-hole mounted DIP package, row spacing 7.62mm (300 mils), Socket",
+"x": 158.54,
+"y": 65.69,
+"giro": 0.0,
+"lado": "arriba",
+"courtyard": [
+156.975,
+64.065,
+167.725,
+74.935
+],
+"sin_modelo": false,
+"pads": [
+{
+"n": "1",
+"x": 158.54,
+"y": 65.69,
+"red": "/COUT1"
+},
+{
+"n": "2",
+"x": 158.54,
+"y": 68.23,
+"red": "/COUT1"
+},
+{
+"n": "3",
+"x": 158.54,
+"y": 70.77,
+"red": "/WIP1"
+},
+{
+"n": "4",
+"x": 158.54,
+"y": 73.31,
+"red": "-15V"
+},
+{
+"n": "5",
+"x": 166.16,
+"y": 73.31,
+"red": "/WIP2"
+},
+{
+"n": "6",
+"x": 166.16,
+"y": 70.77,
+"red": "/COUT2"
+},
+{
+"n": "7",
+"x": 166.16,
+"y": 68.23,
+"red": "/COUT2"
+},
+{
+"n": "8",
+"x": 166.16,
+"y": 65.69,
+"red": "+15V"
+}
+]
+},
+{
+"ref": "U2",
+"valor": "LF412",
+"huella": "DIP-8_W7.62mm_Socket",
+"descripcion": "8-lead though-hole mounted DIP package, row spacing 7.62mm (300 mils), Socket",
+"x": 171.75,
+"y": 65.69,
+"giro": 0.0,
+"lado": "arriba",
+"courtyard": [
+170.185,
+64.065,
+180.935,
+74.935
+],
+"sin_modelo": false,
+"pads": [
+{
+"n": "1",
+"x": 171.75,
+"y": 65.69,
+"red": "/COUT3"
+},
+{
+"n": "2",
+"x": 171.75,
+"y": 68.23,
+"red": "/COUT3"
+},
+{
+"n": "3",
+"x": 171.75,
+"y": 70.77,
+"red": "/WIP3"
+},
+{
+"n": "4",
+"x": 171.75,
+"y": 73.31,
+"red": "-15V"
+},
+{
+"n": "5",
+"x": 179.37,
+"y": 73.31,
+"red": "/WIP4"
+},
+{
+"n": "6",
+"x": 179.37,
+"y": 70.77,
+"red": "/COUT4"
+},
+{
+"n": "7",
+"x": 179.37,
+"y": 68.23,
+"red": "/COUT4"
+},
+{
+"n": "8",
+"x": 179.37,
+"y": 65.69,
+"red": "+15V"
+}
+]
+}
+]
+}

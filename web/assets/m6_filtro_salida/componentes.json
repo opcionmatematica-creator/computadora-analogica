@@ -1,0 +1,358 @@
+{
+"placa": {
+"x": 99.95,
+"y": 49.95,
+"w": 54.8,
+"h": 50.2,
+"grosor": 1.6
+},
+"componentes": [
+{
+"ref": "C1",
+"valor": "100nF",
+"huella": "C_Disc_D5.0mm_W2.5mm_P5.00mm",
+"descripcion": "C, Disc series, Radial, pin pitch=5.00mm, diameter*width=5*2.5mm^2, Capacitor, http://cdn-reichelt.de/documents/datenblatt/B300/DS_KERKO_TC.pdf",
+"x": 126.75,
+"y": 71.23,
+"giro": 0.0,
+"lado": "arriba",
+"courtyard": [
+125.655,
+69.685,
+132.845,
+72.775
+],
+"sin_modelo": false,
+"pads": [
+{
+"n": "1",
+"x": 126.75,
+"y": 71.23,
+"red": "Net-(J2-In)"
+},
+{
+"n": "2",
+"x": 131.75,
+"y": 71.23,
+"red": "GND"
+}
+]
+},
+{
+"ref": "C2",
+"valor": "100nF",
+"huella": "C_Disc_D5.0mm_W2.5mm_P5.00mm",
+"descripcion": "C, Disc series, Radial, pin pitch=5.00mm, diameter*width=5*2.5mm^2, Capacitor, http://cdn-reichelt.de/documents/datenblatt/B300/DS_KERKO_TC.pdf",
+"x": 126.75,
+"y": 80.52,
+"giro": 0.0,
+"lado": "arriba",
+"courtyard": [
+125.655,
+78.975,
+132.845,
+82.065
+],
+"sin_modelo": false,
+"pads": [
+{
+"n": "1",
+"x": 126.75,
+"y": 80.52,
+"red": "Net-(J3-In)"
+},
+{
+"n": "2",
+"x": 131.75,
+"y": 80.52,
+"red": "GND"
+}
+]
+},
+{
+"ref": "H1",
+"valor": "MountingHole_3.2mm",
+"huella": "",
+"descripcion": "",
+"x": 103.5,
+"y": 53.5,
+"giro": 0.0,
+"lado": "arriba",
+"courtyard": [
+0.0,
+0.0,
+0.0,
+0.0
+],
+"sin_modelo": true,
+"pads": [
+{
+"n": "",
+"x": 103.5,
+"y": 53.5,
+"red": ""
+}
+]
+},
+{
+"ref": "H2",
+"valor": "MountingHole_3.2mm",
+"huella": "",
+"descripcion": "",
+"x": 151.2,
+"y": 53.5,
+"giro": 0.0,
+"lado": "arriba",
+"courtyard": [
+0.0,
+0.0,
+0.0,
+0.0
+],
+"sin_modelo": true,
+"pads": [
+{
+"n": "",
+"x": 151.2,
+"y": 53.5,
+"red": ""
+}
+]
+},
+{
+"ref": "H3",
+"valor": "MountingHole_3.2mm",
+"huella": "",
+"descripcion": "",
+"x": 103.5,
+"y": 96.6,
+"giro": 0.0,
+"lado": "arriba",
+"courtyard": [
+0.0,
+0.0,
+0.0,
+0.0
+],
+"sin_modelo": true,
+"pads": [
+{
+"n": "",
+"x": 103.5,
+"y": 96.6,
+"red": ""
+}
+]
+},
+{
+"ref": "H4",
+"valor": "MountingHole_3.2mm",
+"huella": "",
+"descripcion": "",
+"x": 151.2,
+"y": 96.6,
+"giro": 0.0,
+"lado": "arriba",
+"courtyard": [
+0.0,
+0.0,
+0.0,
+0.0
+],
+"sin_modelo": true,
+"pads": [
+{
+"n": "",
+"x": 151.2,
+"y": 96.6,
+"red": ""
+}
+]
+},
+{
+"ref": "J1",
+"valor": "X / Y / GND",
+"huella": "PinHeader_1x03_P2.54mm_Vertical",
+"descripcion": "Through hole straight pin header, 1x03, 2.54mm pitch, single row",
+"x": 108.8,
+"y": 71.01,
+"giro": 0.0,
+"lado": "arriba",
+"courtyard": [
+106.985,
+69.195,
+110.615,
+77.905
+],
+"sin_modelo": false,
+"pads": [
+{
+"n": "1",
+"x": 108.8,
+"y": 71.01,
+"red": "/X_IN"
+},
+{
+"n": "2",
+"x": 108.8,
+"y": 73.55,
+"red": "/Y_IN"
+},
+{
+"n": "3",
+"x": 108.8,
+"y": 76.09,
+"red": "GND"
+}
+]
+},
+{
+"ref": "J2",
+"valor": "BNC X",
+"huella": "BNC_Amphenol_B6252HB-NPP3G-50_Horizontal",
+"descripcion": "http://www.farnell.com/datasheets/612848.pdf",
+"x": 140.62,
+"y": 64.88,
+"giro": -90.0,
+"lado": "arriba",
+"courtyard": [
+137.875,
+56.985,
+174.465,
+72.775
+],
+"sin_modelo": false,
+"pads": [
+{
+"n": "1",
+"x": 140.62,
+"y": 64.88,
+"red": "Net-(J2-In)"
+},
+{
+"n": "2",
+"x": 145.7,
+"y": 59.8,
+"red": "GND"
+},
+{
+"n": "2",
+"x": 140.62,
+"y": 62.34,
+"red": "GND"
+},
+{
+"n": "2",
+"x": 145.7,
+"y": 69.96,
+"red": "GND"
+}
+]
+},
+{
+"ref": "J3",
+"valor": "BNC Y",
+"huella": "BNC_Amphenol_B6252HB-NPP3G-50_Horizontal",
+"descripcion": "http://www.farnell.com/datasheets/612848.pdf",
+"x": 140.62,
+"y": 82.23,
+"giro": -90.0,
+"lado": "arriba",
+"courtyard": [
+137.875,
+74.335,
+174.465,
+90.125
+],
+"sin_modelo": false,
+"pads": [
+{
+"n": "1",
+"x": 140.62,
+"y": 82.23,
+"red": "Net-(J3-In)"
+},
+{
+"n": "2",
+"x": 145.7,
+"y": 77.15,
+"red": "GND"
+},
+{
+"n": "2",
+"x": 140.62,
+"y": 79.69,
+"red": "GND"
+},
+{
+"n": "2",
+"x": 145.7,
+"y": 87.31,
+"red": "GND"
+}
+]
+},
+{
+"ref": "R1",
+"valor": "10k",
+"huella": "R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal",
+"descripcion": "Resistor, Axial_DIN0207 series, Axial, Horizontal, pin pitch=10.16mm, 0.25W = 1/4W, length*diameter=6.3*2.5mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf",
+"x": 124.17,
+"y": 66.58,
+"giro": 0.0,
+"lado": "arriba",
+"courtyard": [
+123.075,
+65.035,
+135.425,
+68.125
+],
+"sin_modelo": false,
+"pads": [
+{
+"n": "1",
+"x": 124.17,
+"y": 66.58,
+"red": "/X_IN"
+},
+{
+"n": "2",
+"x": 134.33,
+"y": 66.58,
+"red": "Net-(J2-In)"
+}
+]
+},
+{
+"ref": "R2",
+"valor": "10k",
+"huella": "R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal",
+"descripcion": "Resistor, Axial_DIN0207 series, Axial, Horizontal, pin pitch=10.16mm, 0.25W = 1/4W, length*diameter=6.3*2.5mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf",
+"x": 124.17,
+"y": 75.88,
+"giro": 0.0,
+"lado": "arriba",
+"courtyard": [
+123.075,
+74.335,
+135.425,
+77.425
+],
+"sin_modelo": false,
+"pads": [
+{
+"n": "1",
+"x": 124.17,
+"y": 75.88,
+"red": "/Y_IN"
+},
+{
+"n": "2",
+"x": 134.33,
+"y": 75.88,
+"red": "Net-(J3-In)"
+}
+]
+}
+]
+}

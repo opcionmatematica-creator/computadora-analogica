@@ -1,0 +1,27 @@
+[
+ {
+  "titulo": "BUS",
+  "img": "p1.svg",
+  "ancho_mm": 63.4
+ },
+ {
+  "titulo": "POTENCIÓMETRO DE CONDICIÓN INICIAL",
+  "img": "p2.svg",
+  "ancho_mm": 52.5
+ },
+ {
+  "titulo": "SEGUIDOR (aislamiento)",
+  "img": "p3.svg",
+  "ancho_mm": 61.7
+ },
+ {
+  "titulo": "ALIMENTACIÓN U1",
+  "img": "p4.svg",
+  "ancho_mm": 72.6
+ },
+ {
+  "titulo": "SALIDA",
+  "img": "p5.svg",
+  "ancho_mm": 49.8
+ }
+]

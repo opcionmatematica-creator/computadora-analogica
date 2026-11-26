@@ -1,5 +1,0 @@
-Estabilidad de la corriente frente a la tensión de alimentación
-
-Una vez hay compliancia suficiente, la corriente casi no cambia con Vcc.
-
-

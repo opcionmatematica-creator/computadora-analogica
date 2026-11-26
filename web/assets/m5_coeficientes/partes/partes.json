@@ -1,0 +1,32 @@
+[
+ {
+  "titulo": "BUS",
+  "img": "p1.svg",
+  "ancho_mm": 81.2
+ },
+ {
+  "titulo": "ENTRADAS / REFERENCIAS",
+  "img": "p2.svg",
+  "ancho_mm": 49.7
+ },
+ {
+  "titulo": "CANALES 1-2 (U1)",
+  "img": "p3.svg",
+  "ancho_mm": 92.0
+ },
+ {
+  "titulo": "CANALES 3-4 (U2)",
+  "img": "p4.svg",
+  "ancho_mm": 93.3
+ },
+ {
+  "titulo": "ALIMENTACIÓN U1/U2",
+  "img": "p5.svg",
+  "ancho_mm": 89.1
+ },
+ {
+  "titulo": "SALIDAS",
+  "img": "p6.svg",
+  "ancho_mm": 63.4
+ }
+]

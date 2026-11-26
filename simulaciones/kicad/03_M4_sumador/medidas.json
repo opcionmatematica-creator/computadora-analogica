@@ -1,0 +1,30 @@
+{
+ "modulo": "m4_sumador",
+ "esquematico": "m4_sumador_sim.kicad_sch",
+ "puntos": [
+  {
+   "ref": "TP1",
+   "nombre": "TP1 V1",
+   "que": "Entrada V1 por 10 kΩ (ganancia 1)",
+   "esperado": "Seno de 2 V de pico a 1 Hz"
+  },
+  {
+   "ref": "TP2",
+   "nombre": "TP2 V2",
+   "que": "Entrada V2 por 100 kΩ (ganancia 0.1)",
+   "esperado": "10 V constantes"
+  },
+  {
+   "ref": "TP3",
+   "nombre": "TP3 SUMIN",
+   "que": "Nodo suma (tierra virtual)",
+   "esperado": "≈ 0 V: por eso las entradas no se afectan entre sí"
+  },
+  {
+   "ref": "TP4",
+   "nombre": "TP4 OUT",
+   "que": "Salida del sumador",
+   "esperado": "OUT = -(V1 + 0.1·V2) = -(2 sen(2π t) + 1): seno de 2 V centrado en -1 V"
+  }
+ ]
+}

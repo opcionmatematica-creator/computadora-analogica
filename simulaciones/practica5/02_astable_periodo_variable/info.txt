@@ -1,5 +1,0 @@
-Variación del período con RV1 = RV2
-
-Con RV de 0 a 50 kΩ la frecuencia va de 7.2 Hz a 1.2 Hz.
-
-

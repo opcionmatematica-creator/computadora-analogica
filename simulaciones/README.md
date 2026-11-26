@@ -1,40 +1,42 @@
-# Simulaciones (ngspice)
+# Simulaciones (hechas en KiCad)
 
-Todas las simulaciones del proyecto, una carpeta por circuito. Cada carpeta contiene:
+Cada simulación es un **esquemático de KiCad** listo para el simulador: el circuito del módulo (o del
+programa), las fuentes de prueba, el modelo SPICE de cada pieza y la directiva de análisis (`.tran`)
+escrita en la hoja. Para verla en KiCad 10:
 
-| Archivo | Qué es |
-|---|---|
-| `circuito.cir` | netlist ngspice: se puede correr en ngspice o abrir en el simulador de KiCad |
-| `datos.csv` | los datos de las curvas (se abre en Excel o LibreOffice) |
-| `grafica.png` | la gráfica |
-| `info.txt` | qué muestra y las cifras clave |
+1. Abre `kicad/<NN_nombre>/<nombre>_sim.kicad_pro` (o el `.kicad_sch`).
+2. *Inspeccionar → Simulador → Ejecutar*.
+3. Pulsa en cada punto de prueba **TP1, TP2…** del esquemático para ver su señal.
+
+Los modelos de todas las piezas (LF412, AD633, relé G5V-2, potenciómetro, 1N4148 y los módulos
+como bloques para los programas) están en `kicad/modelos.lib`; cada esquemático lo usa con la
+ruta relativa `../modelos.lib`, así que la carpeta `kicad/` se copia entera.
 
 ```
 simulaciones/
-├── ejecutar_todo.py              <- regenera todo
-├── comun.py                      <- modelos SPICE compartidos (LF412, AD633, 2N3904, 2N3906, BD139/140, LED, diodos)
-├── ngspice.py                    <- usa el ngspice.dll que trae KiCad (no hay que instalar nada)
-├── computadora_analogica.py
-├── computadora_analogica/
-│   ├── 01_M2_condicion_inicial/
-│   ├── 02_M3_integrador/
-│   ├── 03_M4_sumador/
-│   ├── 04_M5_coeficientes/
-│   ├── 05_M6_filtro_salida/
-│   ├── 06_M7_multiplicador/
-│   ├── 07_programa_caida_libre_g9.8/
-│   ├── 08_programa_caida_libre_g12/
-│   └── 09_programa_lorenz/
-├── practica5.py
-└── practica5/
-    ├── 01_astable_formas_de_onda/
-    ├── 02_astable_periodo_variable/
-    ├── 03_astable_frecuencia_maxima/
-    ├── 04_sensor_buzzer_R3_vs_R4/
-    ├── 05_fuente_corriente_vs_Rload/
-    ├── 06_fuente_corriente_vs_Vcc/
-    ├── 07_puente_h_giro/
-    └── 08_puente_h_estado_prohibido/
+├── ejecutar_todo.py        <- redibuja los esquemáticos de simulación y los simula
+├── simular_kicad.py        <- hace lo mismo que el botón «Ejecutar» de KiCad, sin abrir KiCad:
+│                              kicad-cli exporta el netlist SPICE y el ngspice de KiCad lo simula
+├── ngspice.py              <- usa el ngspice.dll que trae KiCad (no hay que instalar nada)
+└── kicad/
+    ├── modelos.lib
+    ├── 01_M2_condicion_inicial/      m2_condicion_inicial_sim.kicad_sch  + medidas.json
+    ├── 02_M3_integrador/
+    ├── 03_M4_sumador/
+    ├── 04_M5_coeficientes/
+    ├── 05_M6_filtro_salida/
+    ├── 06_M7_multiplicador/
+    ├── 07_programa_caida_libre_g9.8/
+    ├── 08_programa_caida_libre_g12/
+    └── 09_programa_lorenz/
 ```
 
-Para regenerarlo todo: `python simulaciones/ejecutar_todo.py`. Necesita Python con numpy y matplotlib, y KiCad 10.
+Después de simular, cada carpeta tiene además `circuito.cir` (el netlist que exporta KiCad),
+`datos.csv` (la tensión en cada TP) y `grafica.png`. `medidas.json` dice qué se mide en cada TP y
+qué se debe ver; la web lo muestra en la pestaña «Simulación» de cada módulo.
+
+Ningún circuito está escrito en Python: los esquemáticos los dibuja `hardware/gen_completos.py`
+(módulos, con las mismas piezas que el esquemático completo) y `hardware/gen_sim_programas.py`
+(programas), y se pueden editar directamente en KiCad.
+
+Para regenerarlo todo: `python simulaciones/ejecutar_todo.py` (Python con numpy y matplotlib, y KiCad 10).

@@ -4,8 +4,6 @@ import { SIMS } from "./sims.js";
 import { viewBoard, disposeViewer } from "./viewer3d.js";
 import { systemSvg, wireList, SYSTEMS } from "./sistema.js";
 import { protoSystemSvg, protoWireList } from "./sistema_proto.js";
-import { layout as protoLayout, render as protoRender } from "./protoboard.js";
-import { P5, P5_DOC, P5_RUBRICA_PRACTICA, measureTable } from "./practica5.js";
 
 const $ = (s, r = document) => r.querySelector(s);
 const main = $("#main");
@@ -51,9 +49,6 @@ function nav() {
     ${MODULES.map(m => `<a href="#/m/${m.id}" data-r="/m/${m.id}"><span class="ico">${m.icon}</span>${m.short}<em>×${m.qty}</em></a>`).join("")}
     <div class="nav-h">Programas</div>
     ${PROGRAMS.map(p => `<a href="#/p/${p.id}" data-r="/p/${p.id}"><span class="ico">${p.icon}</span>${p.name.split(" (")[0]}</a>`).join("")}
-    <div class="nav-h">Práctica 5 · Transistores</div>
-    <a href="#/p5" data-r="/p5"><span class="ico">✎</span>Guía y rúbrica</a>
-    ${P5.map(p => `<a href="#/p5/${p.id}" data-r="/p5/${p.id}"><span class="ico">${p.icon}</span>${p.n}. ${p.short}<em>${p.peso}%</em></a>`).join("")}
     <div class="nav-h">Proyecto</div>
     <a href="#/sistema" data-r="/sistema"><span class="ico">⧉</span>Sistema completo</a>
     <a href="#/unidad" data-r="/unidad"><span class="ico">▦</span>Unidad del artículo</a>
@@ -74,8 +69,6 @@ function route() {
   }
   if (r.startsWith("/p/")) return pageProgram(PROGRAMS.find(p => p.id === r.slice(3)) || PROGRAMS[0]);
   if (r.startsWith("/sistema")) return pageSystem(r.split("/")[2]);
-  if (r === "/p5") return pageP5Home();
-  if (r.startsWith("/p5/")) { const [, , id, tab] = r.split("/"); return pageP5(P5.find(p => p.id === id) || P5[0], tab); }
   ({ "/bom": pageBom, "/herramientas": pageTools, "/articulo": pagePaper, "/unidad": pageUnit }[r] || pageHome)();
 }
 
@@ -119,14 +112,15 @@ function pageHome() {
     <li>Pasar a OPERAR y registrar con el osciloscopio.</li><li>Comparar con la solución y repetir.</li>
   </ol>`));
   // traza decorativa: lorenz precalculado por ngspice
-  fetch(`${A("sim")}/prog_lorenz.json`).then(r => r.json()).then(j => {
+  fetch(`${A("sim")}/kicad/prog_lorenz.json`).then(r => r.json()).then(j => {
     const c = $("#heroScope"); if (!c) return;
-    plot(c, { series: [{ x: j.data.X.slice(300), y: j.data.Z.slice(300), width: 1 }], xlabel: "X (V)", ylabel: "Z (V)", equal: true, xlim: [-2.6, 2.6], ylim: [-0.3, 5.3] });
+    const X = j.puntos[0].y.map(v => -v), Z = j.puntos[2].y;
+    plot(c, { series: [{ x: X.slice(300), y: Z.slice(300), width: 1 }], xlabel: "X (V)", ylabel: "Z (V)", equal: true, xlim: [-2.6, 2.6], ylim: [-0.3, 5.3] });
   });
 }
 
 // ---------------------------------------------------------------- módulo
-const TABS = [["res", "Resumen"], ["sch", "Esquemático"], ["pcb", "PCB y 3D"], ["sim", "Simulación"], ["mon", "Montaje PCB"], ["proto", "Protoboard"], ["test", "Prueba"], ["files", "Archivos"]];
+const TABS = [["res", "Resumen"], ["sch", "Esquemático"], ["pcb", "PCB y 3D"], ["sim", "Simulación"], ["mat", "Materiales"], ["proto", "Protoboard"], ["test", "Prueba"], ["files", "Archivos"]];
 
 function pageModule(m, tab) {
   const idx = MODULES.indexOf(m);
@@ -145,12 +139,13 @@ function pageModule(m, tab) {
     disposeViewer();
     tabs.forEach(b => b.classList.toggle("act", b.dataset.t === k));
     const t = $("#tab"); t.innerHTML = "";
-    ({ res: tabRes, sch: tabSch, pcb: tabPcb, sim: tabSim, mon: tabMon, proto: (t, m) => montajeView(t, m), test: tabTest, files: tabFiles }[k])(t, m);
+    ({ res: tabRes, sch: tabSch, pcb: tabPcb, sim: tabSim, mat: tabMat, proto: (t, m) => montajeView(t, m), test: tabTest, files: tabFiles }[k])(t, m);
     history.replaceState(null, "", `#/m/${m.id}/${k}`);
     sessionStorage.setItem("tab", k);
   };
   tabs.forEach(b => b.addEventListener("click", () => show(b.dataset.t)));
-  show(tab || sessionStorage.getItem("tab") || "res");
+  const want = tab || sessionStorage.getItem("tab") || "res";
+  show(TABS.some(([k]) => k === want) ? want : "res");
 }
 
 function tabRes(t, m) {
@@ -166,6 +161,7 @@ function tabRes(t, m) {
 }
 
 function zoomable(t, src, caption, dark = false) {
+  const box = document.createElement("div"); t.append(box); t = box;
   const wrap = h(`<div class="zoom${dark ? " dark" : ""}"><div class="zoom-tools"><button data-z="1.25">＋</button><button data-z="0.8">－</button><button data-z="0">ajustar</button>
     <a href="${src}" target="_blank">abrir</a></div><div class="zoom-view"><img src="${src}" draggable="false"></div>${caption ? `<p class="muted small">${caption}</p>` : ""}</div>`);
   t.append(wrap);
@@ -293,8 +289,26 @@ function systemSchematic(t) {
   t.querySelectorAll("[data-z]").forEach(b => b.onclick = () => (+b.dataset.z ? pz.zoom(+b.dataset.z) : pz.reset()));
 }
 
-function tabSch(t, m) {
-  zoomable(t, `${A(m.id)}/esquematico.svg`, "Esquemático KiCad 10 generado por <code>hardware/gen_schematics.py</code> y verificado contra el netlist de KiCad y el ERC (0 errores). Rueda = zoom, arrastrar = mover.");
+async function tabSch(t, m, sub) {
+  sub = sub || sessionStorage.getItem("schsub") || "partes";
+  t.append(h(`<nav class="subtabs"><button data-s="partes">Por partes</button><button data-s="completo">Completo</button></nav><div id="schsub"></div>`));
+  const box = $("#schsub");
+  t.querySelectorAll(".subtabs button").forEach(b => {
+    b.classList.toggle("act", b.dataset.s === sub);
+    b.onclick = () => { sessionStorage.setItem("schsub", b.dataset.s); t.innerHTML = ""; tabSch(t, m, b.dataset.s); };
+  });
+  if (sub === "completo") {
+    zoomable(box, `${A(m.id)}/completo.svg`, `Esquemático completo: <b>cada conexión es un cable dibujado</b>, sin etiquetas de red que se unen por su nombre.
+      Lo genera <code>hardware/gen_completos.py</code>, y el netlist de KiCad confirma que tiene exactamente las mismas conexiones que la placa (ERC sin errores).
+      <a href="${A(m.id)}/completo.pdf" target="_blank">PDF</a>. Rueda = zoom, arrastrar = mover.`);
+    return;
+  }
+  const parts = await (await fetch(`${A(m.id)}/partes/partes.json`)).json();
+  box.append(h(`<p class="muted small">El módulo dividido en sus bloques funcionales, uno por recuadro del esquemático KiCad (<code>hardware/gen_schematics.py</code>).
+    Entre bloques, las etiquetas con el mismo nombre (p. ej. <code>SUMIN</code>) son el mismo cable: en la pestaña «Completo» están dibujados.
+    Clic en un bloque para verlo en grande.</p>
+    <div class="parts">${parts.map((p, i) => `<figure class="part"><figcaption><span class="step">${i + 1}</span>${esc(p.titulo)}</figcaption>
+      <a href="${A(m.id)}/partes/${p.img}" target="_blank"><img src="${A(m.id)}/partes/${p.img}" loading="lazy"></a></figure>`).join("")}</div>`));
 }
 
 function tabPcb(t, m) {
@@ -307,80 +321,56 @@ function tabPcb(t, m) {
 }
 
 async function tabSim(t, m) {
-  t.append(h(`<h3>Simulador interactivo</h3><p class="muted small">Modelo ideal con la saturación del LF412 (±13.5 V). Mueve los controles.</p><div id="live"></div>
-    <h3>Simulación ngspice del circuito</h3><div id="spice"></div>`));
+  t.append(h(`<div id="ksim"></div>
+    <details class="live"><summary>Simulador interactivo aproximado (en el navegador)</summary>
+      <p class="muted small">Modelo ideal con la saturación del LF412 (±13.5 V), para mover los controles. La simulación de verdad es la de KiCad, arriba.</p><div id="live"></div></details>`));
   SIMS[m.sim]($("#live"));
-  const box = $("#spice");
-  try {
-    if (m.id === "m1_fuente") throw 0;      // M1 es lógica de control: no tiene simulación SPICE
-    const j = await (await fetch(`${A("sim")}/${m.id}.json`)).json();
-    spicePlot(box, j, m.id);
-  } catch { box.innerHTML = `<p class="muted">Este módulo no tiene simulación SPICE (es lógica de control). Prueba el simulador de arriba.</p>`; }
-}
-
-// ---------------------------------------------------------------- Práctica 5
-async function p5Results() {
-  if (!p5Results.cache) p5Results.cache = await (await fetch(`${A("sim")}/p5_resumen.json`)).json();
-  return p5Results.cache;
-}
-
-function pageP5Home() {
-  main.innerHTML = "";
-  main.append(h(`
-    <header class="phead"><span class="step big">✎</span><div><h1>Práctica 5: aplicaciones de los transistores</h1>
-    <p class="muted">Taller IV: Electrónica Análoga (3006875) · Departamento de Física · UNAL Medellín · 2026-II</p></div></header>
-    <p class="lead">Práctica <b>evaluada oralmente</b>: el profesor pregunta por el comportamiento de los componentes y por las señales de cada punto. Todo dato, tabla, gráfica, foto del montaje, simulación y análisis cuenta, pero <b>solo si queda registrado en el documento</b>. Aquí tienes, para cada punto, la teoría, los cálculos, el esquemático KiCad, la simulación ngspice, el montaje en protoboard y una tabla para tus mediciones.</p>
-    <div class="cards">${P5.map(p => `<a class="card" href="#/p5/${p.id}"><div class="card-b"><span class="step">${p.n}</span><h3>${esc(p.short)}</h3>
-      <p>${esc(p.enunciado.split(". ")[0])}.</p><span class="qty">${p.peso} % de la nota</span></div></a>`).join("")}</div>
-    <h2>Rúbrica</h2>
-    <h3>A. Puntos de la práctica: 80 %</h3>
-    <div class="tbl"><table><thead><tr><th>Punto</th><th>Peso</th><th>Debe evidenciar</th></tr></thead>
-      ${P5.map(p => `<tr><td><a href="#/p5/${p.id}">${p.n}. ${esc(p.short)}</a></td><td>${p.peso} %</td><td>${p.rubrica.map(esc).join("; ")}.</td></tr>`).join("")}</table></div>
-    <h3>B. Desempeño práctico en el laboratorio: 20 % (debe verse en las fotos y en el documento)</h3>
-    <div class="tbl"><table><thead><tr><th>Criterio</th><th>Peso</th><th>Qué se evalúa</th></tr></thead>
-      ${P5_RUBRICA_PRACTICA.map(r => `<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td></tr>`).join("")}</table></div>
-    <h3>Materiales</h3>
-    <p>Transistores 2N3904 (×6) y 2N3906 (×1); BD139 (×2) y BD140 (×2); diodos 1N4007 (×5); LED rojos (×3); condensadores electrolíticos de 10 µF (×2); potenciómetros de 10 kΩ (×1) y 50 kΩ (×2); buzzer de 5 V; motor DC de 6–9 V. Resistencias: 24 Ω o el buzzer, 33 Ω, 68 Ω, 100 Ω, 180 Ω ½ W (×2), 200 Ω, 220 Ω, 330 Ω, 470 Ω, 680 Ω, 820 Ω (×2), 1 kΩ (×12), 2.2 kΩ (×2), 10 kΩ (×3) y 15 kΩ. También protoboard, cables (rojo, negro o verde y otros colores), fuente DC doble, multímetro y osciloscopio.</p>
-    <p><a class="btn ghost" href="${P5_DOC}" target="_blank">Ver el enunciado original (PDF)</a></p>`));
-}
-
-const P5TABS = [["guia", "Guía y respuestas"], ["sch", "Esquemático"], ["sim", "Simulación"], ["proto", "Protoboard"], ["med", "Mediciones"], ["rub", "Rúbrica"], ["files", "Archivos"]];
-async function pageP5(p, tab) {
-  tab = tab || "guia";
-  const R = await p5Results();
-  main.innerHTML = "";
-  main.append(h(`<header class="phead"><span class="step big">${p.n}</span><div><h1>${esc(p.name)}</h1><p class="muted">${p.peso} % de la nota · Práctica 5</p></div></header>
-    <div class="tip"><b>Enunciado:</b> ${esc(p.enunciado)}</div>
-    <nav class="tabs">${P5TABS.map(([k, n]) => `<button data-t="${k}" class="${k === tab ? "act" : ""}">${n}</button>`).join("")}</nav><div id="tab"></div>
-    <footer class="pager">${p.n > 1 ? `<a href="#/p5/${P5[p.n - 2].id}">← Punto ${p.n - 1}</a>` : `<a href="#/p5">← Guía</a>`}
-      ${p.n < P5.length ? `<a href="#/p5/${P5[p.n].id}">Punto ${p.n + 1} →</a>` : "<span></span>"}</footer>`));
-  main.querySelectorAll(".tabs button").forEach(b => b.onclick = () => { location.hash = `#/p5/${p.id}/${b.dataset.t}`; });
-  const t = $("#tab");
-  if (tab === "guia") t.append(h(p.body(R)));
-  if (tab === "sch") zoomable(t, `${A(p.id)}/esquematico.svg`, "Esquemático KiCad 10 generado por <code>hardware/gen_practica5.py</code>, verificado contra el netlist de KiCad, con ERC sin errores.");
-  if (tab === "sim") for (const s of p.sims) spicePlot(t, await (await fetch(`${A("sim")}/${s}.json`)).json(), s);
-  if (tab === "proto") protoView(t, p.id);
-  if (tab === "med") { t.append(h(`<p>Anota aquí lo que midas en el laboratorio y compáralo con la simulación. Para la nota, cópialo a tu documento con fotos del montaje y capturas del osciloscopio.</p><div id="mt"></div>`)); measureTable($("#mt"), p.id, p.tabla, esc); }
-  if (tab === "rub") {
-    t.append(h(`<h3>Lo que debe evidenciar este punto (${p.peso} %)</h3><ol class="steps check">${p.rubrica.map(r => `<li><label><input type="checkbox" data-r> ${esc(r)}</label></li>`).join("")}</ol>
-      <h3>Desempeño práctico (20 % de la práctica)</h3><ol class="steps check">${P5_RUBRICA_PRACTICA.map(r => `<li><label><input type="checkbox"> <b>${r[0]}:</b> ${r[2]}</label></li>`).join("")}</ol>`));
-    t.querySelectorAll("input").forEach((c, i) => {
-      const k = `p5rub:${p.id}:${i}`;
-      try { c.checked = localStorage.getItem(k) === "1"; } catch {}
-      c.onchange = () => { try { localStorage.setItem(k, c.checked ? "1" : "0"); } catch {} };
-    });
+  if (m.id === "m1_fuente") {
+    $("#ksim").innerHTML = `<div class="tip">M1 es la fuente y la lógica de control (regulador, LED e interruptor): no tiene una señal que simular.
+      Su salida OP aparece como fuente en las simulaciones de M3 y de los programas.</div>`;
+    return;
   }
-  if (tab === "files") t.append(h(`<div class="files">
-    ${[["kicad.zip", "Proyecto KiCad (esquemático)"], ["esquematico.pdf", "Esquemático en PDF"], ["bom.csv", "Lista de materiales (CSV)"]].map(([n, d]) => `<a class="file" href="${A(p.id)}/${n}" download><b>${n}</b><span>${d}</span></a>`).join("")}
-    <a class="file" href="${P5_DOC}" target="_blank"><b>Enunciado (PDF)</b><span>Práctica 5 original</span></a></div>
-    <p class="muted small">Las simulaciones de este punto (netlist <code>.cir</code>, datos <code>.csv</code> y gráfica <code>.png</code>) están en <code>simulaciones/practica5/</code>.</p>`));
+  await kicadSim($("#ksim"), m.id);
 }
 
-function spicePlot(box, j, id) {
-  const c = document.createElement("canvas"); c.className = "scope"; box.append(c);
-  const series = j.data.series.map(s => ({ name: s.name, x: s.xs || j.data.x, y: s.y, dash: s.xs ? [6, 4] : undefined }));
-  plot(c, { series, xlabel: j.meta.xlabel, ylabel: j.meta.ylabel, logx: j.data.logx, equal: j.data.xy });
-  box.append(h(`<p class="caption"><b>${esc(j.meta.title)}</b> ${esc(j.meta.note || "")} <a href="../${j.meta.carpeta}/circuito.cir" download>netlist (.cir)</a> · <a href="../${j.meta.carpeta}/datos.csv" download>datos (.csv)</a> · <code>${esc(j.meta.carpeta)}</code></p>`));
+// simulación hecha en KiCad (simulaciones/kicad/*): esquemático + un apartado por punto de prueba
+async function kicadSim(box, id) {
+  const j = await (await fetch(`${A("sim")}/kicad/${id}.json`)).json();
+  const sch = j.esquematico.split("/").pop();
+  box.append(h(`<div class="tip"><b>Simulación hecha en KiCad.</b> El circuito, las fuentes de prueba, los modelos SPICE y la directiva
+      <code>.${j.analisis}</code> están en el esquemático <code>${esc(sch)}</code>: descárgalo, ábrelo en KiCad 10 y pulsa
+      <i>Inspeccionar → Simulador → Ejecutar</i>; después pulsa en cada punto de prueba (TP) para ver su señal.
+      <div class="sim-btns"><a class="btn" href="${A(id)}/simulacion_kicad.zip" download>Descargar la simulación (KiCad)</a>
+      <button class="btn ghost desk-only" data-open="${id}">Abrir en KiCad</button>
+      <a class="btn ghost" href="../${j.carpeta}/" target="_blank">Carpeta: netlist, datos.csv y gráfica</a></div><p class="muted small simmsg"></p></div>
+    <h3>Esquemático de la simulación</h3><div class="simsch"></div>
+    <h3>Dónde medir y qué se debe ver</h3>
+    <p class="muted small">Cada apartado es un punto de prueba del esquemático: a la izquierda, la parte del circuito donde va la punta del osciloscopio
+      (o del multímetro); a la derecha, la señal que da la simulación de KiCad en ese punto.</p>
+    <div class="tps"></div>`));
+  zoomable(box.querySelector(".simsch"), j.imagen, "Las fuentes V son el banco de prueba (en el montaje real son la fuente del laboratorio y las señales de entrada). Rueda = zoom, arrastrar = mover.");
+  box.querySelectorAll("[data-open]").forEach(b => b.onclick = async () => {
+    const r = await fetch(`/api/kicad?sim=${id}`, { method: "POST" });
+    box.querySelector(".simmsg").textContent = r.ok ? "Abierto en KiCad." : "No se pudo abrir: " + (await r.text());
+  });
+  const T = box.querySelector(".tps");
+  for (const p of j.puntos) {
+    T.append(h(`<section class="tp"><div class="tp-img"><a href="${p.recorte}" target="_blank"><img src="${p.recorte}" loading="lazy"></a></div>
+      <div class="tp-b"><h4><span class="tpn">${esc(p.ref)}</span> ${esc(p.que)}</h4><canvas class="scope sm"></canvas>
+      <p class="small"><b>Qué se debe ver:</b> ${esc(p.esperado)}</p>
+      <p class="small muted">KiCad: mínimo ${p.min.toFixed(3)} V · máximo ${p.max.toFixed(3)} V · al final ${p.final.toFixed(3)} V</p></div></section>`));
+    plot(T.lastElementChild.querySelector("canvas"), { series: [{ name: p.nombre, x: j.x, y: p.y }], xlabel: j.xlabel, ylabel: "V" });
+  }
+  if (j.xy) {
+    const [a, b] = j.xy.map(r => j.puntos.find(p => p.ref === r));
+    const sg = p => (j.invertir || []).includes(p.ref) ? -1 : 1;
+    const xs = a.y.map(v => v * sg(a)), ys = b.y.map(v => v * sg(b));
+    const xl = sg(a) < 0 ? `X (${a.ref} con el signo cambiado)` : a.nombre;
+    box.append(h(`<h3>Osciloscopio en modo X-Y</h3><canvas class="scope xy"></canvas>
+      <p class="caption">${esc(xl)} en el eje horizontal y ${esc(b.nombre)} en el vertical, como en el osciloscopio del artículo.</p>`));
+    plot(box.querySelector("canvas.xy"), { series: [{ name: "KiCad", x: xs, y: ys, width: 1 }], xlabel: xl, ylabel: b.nombre, equal: true });
+  }
+  return j;
 }
 
 // montaje en protoboard paso a paso (web/montaje/, hecho con la skill protoboard-paso-a-paso y verificado contra el netlist)
@@ -395,64 +385,42 @@ function montajeView(t, m) {
       Cómo se une con las demás protoboards: <a href="#/sistema/protoboards">Sistema completo → Protoboards conectadas</a>.</p>`));
 }
 
-// montaje en protoboard (generado del netlist de KiCad)
-export async function protoView(t, id, intro = "") {
-  t.append(h(`<div class="tip"><b>Código de colores</b> (rúbrica): <span class="cc r">rojo</span> = alimentación ·
-    <span class="cc k">negro</span>/<span class="cc g">verde</span> = tierra · cualquier otro color = señal. Cables cortos y pegados a la protoboard; arma primero los rieles.</div>
-    ${intro}
-    <div class="sys-bar"><span class="muted small">Pasa el ratón por un cable para resaltar su conexión. Rueda = zoom, arrastrar = mover.</span><span class="grow"></span>
-      <button class="iconbtn" data-z="1.25">＋</button><button class="iconbtn" data-z="0.8">－</button><button class="iconbtn" data-z="0">⤢</button></div>
-    <div class="sys-view proto-view"><div id="pbx"></div></div>
-    <h3>Paso a paso (coordenadas: fila + columna, p. ej. <code>c12</code>)</h3><ol class="steps check" id="pbs"></ol>
-    <p class="muted small">Disposición calculada automáticamente del netlist de KiCad, así que las conexiones son las del esquemático. Antes de energizar, comprueba con el multímetro en continuidad que no haya cortos entre los rieles.</p>`));
-  try {
-    const net = await (await fetch(`${A(id)}/netlist.json`)).json();
-    const L = protoLayout(net);
-    $("#pbx").innerHTML = protoRender(L);
-    $("#pbs").innerHTML = L.steps.map(s => `<li><label><input type="checkbox"> ${esc(s)}</label></li>`).join("");
-    const pz = panZoom($(".proto-view"));
-    t.querySelectorAll("[data-z]").forEach(b => b.onclick = () => (+b.dataset.z ? pz.zoom(+b.dataset.z) : pz.reset()));
-    $("#pbx").addEventListener("mouseover", e => {
-      const n = e.target.dataset && e.target.dataset.net;
-      $("#pbx").querySelectorAll("path.wire").forEach(p => p.classList.toggle("dim", !!n && p.dataset.net !== n));
-    });
-  } catch (e) { $("#pbx").innerHTML = `<p class="muted" style="padding:20px">No se pudo generar el montaje: ${esc(e.message)}</p>`; }
-}
-
-async function tabMon(t, m) {
-  t.append(h(`<h3>Lista de materiales</h3><div id="bom" class="tbl"></div><h3>Pasos de montaje</h3>
-    <ol class="steps">${m.build.map(s => `<li>${esc(s)}</li>`).join("")}</ol>
-    <div class="tip"><b>Consejo:</b> monta y prueba los módulos en orden (M1 → M7). Así, si algo falla, sabes que es el último módulo montado.</div>`));
+async function tabMat(t, m) {
+  t.append(h(`<h3>Materiales de un módulo</h3><div id="bom" class="tbl"></div>
+    <p class="muted small">Sale del esquemático KiCad (<code>kicad-cli sch export bom</code>). Para la máquina completa, ver
+      <a href="#/bom">Lista total de materiales</a>: este módulo se fabrica ×${m.qty}.</p>`));
   const rows = await csv(`${A(m.id)}/bom.csv`);
-  $("#bom").innerHTML = `<table><thead><tr><th>Cant.</th><th>Valor</th><th>Referencias</th><th>Encapsulado</th></tr></thead><tbody>
-    ${rows.slice(1).map(r => `<tr><td>${r[3]}</td><td><b>${esc(r[1])}</b></td><td>${esc(r[0])}</td><td class="small">${esc(r[2].split(":")[1] || r[2])}</td></tr>`).join("")}</tbody></table>`;
+  const tot = rows.slice(1).reduce((a, r) => a + +r[3], 0);
+  $("#bom").innerHTML = `<table><thead><tr><th>Cant.</th><th>Valor</th><th>Referencias</th><th>Encapsulado</th><th>Para ×${m.qty}</th></tr></thead><tbody>
+    ${rows.slice(1).map(r => `<tr><td>${r[3]}</td><td><b>${esc(r[1])}</b></td><td>${esc(r[0])}</td><td class="small">${esc(r[2].split(":")[1] || r[2])}</td><td>${+r[3] * m.qty}</td></tr>`).join("")}
+    <tr><td><b>${tot}</b></td><td colspan="3" class="muted">piezas en total</td><td><b>${tot * m.qty}</b></td></tr></tbody></table>`;
 }
 
 function tabTest(t, m) {
   t.append(h(`<h3>Prueba del módulo</h3><ol class="steps check">${m.test.map(s => `<li><label><input type="checkbox"> ${esc(s)}</label></li>`).join("")}</ol>
     <div id="expect"></div>`));
-  fetch(`${A("sim")}/resumen.json`).then(r => r.json()).then(r => {
-    const map = {
-      m2_condicion_inicial: `Rango simulado de IC_OUT: ${r.m2_ic_range.map(v => v.toFixed(1)).join(" a ")} V.`,
-      m3_integrador: `ngspice: nivel IC ${r.m3_ic_level.toFixed(3)} V (esperado −2 V), pendiente ${r.m3_slope_V_per_s.toFixed(4)} V/s (esperado −1 V/s).`,
-      m4_sumador: `ngspice: error máximo de la suma ${r.m4_err_mV.toFixed(3)} mV.`,
-      m6_filtro_salida: `ngspice: −3 dB a ${r.m6_fc_Hz.toFixed(0)} Hz.`,
-    };
-    if (map[m.id]) $("#expect").innerHTML = `<div class="tip"><b>Valor de referencia:</b> ${map[m.id]}</div>`;
+  if (m.id === "m1_fuente") return;
+  fetch(`${A("sim")}/kicad/${m.id}.json`).then(r => r.json()).then(j => {
+    $("#expect").innerHTML = `<h3>Valores de referencia (simulación KiCad)</h3><ol class="steps check">${j.puntos.map(p =>
+      `<li><label><input type="checkbox"> <b>${esc(p.ref)}</b> ${esc(p.que)}: ${esc(p.esperado)}
+        <span class="muted small">(KiCad: ${p.min.toFixed(2)} a ${p.max.toFixed(2)} V)</span></label></li>`).join("")}</ol>
+      <p class="muted small">Dónde está cada TP: pestaña «Simulación».</p>`;
   });
 }
 
 function tabFiles(t, m) {
   const f = [
-    ["kicad.zip", "Proyecto KiCad completo (esquemático + PCB)"], ["esquematico.pdf", "Esquemático en PDF"],
+    ["kicad.zip", "Proyecto KiCad completo (esquemático, completo y PCB)"], ["esquematico.pdf", "Esquemático en PDF"],
+    ["completo.pdf", "Esquemático completo (todo con cables) en PDF"],
+    ...(m.id === "m1_fuente" ? [] : [["simulacion_kicad.zip", "Simulación KiCad (esquemático + modelos)"]]),
     ["bom.csv", "Lista de materiales (CSV)"], ["placa.glb", "Modelo 3D (GLB)"], ["render.png", "Render Blender"], ["pcb_top.svg", "PCB, capa superior (SVG)"],
   ];
   t.append(h(`<div class="files">${f.map(([n, d]) => `<a class="file" href="${A(m.id)}/${n}" download><b>${n}</b><span>${d}</span></a>`).join("")}
-    ${m.id === "m1_fuente" ? "" : `<a class="file" href="../simulaciones/" target="_blank"><b>simulaciones/</b><span>Netlist, datos CSV y gráfica de la simulación</span></a>`}</div>
+    ${m.id === "m1_fuente" ? "" : `<a class="file" href="../simulaciones/kicad/" target="_blank"><b>simulaciones/kicad/</b><span>Simulaciones KiCad: esquemático, netlist, datos y gráfica</span></a>`}</div>
     <div class="desk-only"><h3>Abrir con las herramientas</h3>
       <button class="btn" data-a="kicad">Abrir en KiCad</button> <button class="btn ghost" data-a="folder">Abrir la carpeta</button>
       <p class="muted small" id="actmsg"></p></div>
-    <p class="muted small web-only">Abre la aplicación de escritorio (<code>Computadora Analogica.bat</code>) para abrir los proyectos directamente en KiCad.</p>`));
+    <p class="muted small web-only">Abre la aplicación de escritorio (<code>Computadora Analogica.vbs</code>) para abrir los proyectos directamente en KiCad.</p>`));
   t.querySelectorAll("[data-a]").forEach(b => b.onclick = async () => {
     const r = await fetch(`/api/${b.dataset.a}?mod=${m.id}`, { method: "POST" });
     $("#actmsg").textContent = r.ok ? "Abierto." : "No se pudo abrir: " + (await r.text());
@@ -508,24 +476,28 @@ async function pageProgram(p) {
     <h3>Diagrama de cableado (el «programa»)</h3>${patchSvg(p)}
     <h3>Conexiones paso a paso</h3><ol class="steps check">${p.wiring.map(w => `<li><label><input type="checkbox"> ${esc(w)}</label></li>`).join("")}</ol>
     <div class="tip">${esc(p.note)}</div>
-    <h3>Simulador interactivo</h3><div id="live"></div>
-    <h3>Simulación ngspice del circuito completo</h3><div id="spice"></div>`));
+    <h2>Simulación en KiCad del programa completo</h2>
+    ${p.id === "prog_lorenz" ? "" : `<div class="sys-bar"><button class="toggle on" data-g="prog_caida_libre">g = 9.8 m/s² (Fig. 13)</button>
+      <button class="toggle" data-g="prog_caida_libre_g12">g = 12 m/s² (Fig. 15)</button></div>`}
+    <p class="muted small">Cada módulo es un bloque cuyo modelo SPICE es su circuito completo (resistencias, relé y LF412); los bloques se unen con cables como en la máquina.</p>
+    <div id="spice"></div>
+    <details class="live"><summary>Simulador interactivo aproximado (en el navegador)</summary><div id="live"></div></details>`));
   SIMS[p.id]($("#live"));
-  const box = $("#spice");
-  if (p.id === "prog_lorenz") {
-    const j = await (await fetch(`${A("sim")}/prog_lorenz.json`)).json();
-    const c = document.createElement("canvas"); c.className = "scope"; box.append(c);
-    plot(c, { series: [{ name: "X vs Z (ngspice, 30 s)", x: j.data.X, y: j.data.Z, width: 1 }], xlabel: j.meta.xlabel, ylabel: j.meta.ylabel, equal: true });
-    box.append(h(`<p class="caption">${esc(j.meta.note)} <a href="../${j.meta.carpeta}/circuito.cir" download>netlist (.cir)</a> · <code>${esc(j.meta.carpeta)}</code></p>`));
-  } else {
-    for (const id of ["prog_caida_libre", "prog_caida_libre_g12"]) spicePlot(box, await (await fetch(`${A("sim")}/${id}.json`)).json(), id);
-    const r = await (await fetch(`${A("sim")}/resumen.json`)).json();
-    const c = r.caida_libre;
-    box.append(h(`<table class="tbl"><thead><tr><th>Medida</th><th>Artículo (circuito real)</th><th>ngspice</th><th>Teoría</th></tr></thead><tbody>
-      <tr><td>Altura máxima desde el suelo</td><td>2 + 2.3 = 4.3 m</td><td>${c.Hmax_sim.toFixed(3)} m</td><td>${c.Hmax_teo.toFixed(3)} m</td></tr>
-      <tr><td>Error</td><td>≈ 10 % (Tabla 1)</td><td>${(Math.abs(c.Hmax_sim - c.Hmax_teo) / c.Hmax_teo * 100).toFixed(3)} %</td><td>—</td></tr></tbody></table>
-      <p class="muted small">El artículo atribuye su 10 % a la tolerancia acumulada de las resistencias de 1 % y a una fuente que variaba un 10 %. La simulación usa valores exactos: monta con resistencias de 0.1 % en las entradas de 1 MΩ si quieres acercarte.</p>`));
-  }
+  const draw = async id => {
+    const box = $("#spice"); box.innerHTML = "";
+    const j = await kicadSim(box, id);
+    if (j.teoria) {
+      const t = j.teoria, ymax = j.puntos.find(q => q.ref === "TP2").max, teo = t.y0 + t.vy ** 2 / (2 * t.g);
+      box.append(h(`<table class="tbl"><thead><tr><th>Medida</th><th>Artículo (circuito real)</th><th>KiCad</th><th>Teoría</th></tr></thead><tbody>
+        <tr><td>Altura máxima desde el suelo</td><td>${t.g === 9.8 ? "2 + 2.3 = 4.3 m" : "—"}</td><td>${ymax.toFixed(3)} m</td><td>${teo.toFixed(3)} m</td></tr>
+        <tr><td>Error</td><td>${t.g === 9.8 ? "≈ 10 % (Tabla 1)" : "—"}</td><td>${(Math.abs(ymax - teo) / teo * 100).toFixed(2)} %</td><td>—</td></tr></tbody></table>
+        <p class="muted small">El artículo atribuye su 10 % a la tolerancia acumulada de las resistencias de 1 % y a una fuente que variaba un 10 %. La simulación usa valores exactos.</p>`));
+    }
+  };
+  main.querySelectorAll("[data-g]").forEach(b => b.onclick = () => {
+    main.querySelectorAll("[data-g]").forEach(x => x.classList.toggle("on", x === b)); draw(b.dataset.g);
+  });
+  draw(p.id);
 }
 
 // ---------------------------------------------------------------- unidad del artículo
@@ -575,21 +547,25 @@ function pageTools() {
   main.innerHTML = "";
   main.append(h(`<header class="phead"><span class="step big">⚙</span><div><h1>Herramientas y flujo de trabajo</h1><p class="muted">Todo se genera con scripts: si cambias un valor, lo vuelves a generar.</p></div></header>
   <div class="pipeline">
-    <div><b>1 · KiCad 10</b><code>hardware/gen_schematics.py</code><p>Esquemáticos (schlib), verificados contra el netlist de KiCad y el ERC.</p></div>
-    <div><b>2 · KiCad PCB</b><code>hardware/gen_pcb.py</code><p>Placa por módulo: colocación, contorno, agujeros M3, serigrafía y DRC.</p></div>
-    <div><b>3 · ngspice</b><code>simulaciones/ejecutar_todo.py</code><p>Simulación del circuito con modelos del LF412 y del AD633 y el ngspice.dll de KiCad.</p></div>
-    <div><b>4 · Exportar</b><code>hardware/export_assets.py</code><p>SVG, PDF, BOM, GLB 3D y ZIP de cada módulo para la web.</p></div>
-    <div><b>5 · Blender 5.3</b><code>blender/render_all.sh</code><p>Render Cycles de cada placa a partir del GLB.</p></div>
-    <div><b>6 · Web</b><code>web/</code><p>Esta aplicación: HTML, JS y three.js, sin compilación. Se publica tal cual en cualquier hosting estático.</p></div>
+    <div><b>1 · KiCad 10</b><code>hardware/gen_schematics.py</code><p>Esquemático de cada módulo por bloques (schlib), verificado contra el netlist de KiCad y el ERC.</p></div>
+    <div><b>2 · Completo</b><code>hardware/gen_completos.py</code><p>El mismo circuito con todas las conexiones dibujadas con cable, y la hoja de simulación de cada módulo.</p></div>
+    <div><b>3 · KiCad PCB</b><code>hardware/gen_pcb.py</code><p>Placa por módulo: colocación, contorno, agujeros M3, serigrafía y DRC.</p></div>
+    <div><b>4 · Simulación KiCad</b><code>simulaciones/ejecutar_todo.py</code><p>Esquemáticos de simulación de KiCad (módulos y programas) simulados con el ngspice de KiCad.</p></div>
+    <div><b>5 · Exportar</b><code>hardware/export_assets.py</code><p>SVG, PDF, BOM, partes, GLB 3D y ZIP de cada módulo; <code>export_componentes.py</code> para el visor 3D.</p></div>
+    <div><b>6 · Blender</b><code>blender/render_all.sh</code><p>Render Cycles de cada placa a partir del GLB.</p></div>
+    <div><b>7 · App</b><code>app/</code> · <code>web/</code><p>La web (HTML, JS y three.js, sin compilación) y la app de escritorio, un ejecutable de Rust sin dependencias.</p></div>
   </div>
   <h3>Regenerar todo</h3><pre>cd computadora-analogica
 python hardware/gen_schematics.py
+python hardware/gen_completos.py
 "%LOCALAPPDATA%\\Programs\\KiCad\\10.0\\bin\\python.exe" hardware/gen_pcb.py
 python simulaciones/ejecutar_todo.py
 python hardware/export_assets.py
-bash blender/render_all.sh</pre>
+"%LOCALAPPDATA%\\Programs\\KiCad\\10.0\\bin\\python.exe" hardware/export_componentes.py
+bash blender/render_all.sh
+cargo build --release --manifest-path app/Cargo.toml</pre>
   <h3>Estado del diseño</h3><ul class="steps">
-    <li><b>Hecho:</b> esquemáticos (netlist verificado y ERC sin errores), colocación de las PCB (DRC sin errores de colocación), simulación, modelos 3D y renders.</li>
+    <li><b>Hecho:</b> esquemáticos por partes y completos (netlist verificado y ERC sin errores), colocación de las PCB (DRC sin errores de colocación), simulación en KiCad de cada módulo y de los programas, modelos 3D y renders.</li>
     <li><b>Pendiente: el ruteo de las pistas.</b> Las placas están colocadas y con las conexiones (ratsnest), pero sin pistas. Opciones: rutearlas a mano en KiCad (son placas pequeñas de agujero pasante) o con Freerouting, que necesita Java.</li>
     <li>Mientras tanto, cada módulo se puede montar en una placa perforada o una protoboard siguiendo el esquemático.</li></ul>
   <h3>Publicar como página web</h3><p>La carpeta <code>web/</code> (más <code>docs/</code> y <code>simulaciones/</code>) es un sitio estático: súbela a GitHub Pages, Netlify o cualquier servidor. Lo único que no funciona fuera de la app de escritorio son los botones «Abrir en KiCad».</p>`));

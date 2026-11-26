@@ -1,0 +1,22 @@
+[
+ {
+  "titulo": "BUS",
+  "img": "p1.svg",
+  "ancho_mm": 68.5
+ },
+ {
+  "titulo": "ENTRADAS",
+  "img": "p2.svg",
+  "ancho_mm": 54.1
+ },
+ {
+  "titulo": "MULTIPLICADOR U1",
+  "img": "p3.svg",
+  "ancho_mm": 99.7
+ },
+ {
+  "titulo": "SALIDA",
+  "img": "p4.svg",
+  "ancho_mm": 50.0
+ }
+]

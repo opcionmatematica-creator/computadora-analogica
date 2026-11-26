@@ -61,8 +61,49 @@ def crop_svg(path, pad=6.0):
     open(path, "w", encoding="utf8").write(s)
 
 
+def partes(sch, outdir, margin=4.0):
+    """Un recorte por bloque del esquemático (cada rectángulo con su título): «por partes»."""
+    import json
+    import re
+    shutil.rmtree(outdir, ignore_errors=True)
+    os.makedirs(outdir)
+    tmp = outdir + "_tmp"
+    run("sch", "export", "svg", "-o", tmp, sch)
+    svg = open(glob.glob(os.path.join(tmp, "*.svg"))[0], encoding="utf8").read()
+    shutil.rmtree(tmp, ignore_errors=True)
+    text = open(sch, encoding="utf8").read()
+    rects = re.findall(r"^	\(rectangle\s*\(start ([-\d.]+) ([-\d.]+)\)\s*\(end ([-\d.]+) ([-\d.]+)\)", text, re.M)
+    titles = [(m.group(1), float(m.group(2)), float(m.group(3)))
+              for m in re.finditer(r'^	\(text "([^"]*)"\s*\(exclude_from_sim \w+\)\s*\(at ([-\d.]+) ([-\d.]+)', text, re.M)]
+    items = []
+    boxes = sorted(((min(float(a), float(c)), min(float(b), float(d)), max(float(a), float(c)), max(float(b), float(d)))
+                    for a, b, c, d in rects), key=lambda r: (round(r[1] / 40.0), r[0]))
+    for i, (x1, y1, x2, y2) in enumerate(boxes):
+        t = [n for n, tx, ty in titles if y1 - 6 <= ty <= y1 + 0.5 and x1 - 3 <= tx <= x2]
+        name = f"p{i + 1}.svg"
+        x, y, w, h = x1 - margin, y1 - margin - 5.0, (x2 - x1) + 2 * margin, (y2 - y1) + 2 * margin + 5.0
+        u = re.sub(r'viewBox="[^"]+"', 'viewBox="%g %g %g %g"' % (x, y, w, h), svg, count=1)
+        u = re.sub(r'width="[^"]+"', 'width="%.1fmm"' % w, u, count=1)
+        u = re.sub(r'height="[^"]+"', 'height="%.1fmm"' % h, u, count=1)
+        open(os.path.join(outdir, name), "w", encoding="utf8").write(u)
+        items.append({"titulo": (t[0] if t else f"Parte {i + 1}").replace("\n", " "), "img": name, "ancho_mm": round(w, 1)})
+    json.dump(items, open(os.path.join(outdir, "partes.json"), "w", encoding="utf8"), ensure_ascii=False, indent=1)
+
+
+def sim_zip(folder, wid):
+    """ZIP con la simulación de KiCad lista para abrir: la carpeta + modelos.lib al lado."""
+    kdir = os.path.join(ROOT, "simulaciones", "kicad")
+    out = os.path.join(ROOT, "web", "assets", wid)
+    os.makedirs(out, exist_ok=True)
+    with zipfile.ZipFile(os.path.join(out, "simulacion_kicad.zip"), "w", zipfile.ZIP_DEFLATED) as z:
+        z.write(os.path.join(kdir, "modelos.lib"), "modelos.lib")
+        for f in glob.glob(os.path.join(kdir, folder, "*")):
+            if os.path.isfile(f) and not f.endswith(".png"):
+                z.write(f, os.path.join(folder, os.path.basename(f)))
+
+
 def export(mod, png=False):
-    pdir = os.path.join(HERE, mod) if os.path.isdir(os.path.join(HERE, mod)) else os.path.join(HERE, "practica5", mod)
+    pdir = os.path.join(HERE, mod)
     out = os.path.join(ROOT, "web", "assets", mod)
     os.makedirs(out, exist_ok=True)
     sch = os.path.join(pdir, mod + ".kicad_sch")
@@ -73,6 +114,16 @@ def export(mod, png=False):
         crop_svg(os.path.join(out, "esquematico.svg"))
     shutil.rmtree(tmp, ignore_errors=True)
     run("sch", "export", "pdf", "-o", os.path.join(out, "esquematico.pdf"), sch)
+    partes(sch, os.path.join(out, "partes"))
+    # esquemático completo: todo con cables (hardware/<modulo>/completo, gen_completos.py)
+    comp = os.path.join(pdir, "completo", mod + "_completo.kicad_sch")
+    if os.path.exists(comp):
+        run("sch", "export", "svg", "--exclude-drawing-sheet", "-o", tmp, comp)
+        for f in glob.glob(os.path.join(tmp, "*.svg")):
+            shutil.move(f, os.path.join(out, "completo.svg"))
+            crop_svg(os.path.join(out, "completo.svg"))
+        shutil.rmtree(tmp, ignore_errors=True)
+        run("sch", "export", "pdf", "-o", os.path.join(out, "completo.pdf"), comp)
     run("sch", "export", "bom", "-o", os.path.join(out, "bom.csv"),
         "--fields", "Reference,Value,Footprint,${QUANTITY}", "--group-by", "Value,Footprint",
         "--labels", "Referencias,Valor,Huella,Cantidad", sch)
@@ -111,9 +162,12 @@ def combined_pdf():
 
 if __name__ == "__main__":
     mods = sorted(os.path.basename(p) for p in glob.glob(os.path.join(HERE, "m*_*")) if os.path.isdir(p))
-    mods += sorted(os.path.basename(p) for p in glob.glob(os.path.join(HERE, "practica5", "p5_*")) if os.path.isdir(p))
     sel = [a for a in sys.argv[1:] if not a.startswith("-")]
     for m in mods:
         if not sel or any(m.startswith(s) for s in sel):
             export(m, "--png" in sys.argv)
+    import json
+    for f in sorted(glob.glob(os.path.join(ROOT, "simulaciones", "kicad", "*", "medidas.json"))):
+        med = json.load(open(f, encoding="utf8"))
+        sim_zip(os.path.basename(os.path.dirname(f)), med.get("id") or med["modulo"])
     combined_pdf()

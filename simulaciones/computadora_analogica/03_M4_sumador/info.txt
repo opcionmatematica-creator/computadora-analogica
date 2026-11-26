@@ -1,5 +1,0 @@
-Sumador inversor: OUT = -(V1 + V2)
-
-
-
-

@@ -1,0 +1,11 @@
+.title KiCad schematic
+.include "C:/Users/opcio/1-Proyectos-Business/computadora-analogica/simulaciones/kicad/modelos.lib"
+.tran 1m 1
+V4 Net-_U1-Y1_ GND DC 0 SIN( 0 8 3 ) 
+V3 Net-_U1-X1_ GND DC 0 SIN( 0 5 1 ) 
+V2 GND -15V DC 15 
+C2 GND -15V 100n
+XU1 Net-_U1-X1_ GND Net-_U1-Y1_ GND -15V GND Net-_U1-W_ +15V AD633
+V1 +15V GND DC 15 
+C1 +15V GND 100n
+.end

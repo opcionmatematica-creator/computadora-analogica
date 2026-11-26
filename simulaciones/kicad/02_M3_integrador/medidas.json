@@ -1,0 +1,30 @@
+{
+ "modulo": "m3_integrador",
+ "esquematico": "m3_integrador_sim.kicad_sch",
+ "puntos": [
+  {
+   "ref": "TP1",
+   "nombre": "TP1 entrada",
+   "que": "Entrada IN_X1 (1 MΩ, k = 1/s)",
+   "esperado": "1 V constante"
+  },
+  {
+   "ref": "TP2",
+   "nombre": "TP2 OP",
+   "que": "Control OP del relé",
+   "esperado": "0 V (IC) hasta t = 0.5 s; luego 12 V (OPERAR)"
+  },
+  {
+   "ref": "TP3",
+   "nombre": "TP3 INV",
+   "que": "Entrada inversora del integrador (tierra virtual)",
+   "esperado": "≈ 0 V todo el tiempo"
+  },
+  {
+   "ref": "TP4",
+   "nombre": "TP4 salida",
+   "que": "Salida del integrador (buffer U1B)",
+   "esperado": "-2 V durante IC; al pasar a OPERAR baja a -1 V/s hasta saturar en -13.5 V"
+  }
+ ]
+}

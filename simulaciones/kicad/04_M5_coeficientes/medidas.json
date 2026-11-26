@@ -1,0 +1,30 @@
+{
+ "modulo": "m5_coeficientes",
+ "esquematico": "m5_coeficientes_sim.kicad_sch",
+ "puntos": [
+  {
+   "ref": "TP1",
+   "nombre": "TP1 CIN",
+   "que": "Entrada CIN de los canales 1 y 2",
+   "esperado": "Seno de 10 V de pico a 1 Hz"
+  },
+  {
+   "ref": "TP2",
+   "nombre": "TP2 cursor 1",
+   "que": "Cursor de RV1 (posición 30 %)",
+   "esperado": "0.3 × CIN = seno de 3 V de pico"
+  },
+  {
+   "ref": "TP3",
+   "nombre": "TP3 COUT1",
+   "que": "Salida del canal 1",
+   "esperado": "Igual que el cursor: seno de 3 V de pico"
+  },
+  {
+   "ref": "TP4",
+   "nombre": "TP4 COUT2",
+   "que": "Salida del canal 2 (RV2 al 70 %)",
+   "esperado": "0.7 × CIN = seno de 7 V de pico"
+  }
+ ]
+}

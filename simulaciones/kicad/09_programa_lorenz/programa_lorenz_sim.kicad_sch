@@ -1,0 +1,6951 @@
+(kicad_sch
+	(version 20260306)
+	(generator "eeschema")
+	(generator_version "10.0")
+	(uuid "d2a5a926-7918-5015-b2f9-d7b01e95ff84")
+	(paper "A2")
+	(title_block
+		(title "Programa: atractor de Lorenz (Fig. 18)")
+		(date "2026-11-26")
+		(rev "A")
+		(company "Computadora analogica (Johnson 2016)")
+		(comment 1 "3 integradores (M3), 2 multiplicadores (M7), 1 inversor (M4)")
+	)
+	(lib_symbols
+		(symbol "Connector:TestPoint"
+				(pin_numbers
+					(hide yes)
+				)
+				(pin_names
+					(offset 0.762)
+					(hide yes)
+				)
+				(exclude_from_sim no)
+				(in_bom yes)
+				(on_board yes)
+				(in_pos_files yes)
+				(duplicate_pin_numbers_are_jumpers no)
+				(property "Reference" "TP"
+					(at 0 6.858 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(property "Value" "TestPoint"
+					(at 0 5.08 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(property "Footprint" ""
+					(at 5.08 0 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(hide yes)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(property "Datasheet" ""
+					(at 5.08 0 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(hide yes)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(property "Description" "test point"
+					(at 0 0 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(hide yes)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(property "ki_keywords" "test point tp"
+					(at 0 0 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(hide yes)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(property "ki_fp_filters" "Pin* Test*"
+					(at 0 0 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(hide yes)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(symbol "TestPoint_0_1"
+					(circle
+						(center 0 3.302)
+						(radius 0.762)
+						(stroke
+							(width 0)
+							(type default)
+						)
+						(fill
+							(type none)
+						)
+					)
+				)
+				(symbol "TestPoint_1_1"
+					(pin passive line
+						(at 0 0 90)
+						(length 2.54)
+						(name "1"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+						(number "1"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+					)
+				)
+				(embedded_fonts no)
+			)
+		(symbol "Device:R"
+				(pin_numbers
+					(hide yes)
+				)
+				(pin_names
+					(offset 0)
+				)
+				(exclude_from_sim no)
+				(in_bom yes)
+				(on_board yes)
+				(in_pos_files yes)
+				(duplicate_pin_numbers_are_jumpers no)
+				(property "Reference" "R"
+					(at 2.032 0 90)
+					(show_name no)
+					(do_not_autoplace no)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(property "Value" "R"
+					(at 0 0 90)
+					(show_name no)
+					(do_not_autoplace no)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(property "Footprint" ""
+					(at -1.778 0 90)
+					(show_name no)
+					(do_not_autoplace no)
+					(hide yes)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(property "Datasheet" ""
+					(at 0 0 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(hide yes)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(property "Description" "Resistor"
+					(at 0 0 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(hide yes)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(property "ki_keywords" "R res resistor"
+					(at 0 0 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(hide yes)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(property "ki_fp_filters" "R_*"
+					(at 0 0 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(hide yes)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(symbol "R_0_1"
+					(rectangle
+						(start -1.016 -2.54)
+						(end 1.016 2.54)
+						(stroke
+							(width 0.254)
+							(type default)
+						)
+						(fill
+							(type none)
+						)
+					)
+				)
+				(symbol "R_1_1"
+					(pin passive line
+						(at 0 3.81 270)
+						(length 1.27)
+						(name ""
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+						(number "1"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+					)
+					(pin passive line
+						(at 0 -3.81 90)
+						(length 1.27)
+						(name ""
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+						(number "2"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+					)
+				)
+				(embedded_fonts no)
+			)
+		(symbol "Simulation_SPICE:VDC"
+				(pin_numbers
+					(hide yes)
+				)
+				(pin_names
+					(offset 0.0254)
+				)
+				(exclude_from_sim no)
+				(in_bom yes)
+				(on_board yes)
+				(in_pos_files yes)
+				(duplicate_pin_numbers_are_jumpers no)
+				(property "Reference" "V"
+					(at 2.54 2.54 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+						(justify left)
+					)
+				)
+				(property "Value" "1"
+					(at 2.54 0 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+						(justify left)
+					)
+				)
+				(property "Footprint" ""
+					(at 0 0 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(hide yes)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(property "Datasheet" "https://ngspice.sourceforge.io/docs/ngspice-html-manual/manual.xhtml#sec_Independent_Sources_for"
+					(at 0 0 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(hide yes)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(property "Description" "Voltage source, DC"
+					(at 0 0 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(hide yes)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(property "Sim.Pins" "1=+ 2=-"
+					(at 0 0 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(hide yes)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(property "Sim.Type" "DC"
+					(at 0 0 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(hide yes)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(property "Sim.Device" "V"
+					(at 0 0 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(hide yes)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+						(justify left)
+					)
+				)
+				(property "ki_keywords" "simulation"
+					(at 0 0 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(hide yes)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(symbol "VDC_0_0"
+					(polyline
+						(pts
+							(xy -1.27 0.254) (xy 1.27 0.254)
+						)
+						(stroke
+							(width 0)
+							(type default)
+						)
+						(fill
+							(type none)
+						)
+					)
+					(polyline
+						(pts
+							(xy -0.762 -0.254) (xy -1.27 -0.254)
+						)
+						(stroke
+							(width 0)
+							(type default)
+						)
+						(fill
+							(type none)
+						)
+					)
+					(polyline
+						(pts
+							(xy 0.254 -0.254) (xy -0.254 -0.254)
+						)
+						(stroke
+							(width 0)
+							(type default)
+						)
+						(fill
+							(type none)
+						)
+					)
+					(polyline
+						(pts
+							(xy 1.27 -0.254) (xy 0.762 -0.254)
+						)
+						(stroke
+							(width 0)
+							(type default)
+						)
+						(fill
+							(type none)
+						)
+					)
+					(text "+"
+						(at 0 1.905 0)
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(symbol "VDC_0_1"
+					(circle
+						(center 0 0)
+						(radius 2.54)
+						(stroke
+							(width 0.254)
+							(type default)
+						)
+						(fill
+							(type background)
+						)
+					)
+				)
+				(symbol "VDC_1_1"
+					(pin passive line
+						(at 0 5.08 270)
+						(length 2.54)
+						(name ""
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+						(number "1"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+					)
+					(pin passive line
+						(at 0 -5.08 90)
+						(length 2.54)
+						(name ""
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+						(number "2"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+					)
+				)
+				(embedded_fonts no)
+			)
+		(symbol "Simulation_SPICE:VPWL"
+				(pin_numbers
+					(hide yes)
+				)
+				(pin_names
+					(offset 0.0254)
+				)
+				(exclude_from_sim no)
+				(in_bom yes)
+				(on_board yes)
+				(in_pos_files yes)
+				(duplicate_pin_numbers_are_jumpers no)
+				(property "Reference" "V"
+					(at 2.54 2.54 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+						(justify left)
+					)
+				)
+				(property "Value" "VPWL"
+					(at 2.54 0 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+						(justify left)
+					)
+				)
+				(property "Footprint" ""
+					(at 0 0 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(hide yes)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(property "Datasheet" "https://ngspice.sourceforge.io/docs/ngspice-html-manual/manual.xhtml#sec_Independent_Sources_for"
+					(at 0 0 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(hide yes)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(property "Description" "Voltage source, piece-wise linear"
+					(at 0 0 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(hide yes)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(property "Sim.Pins" "1=+ 2=-"
+					(at 0 0 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(hide yes)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(property "Sim.Device" "V"
+					(at 0 0 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(hide yes)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+						(justify left)
+					)
+				)
+				(property "Sim.Params" "pwl=\"0 -1 50n -1 51n 0 97n 1 171n -1 200n -1\""
+					(at 2.54 -2.54 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+						(justify left)
+					)
+				)
+				(property "Sim.Type" "PWL"
+					(at 0 0 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(hide yes)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(property "ki_keywords" "simulation"
+					(at 0 0 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(hide yes)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(symbol "VPWL_0_0"
+					(polyline
+						(pts
+							(xy -1.778 -1.016) (xy -0.762 1.016) (xy -0.254 0) (xy 0.762 0) (xy 1.27 1.27)
+						)
+						(stroke
+							(width 0)
+							(type default)
+						)
+						(fill
+							(type none)
+						)
+					)
+					(text "+"
+						(at 0 1.905 0)
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(symbol "VPWL_0_1"
+					(circle
+						(center 0 0)
+						(radius 2.54)
+						(stroke
+							(width 0.254)
+							(type default)
+						)
+						(fill
+							(type background)
+						)
+					)
+				)
+				(symbol "VPWL_1_1"
+					(pin passive line
+						(at 0 5.08 270)
+						(length 2.54)
+						(name ""
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+						(number "1"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+					)
+					(pin passive line
+						(at 0 -5.08 90)
+						(length 2.54)
+						(name ""
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+						(number "2"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+					)
+				)
+				(embedded_fonts no)
+			)
+		(symbol "power:+15V"
+				(power global)
+				(pin_numbers
+					(hide yes)
+				)
+				(pin_names
+					(offset 0)
+					(hide yes)
+				)
+				(exclude_from_sim no)
+				(in_bom yes)
+				(on_board yes)
+				(in_pos_files yes)
+				(duplicate_pin_numbers_are_jumpers no)
+				(property "Reference" "#PWR"
+					(at 0 -3.81 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(hide yes)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(property "Value" "+15V"
+					(at 0 3.556 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(property "Footprint" ""
+					(at 0 0 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(hide yes)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(property "Datasheet" ""
+					(at 0 0 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(hide yes)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(property "Description" "Power symbol creates a global label with name \"+15V\""
+					(at 0 0 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(hide yes)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(property "ki_keywords" "global power"
+					(at 0 0 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(hide yes)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(symbol "+15V_0_1"
+					(polyline
+						(pts
+							(xy -0.762 1.27) (xy 0 2.54)
+						)
+						(stroke
+							(width 0)
+							(type default)
+						)
+						(fill
+							(type none)
+						)
+					)
+					(polyline
+						(pts
+							(xy 0 2.54) (xy 0.762 1.27)
+						)
+						(stroke
+							(width 0)
+							(type default)
+						)
+						(fill
+							(type none)
+						)
+					)
+					(polyline
+						(pts
+							(xy 0 0) (xy 0 2.54)
+						)
+						(stroke
+							(width 0)
+							(type default)
+						)
+						(fill
+							(type none)
+						)
+					)
+				)
+				(symbol "+15V_1_1"
+					(pin power_in line
+						(at 0 0 90)
+						(length 0)
+						(name ""
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+						(number "1"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+					)
+				)
+				(embedded_fonts no)
+			)
+		(symbol "power:-15V"
+				(power global)
+				(pin_numbers
+					(hide yes)
+				)
+				(pin_names
+					(offset 0)
+					(hide yes)
+				)
+				(exclude_from_sim no)
+				(in_bom yes)
+				(on_board yes)
+				(in_pos_files yes)
+				(duplicate_pin_numbers_are_jumpers no)
+				(property "Reference" "#PWR"
+					(at 0 -3.81 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(hide yes)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(property "Value" "-15V"
+					(at 0 3.556 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(property "Footprint" ""
+					(at 0 0 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(hide yes)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(property "Datasheet" ""
+					(at 0 0 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(hide yes)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(property "Description" "Power symbol creates a global label with name \"-15V\""
+					(at 0 0 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(hide yes)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(property "ki_keywords" "global power"
+					(at 0 0 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(hide yes)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(symbol "-15V_0_0"
+					(pin power_in line
+						(at 0 0 90)
+						(length 0)
+						(name ""
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+						(number "1"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+					)
+				)
+				(symbol "-15V_0_1"
+					(polyline
+						(pts
+							(xy 0 0) (xy 0 1.27) (xy 0.762 1.27) (xy 0 2.54) (xy -0.762 1.27) (xy 0 1.27)
+						)
+						(stroke
+							(width 0)
+							(type default)
+						)
+						(fill
+							(type outline)
+						)
+					)
+				)
+				(embedded_fonts no)
+			)
+		(symbol "power:GND"
+				(power global)
+				(pin_numbers
+					(hide yes)
+				)
+				(pin_names
+					(offset 0)
+					(hide yes)
+				)
+				(exclude_from_sim no)
+				(in_bom yes)
+				(on_board yes)
+				(in_pos_files yes)
+				(duplicate_pin_numbers_are_jumpers no)
+				(property "Reference" "#PWR"
+					(at 0 -6.35 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(hide yes)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(property "Value" "GND"
+					(at 0 -3.81 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(property "Footprint" ""
+					(at 0 0 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(hide yes)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(property "Datasheet" ""
+					(at 0 0 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(hide yes)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+					(at 0 0 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(hide yes)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(property "ki_keywords" "global power"
+					(at 0 0 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(hide yes)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(symbol "GND_0_1"
+					(polyline
+						(pts
+							(xy 0 0) (xy 0 -1.27) (xy 1.27 -1.27) (xy 0 -2.54) (xy -1.27 -1.27) (xy 0 -1.27)
+						)
+						(stroke
+							(width 0)
+							(type default)
+						)
+						(fill
+							(type none)
+						)
+					)
+				)
+				(symbol "GND_1_1"
+					(pin power_in line
+						(at 0 0 270)
+						(length 0)
+						(name ""
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+						(number "1"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+					)
+				)
+				(embedded_fonts no)
+			)
+		(symbol "programa_lorenz_sim_func:M2_CONDICION_INICIAL"
+				(pin_names
+					(offset 1.016)
+				)
+				(exclude_from_sim no)
+				(in_bom yes)
+				(on_board yes)
+				(in_pos_files yes)
+				(duplicate_pin_numbers_are_jumpers no)
+				(property "Reference" "M"
+					(at -0.94 8.89 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+						(justify left)
+					)
+				)
+				(property "Value" "M2_CONDICION_INICIAL"
+					(at -0.94 -8.89 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+						(justify left)
+					)
+				)
+				(property "Footprint" ""
+					(at 0 0 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(hide yes)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(property "Datasheet" ""
+					(at 0 0 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(hide yes)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(property "Description" "M2: potenciometro +/-15 V con seguidor. Sim.Params pos = posicion del cursor"
+					(at 0 0 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(hide yes)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(symbol "M2_CONDICION_INICIAL_0_1"
+					(rectangle
+						(start -5.08 7.62)
+						(end 5.08 -7.62)
+						(stroke
+							(width 0.254)
+							(type default)
+						)
+						(fill
+							(type background)
+						)
+					)
+				)
+				(symbol "M2_CONDICION_INICIAL_1_1"
+					(pin output line
+						(at 7.62 0 180)
+						(length 2.54)
+						(name "-Vic"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+						(number "1"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+					)
+					(pin power_in line
+						(at -2.54 10.16 270)
+						(length 2.54)
+						(name "+15V"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+						(number "2"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+					)
+					(pin power_in line
+						(at -2.54 -10.16 90)
+						(length 2.54)
+						(name "-15V"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+						(number "3"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+					)
+				)
+				(embedded_fonts no)
+			)
+		(symbol "programa_lorenz_sim_func:M3_INTEGRADOR"
+				(pin_names
+					(offset 1.016)
+				)
+				(exclude_from_sim no)
+				(in_bom yes)
+				(on_board yes)
+				(in_pos_files yes)
+				(duplicate_pin_numbers_are_jumpers no)
+				(property "Reference" "M"
+					(at -15.24 12.7 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+						(justify left)
+					)
+				)
+				(property "Value" "M3_INTEGRADOR"
+					(at -15.24 -12.7 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+						(justify left)
+					)
+				)
+				(property "Footprint" ""
+					(at 0 0 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(hide yes)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(property "Datasheet" ""
+					(at 0 0 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(hide yes)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(property "Description" "M3: integrador sumador con condicion inicial (C = 1 uF)"
+					(at 0 0 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(hide yes)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(symbol "M3_INTEGRADOR_0_1"
+					(rectangle
+						(start -15.24 11.43)
+						(end 15.24 -11.43)
+						(stroke
+							(width 0.254)
+							(type default)
+						)
+						(fill
+							(type background)
+						)
+					)
+				)
+				(symbol "M3_INTEGRADOR_1_1"
+					(pin input line
+						(at -17.78 8.89 0)
+						(length 2.54)
+						(name "X1_(1M)"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+						(number "1"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+					)
+					(pin input line
+						(at -17.78 6.35 0)
+						(length 2.54)
+						(name "X10_(100k)"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+						(number "2"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+					)
+					(pin input line
+						(at -17.78 3.81 0)
+						(length 2.54)
+						(name "X100A_(10k)"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+						(number "3"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+					)
+					(pin input line
+						(at -17.78 1.27 0)
+						(length 2.54)
+						(name "X100B_(10k)"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+						(number "4"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+					)
+					(pin input line
+						(at -17.78 -1.27 0)
+						(length 2.54)
+						(name "X1000_(1k)"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+						(number "5"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+					)
+					(pin input line
+						(at -17.78 -3.81 0)
+						(length 2.54)
+						(name "SUMIN"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+						(number "6"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+					)
+					(pin input line
+						(at -17.78 -8.89 0)
+						(length 2.54)
+						(name "COND._INICIAL"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+						(number "7"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+					)
+					(pin output line
+						(at 17.78 0 180)
+						(length 2.54)
+						(name "SALIDA"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+						(number "8"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+					)
+					(pin input line
+						(at 2.54 13.97 270)
+						(length 2.54)
+						(name "OP"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+						(number "9"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+					)
+					(pin power_in line
+						(at 5.08 13.97 270)
+						(length 2.54)
+						(name "+15V"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+						(number "10"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+					)
+					(pin power_in line
+						(at 3.81 -13.97 90)
+						(length 2.54)
+						(name "-15V"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+						(number "11"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+					)
+				)
+				(embedded_fonts no)
+			)
+		(symbol "programa_lorenz_sim_func:M4_SUMADOR"
+				(pin_names
+					(offset 1.016)
+				)
+				(exclude_from_sim no)
+				(in_bom yes)
+				(on_board yes)
+				(in_pos_files yes)
+				(duplicate_pin_numbers_are_jumpers no)
+				(property "Reference" "M"
+					(at -12.7 10.16 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+						(justify left)
+					)
+				)
+				(property "Value" "M4_SUMADOR"
+					(at -12.7 -10.16 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+						(justify left)
+					)
+				)
+				(property "Footprint" ""
+					(at 0 0 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(hide yes)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(property "Datasheet" ""
+					(at 0 0 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(hide yes)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(property "Description" "M4: sumador inversor, Rf = 10k"
+					(at 0 0 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(hide yes)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(symbol "M4_SUMADOR_0_1"
+					(rectangle
+						(start -12.7 8.89)
+						(end 12.7 -8.89)
+						(stroke
+							(width 0.254)
+							(type default)
+						)
+						(fill
+							(type background)
+						)
+					)
+				)
+				(symbol "M4_SUMADOR_1_1"
+					(pin input line
+						(at -15.24 6.35 0)
+						(length 2.54)
+						(name "X10_(1k)"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+						(number "1"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+					)
+					(pin input line
+						(at -15.24 3.81 0)
+						(length 2.54)
+						(name "X1A_(10k)"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+						(number "2"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+					)
+					(pin input line
+						(at -15.24 1.27 0)
+						(length 2.54)
+						(name "X1B_(10k)"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+						(number "3"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+					)
+					(pin input line
+						(at -15.24 -1.27 0)
+						(length 2.54)
+						(name "X01A_(100k)"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+						(number "4"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+					)
+					(pin input line
+						(at -15.24 -3.81 0)
+						(length 2.54)
+						(name "X01B_(100k)"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+						(number "5"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+					)
+					(pin input line
+						(at -15.24 -6.35 0)
+						(length 2.54)
+						(name "SUMIN"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+						(number "6"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+					)
+					(pin output line
+						(at 15.24 0 180)
+						(length 2.54)
+						(name "SALIDA"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+						(number "7"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+					)
+					(pin power_in line
+						(at 2.54 11.43 270)
+						(length 2.54)
+						(name "+15V"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+						(number "8"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+					)
+					(pin power_in line
+						(at 2.54 -11.43 90)
+						(length 2.54)
+						(name "-15V"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+						(number "9"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+					)
+				)
+				(embedded_fonts no)
+			)
+		(symbol "programa_lorenz_sim_func:M7_MULTIPLICADOR"
+				(pin_names
+					(offset 1.016)
+				)
+				(exclude_from_sim no)
+				(in_bom yes)
+				(on_board yes)
+				(in_pos_files yes)
+				(duplicate_pin_numbers_are_jumpers no)
+				(property "Reference" "M"
+					(at 1.6 11.43 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+						(justify left)
+					)
+				)
+				(property "Value" "M7_MULTIPLICADOR"
+					(at 1.6 -11.43 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+						(justify left)
+					)
+				)
+				(property "Footprint" ""
+					(at 0 0 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(hide yes)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(property "Datasheet" ""
+					(at 0 0 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(hide yes)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(property "Description" "M7: multiplicador AD633, W = (X1-X2)(Y1-Y2)/10 + Z"
+					(at 0 0 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(hide yes)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(symbol "M7_MULTIPLICADOR_0_1"
+					(rectangle
+						(start -5.08 10.16)
+						(end 5.08 -10.16)
+						(stroke
+							(width 0.254)
+							(type default)
+						)
+						(fill
+							(type background)
+						)
+					)
+				)
+				(symbol "M7_MULTIPLICADOR_1_1"
+					(pin input line
+						(at -7.62 7.62 0)
+						(length 2.54)
+						(name "X1"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+						(number "1"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+					)
+					(pin input line
+						(at -7.62 5.08 0)
+						(length 2.54)
+						(name "X2"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+						(number "2"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+					)
+					(pin input line
+						(at -7.62 0 0)
+						(length 2.54)
+						(name "Y1"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+						(number "3"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+					)
+					(pin input line
+						(at -7.62 -2.54 0)
+						(length 2.54)
+						(name "Y2"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+						(number "4"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+					)
+					(pin power_in line
+						(at 0 -12.7 90)
+						(length 2.54)
+						(name "-15V"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+						(number "5"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+					)
+					(pin input line
+						(at -7.62 -7.62 0)
+						(length 2.54)
+						(name "Z"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+						(number "6"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+					)
+					(pin output line
+						(at 7.62 0 180)
+						(length 2.54)
+						(name "W"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+						(number "7"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+					)
+					(pin power_in line
+						(at 0 12.7 270)
+						(length 2.54)
+						(name "+15V"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+						(number "8"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+					)
+				)
+				(embedded_fonts no)
+			)
+	)
+	(text ".tran 2m 30 0 2m uic"
+		(exclude_from_sim no)
+		(at 309.88 330.2 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "09485d72-3955-5813-9da5-8f1c4ef540b9")
+	)
+	(text "Lorenz escalado (X = x/10, Y = y/10, Z = z/10, C = 1 uF):\ndX/dt = 10 (Y - X)          INT1: Y por 100k y -X por 100k\ndY/dt = 28 X - Y - 10 X Z   INT2: -X por 35.7k, Y por 1M, W1 = XZ/10 por 10k\ndZ/dt = -8/3 Z + 10 X Y      INT3: -Z por 374k, W2 = XY/10 por 10k\nOsciloscopio X-Y: X (con -X invertido) contra Z."
+		(exclude_from_sim no)
+		(at 309.88 302.26 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "696be2f7-174f-593c-85fb-4c08495a612f")
+	)
+	(junction
+		(at 368.3 190.5)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "1dcaef42-9188-59af-9ab4-25bcc8ceb2ca")
+	)
+	(junction
+		(at 368.3 114.3)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "28867e23-1512-58e6-9113-ed1b432e7e95")
+	)
+	(junction
+		(at 320.04 121.92)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "3671c5f2-9133-591f-980b-be2c863858d9")
+	)
+	(junction
+		(at 406.4 205.74)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "3ab9febe-a531-567e-85f9-1c8fcb8c73f0")
+	)
+	(junction
+		(at 320.04 106.68)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "548d6005-c15b-5c3f-8489-8aaefa7a6f41")
+	)
+	(junction
+		(at 320.04 142.24)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "64691c07-cc6f-5cd9-9930-2649df603575")
+	)
+	(junction
+		(at 309.88 182.88)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "6e8c2f02-9985-5717-808c-a26a95b5e747")
+	)
+	(junction
+		(at 368.3 109.22)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "7c00a4ed-5857-560b-a1b7-2244bffa0694")
+	)
+	(junction
+		(at 320.04 101.6)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "80bb3ded-e7cf-5fed-8346-13ae40e24027")
+	)
+	(junction
+		(at 220.98 68.58)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "8107adcd-5f27-5394-a715-371205920468")
+	)
+	(junction
+		(at 345.44 182.88)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "90a82dab-1769-522e-86dd-499c90cfce8b")
+	)
+	(junction
+		(at 314.96 259.08)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "916d7513-8b1e-5eed-bd83-168da21b3aff")
+	)
+	(junction
+		(at 259.08 147.32)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "961511e3-6b9a-5b4c-95f6-15ca9216094c")
+	)
+	(junction
+		(at 368.3 185.42)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "e30cfc61-b642-580d-ba80-ce06a5060b92")
+	)
+	(junction
+		(at 220.98 163.83)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "fa5f4bae-fa6d-5d7d-99b4-768bd6c8a375")
+	)
+	(wire
+		(pts
+			(xy 314.96 259.08) (xy 360.68 259.08)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "067a4342-14e1-5ce4-975d-410af1e75054")
+	)
+	(wire
+		(pts
+			(xy 236.22 100.33) (xy 264.16 100.33)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "09502ec9-853f-54b8-9220-d956033af7a1")
+	)
+	(wire
+		(pts
+			(xy 241.3 81.28) (xy 241.3 110.49)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "0b287835-1d69-5c13-9b62-45cf465fab41")
+	)
+	(wire
+		(pts
+			(xy 401.32 182.88) (xy 401.32 231.14)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "11609195-6153-5ecb-9c70-912f737e68d8")
+	)
+	(wire
+		(pts
+			(xy 314.96 292.1) (xy 238.76 292.1)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "121a56d4-41b0-5562-87c2-598a91052213")
+	)
+	(wire
+		(pts
+			(xy 190.5 307.34) (xy 190.5 304.8)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "173cc229-0996-5549-983b-eda0f7c3a921")
+	)
+	(wire
+		(pts
+			(xy 314.96 259.08) (xy 314.96 292.1)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "178b51e4-5394-5deb-aa9c-57694a1b7e77")
+	)
+	(wire
+		(pts
+			(xy 208.28 68.58) (xy 205.74 68.58)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "181d6406-ab88-5710-9f9d-22fd500651c4")
+	)
+	(wire
+		(pts
+			(xy 193.04 105.41) (xy 193.04 102.87)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "188f8b89-5ba9-5124-9460-235eff4b4736")
+	)
+	(wire
+		(pts
+			(xy 203.2 115.57) (xy 264.16 115.57)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "1925283e-39fd-5201-8e7a-f0a9f9a99b48")
+	)
+	(wire
+		(pts
+			(xy 383.54 195.58) (xy 383.54 198.12)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "1a7737c4-e6d2-5d89-a82b-526648502377")
+	)
+	(wire
+		(pts
+			(xy 203.2 267.97) (xy 264.16 267.97)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "1b51b5d2-8963-5d7c-8c3a-c2c3452279a7")
+	)
+	(wire
+		(pts
+			(xy 368.3 190.5) (xy 368.3 193.04)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "1ed6c9b7-18a6-5bd9-bee5-871f76513647")
+	)
+	(wire
+		(pts
+			(xy 320.04 121.92) (xy 322.58 121.92)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "2437e259-92f0-55fa-a85b-1ade84cf772d")
+	)
+	(wire
+		(pts
+			(xy 255.27 186.69) (xy 264.16 186.69)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "2702f3d0-3e57-5ff0-ada3-8052431614a0")
+	)
+	(wire
+		(pts
+			(xy 241.3 110.49) (xy 247.65 110.49)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "275abeb7-6adc-548d-9687-281bcd74d75b")
+	)
+	(wire
+		(pts
+			(xy 285.75 196.85) (xy 285.75 199.39)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "28470dfa-826a-50f6-85c1-282d38799717")
+	)
+	(wire
+		(pts
+			(xy 287.02 245.11) (xy 287.02 242.57)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "2bab4b50-8e4f-58d6-8d68-815e300107f3")
+	)
+	(wire
+		(pts
+			(xy 172.72 307.34) (xy 172.72 304.8)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "2eb81831-baac-5764-835b-256f3a67d1ae")
+	)
+	(wire
+		(pts
+			(xy 193.04 257.81) (xy 193.04 255.27)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "32f1e525-1dc4-5679-8e4e-2fdf122fe114")
+	)
+	(wire
+		(pts
+			(xy 238.76 292.1) (xy 238.76 262.89)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "3904905d-49a6-5f73-8191-76edcc4bb199")
+	)
+	(wire
+		(pts
+			(xy 368.3 114.3) (xy 368.3 116.84)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "3e67541b-c6f3-50f0-bb81-b9000be44794")
+	)
+	(wire
+		(pts
+			(xy 236.22 147.32) (xy 236.22 100.33)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "3edb3c0c-7dad-56c0-9e28-86354352ddb2")
+	)
+	(wire
+		(pts
+			(xy 238.76 142.24) (xy 238.76 186.69)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "3f68269d-5527-5be7-b5eb-8a56c432d721")
+	)
+	(wire
+		(pts
+			(xy 193.04 125.73) (xy 193.04 128.27)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "3fe52dfc-309e-5a7a-8e4c-15e3c032aeaf")
+	)
+	(wire
+		(pts
+			(xy 220.98 68.58) (xy 220.98 163.83)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "4202b2f6-a5a5-5403-b4c8-d3a1cdbe504d")
+	)
+	(wire
+		(pts
+			(xy 320.04 142.24) (xy 238.76 142.24)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "431bfc08-c66d-5e08-8b85-2a930fd70a0d")
+	)
+	(wire
+		(pts
+			(xy 193.04 181.61) (xy 193.04 179.07)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "436aacb1-3468-559e-9d38-9358a5fa82cf")
+	)
+	(wire
+		(pts
+			(xy 284.48 163.83) (xy 284.48 168.91)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "446b542f-9f8d-546a-be46-7e007c542485")
+	)
+	(wire
+		(pts
+			(xy 309.88 182.88) (xy 309.88 147.32)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "45d300a6-84c8-5fb9-9c1e-e80de5012da9")
+	)
+	(wire
+		(pts
+			(xy 406.4 262.89) (xy 406.4 132.08)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "45de4f35-87ab-554c-a909-d62c93bd1b16")
+	)
+	(wire
+		(pts
+			(xy 190.5 317.5) (xy 190.5 320.04)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "469c2274-055d-59d6-9991-90c1db4c00e8")
+	)
+	(wire
+		(pts
+			(xy 254 157.48) (xy 254 179.07)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "49a38d0e-e9b6-5bcb-af91-f5d325aa3986")
+	)
+	(wire
+		(pts
+			(xy 193.04 201.93) (xy 193.04 204.47)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "4c6d0ef4-b64b-5922-a342-b7e84075930d")
+	)
+	(wire
+		(pts
+			(xy 284.48 240.03) (xy 284.48 245.11)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "5006484e-2036-5104-a74e-43ee87bef583")
+	)
+	(wire
+		(pts
+			(xy 238.76 186.69) (xy 247.65 186.69)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "53c112f3-9802-5cc8-a7c4-866d6512bd94")
+	)
+	(wire
+		(pts
+			(xy 259.08 147.32) (xy 259.08 173.99)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "57f0ae3f-76c1-550d-aecd-43fe1c38c698")
+	)
+	(wire
+		(pts
+			(xy 391.16 182.88) (xy 401.32 182.88)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "58d4575d-96d5-545e-861f-083a9f0f2486")
+	)
+	(wire
+		(pts
+			(xy 401.32 231.14) (xy 254 231.14)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "5955947e-28b7-5413-8b1d-9600af664241")
+	)
+	(wire
+		(pts
+			(xy 299.72 106.68) (xy 320.04 106.68)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "5bf4621d-d7c7-5853-a94e-6a1436369704")
+	)
+	(wire
+		(pts
+			(xy 375.92 175.26) (xy 368.3 175.26)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "5c3540a0-362f-5445-ae59-680106db3844")
+	)
+	(wire
+		(pts
+			(xy 365.76 106.68) (xy 375.92 106.68)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "5d424be2-9f61-5a13-8c5c-cda88f7138ed")
+	)
+	(wire
+		(pts
+			(xy 360.68 259.08) (xy 368.3 259.08)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "60649cb8-711c-599e-97a9-bc120cf82edf")
+	)
+	(wire
+		(pts
+			(xy 345.44 182.88) (xy 345.44 180.34)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "60831aa2-36e2-5dd6-9f9a-f961a9433499")
+	)
+	(wire
+		(pts
+			(xy 365.76 132.08) (xy 365.76 106.68)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "621c047e-9436-5a30-92e2-7753c84f2990")
+	)
+	(wire
+		(pts
+			(xy 320.04 81.28) (xy 320.04 177.8)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "698fcf62-bc61-5d6f-8f32-16d7820e92f8")
+	)
+	(wire
+		(pts
+			(xy 285.75 273.05) (xy 285.75 275.59)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "6c48df4b-663a-52ef-bb8c-42bd217417d8")
+	)
+	(wire
+		(pts
+			(xy 406.4 205.74) (xy 408.94 205.74)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "713871fc-900c-5210-b015-0d6653530dfd")
+	)
+	(wire
+		(pts
+			(xy 254 179.07) (xy 264.16 179.07)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "714b7f2b-a8b4-5bd2-aa3d-0585ffd9e69d")
+	)
+	(wire
+		(pts
+			(xy 254 255.27) (xy 264.16 255.27)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "75544009-a28e-52c7-965b-2682d1474fdf")
+	)
+	(wire
+		(pts
+			(xy 287.02 168.91) (xy 287.02 166.37)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "7a0d1560-522e-5f33-9d14-349af6b52213")
+	)
+	(wire
+		(pts
+			(xy 299.72 182.88) (xy 375.92 182.88)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "7c51a21f-ca7b-5892-b57a-73d3cd3d1f47")
+	)
+	(wire
+		(pts
+			(xy 203.2 191.77) (xy 264.16 191.77)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "7f53654f-4c06-587b-85bc-815f44a41ca2")
+	)
+	(wire
+		(pts
+			(xy 220.98 163.83) (xy 284.48 163.83)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "8040b060-0be0-5760-9a2a-9fbfdd64576b")
+	)
+	(wire
+		(pts
+			(xy 284.48 68.58) (xy 284.48 92.71)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "858fc674-8c4a-5cee-8770-275080f2f547")
+	)
+	(wire
+		(pts
+			(xy 398.78 157.48) (xy 254 157.48)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "8c718412-182b-5529-89f5-59cb544645c5")
+	)
+	(wire
+		(pts
+			(xy 398.78 106.68) (xy 398.78 157.48)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "98823ea7-3649-58e9-927f-57a05ed28b77")
+	)
+	(wire
+		(pts
+			(xy 320.04 177.8) (xy 375.92 177.8)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "99750465-e9d5-52ec-a452-cbb93b7e5e4e")
+	)
+	(wire
+		(pts
+			(xy 285.75 120.65) (xy 285.75 123.19)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "9a745161-0ee0-5f7f-bce4-672e11882781")
+	)
+	(wire
+		(pts
+			(xy 220.98 68.58) (xy 220.98 240.03)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "9e7bbe0c-9638-56f7-afc0-8541f8de5df7")
+	)
+	(wire
+		(pts
+			(xy 287.02 92.71) (xy 287.02 90.17)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "9f4cb065-c5b0-5f47-9ac2-8c4662b3cf7e")
+	)
+	(wire
+		(pts
+			(xy 375.92 99.06) (xy 368.3 99.06)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "a1df668f-3f0c-50a1-a291-1cdbf15923ba")
+	)
+	(wire
+		(pts
+			(xy 320.04 101.6) (xy 375.92 101.6)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "a24a0be9-810c-581a-94e3-99d4bc6eb5b5")
+	)
+	(wire
+		(pts
+			(xy 386.08 251.46) (xy 386.08 248.92)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "a85f7449-621b-583c-bcad-3cbf60ead277")
+	)
+	(wire
+		(pts
+			(xy 255.27 110.49) (xy 264.16 110.49)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "ab0ed1bb-4b86-5a3a-ae5d-26a53712d079")
+	)
+	(wire
+		(pts
+			(xy 383.54 93.98) (xy 383.54 91.44)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "acedeeb7-079a-57ae-b231-79e4dab116cd")
+	)
+	(wire
+		(pts
+			(xy 259.08 173.99) (xy 264.16 173.99)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "adad75df-49c4-5bb1-8557-6c7b74a6c05a")
+	)
+	(wire
+		(pts
+			(xy 238.76 262.89) (xy 247.65 262.89)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "b4f68afd-4129-5a72-bf2c-6ee837693cbc")
+	)
+	(wire
+		(pts
+			(xy 172.72 317.5) (xy 172.72 320.04)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "ba5c5f8d-39b7-5cf2-922b-8adae2010e42")
+	)
+	(wire
+		(pts
+			(xy 368.3 99.06) (xy 368.3 114.3)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "bc801665-e824-5ed0-9280-e779ac0f6392")
+	)
+	(wire
+		(pts
+			(xy 398.78 262.89) (xy 406.4 262.89)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "c3c5ab25-d44f-59f6-81a3-ce3411926588")
+	)
+	(wire
+		(pts
+			(xy 299.72 259.08) (xy 314.96 259.08)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "c4ff7eb7-2876-5f36-8176-4a7b88917570")
+	)
+	(wire
+		(pts
+			(xy 255.27 262.89) (xy 264.16 262.89)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "ca7286bb-20f4-5ce0-9fec-3ad4368ad933")
+	)
+	(wire
+		(pts
+			(xy 220.98 240.03) (xy 284.48 240.03)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "cb84e32b-8788-5756-aaf1-019668a7fdaa")
+	)
+	(wire
+		(pts
+			(xy 375.92 190.5) (xy 368.3 190.5)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "cf16ba22-622f-5da0-a8b5-e2628e27e10d")
+	)
+	(wire
+		(pts
+			(xy 383.54 119.38) (xy 383.54 121.92)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "d0cca4fb-9c60-51c4-b2cd-2398fe6aa315")
+	)
+	(wire
+		(pts
+			(xy 383.54 170.18) (xy 383.54 167.64)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "d3f6c272-d95e-5102-a64d-2cc3002e21fc")
+	)
+	(wire
+		(pts
+			(xy 368.3 175.26) (xy 368.3 190.5)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "d83d0bce-026f-57d6-9408-35003ee9d21c")
+	)
+	(wire
+		(pts
+			(xy 386.08 274.32) (xy 386.08 276.86)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "dcac884b-0268-599a-8dba-977b0bb61949")
+	)
+	(wire
+		(pts
+			(xy 406.4 132.08) (xy 365.76 132.08)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "dffe2b33-e054-5f65-a2f4-8cc7941ea22a")
+	)
+	(wire
+		(pts
+			(xy 375.92 109.22) (xy 368.3 109.22)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "e389c983-c0ef-5764-bc5f-28116cffd241")
+	)
+	(wire
+		(pts
+			(xy 254 231.14) (xy 254 255.27)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "e8feac4a-26df-5b6b-b398-6339bdb103e9")
+	)
+	(wire
+		(pts
+			(xy 218.44 68.58) (xy 284.48 68.58)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "e9f64fa8-a55e-5b11-88f9-31076d385784")
+	)
+	(wire
+		(pts
+			(xy 193.04 278.13) (xy 193.04 280.67)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "ec665272-7c5b-5616-9b74-88fed693061c")
+	)
+	(wire
+		(pts
+			(xy 320.04 81.28) (xy 241.3 81.28)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "ed2b84d0-89d5-5fe1-b24d-9e2cf1e856b8")
+	)
+	(wire
+		(pts
+			(xy 309.88 147.32) (xy 236.22 147.32)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "eeba4e75-9275-5490-97ad-ad68b86bfdb3")
+	)
+	(wire
+		(pts
+			(xy 391.16 106.68) (xy 398.78 106.68)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "eee19382-2400-5d47-b21b-d12102a2eda6")
+	)
+	(wire
+		(pts
+			(xy 375.92 185.42) (xy 368.3 185.42)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "f8f3b1b0-e622-51a1-9df2-4eb07367516c")
+	)
+	(wire
+		(pts
+			(xy 375.92 114.3) (xy 368.3 114.3)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "ffbe78cf-b663-5e30-ab00-d47f21a8b2cc")
+	)
+	(symbol
+		(lib_id "power:-15V")
+		(at 285.75 199.39 180)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "0db8195a-1e05-5079-83da-5605618f9951")
+		(property "Reference" "#PWR014"
+			(at 285.75 196.85 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "-15V"
+			(at 285.75 202.946 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 285.75 199.39 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 285.75 199.39 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 285.75 199.39 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "b75a93b6-8f34-5fe5-a675-15c597809348")
+		)
+		(instances
+			(project "programa_lorenz_sim"
+				(path "/d2a5a926-7918-5015-b2f9-d7b01e95ff84"
+					(reference "#PWR014")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "programa_lorenz_sim_func:M3_INTEGRADOR")
+		(at 281.94 182.88 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "0eafd4bd-04b2-5cf3-b194-46383a4489ce")
+		(property "Reference" "B5"
+			(at 297.18 166.88 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "M3: INT2  Y"
+			(at 297.18 169.42 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 281.94 182.88 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 281.94 182.88 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 281.94 182.88 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Sim.Library" "../modelos.lib"
+			(at 281.94 182.88 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Sim.Name" "M3_INT"
+			(at 281.94 182.88 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Sim.Device" "SUBCKT"
+			(at 281.94 182.88 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Sim.Pins" "1=x1 2=x10 3=x100a 4=x100b 5=x1000 6=sumin 7=icin 8=out 9=op 10=vcc 11=vee"
+			(at 281.94 182.88 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "df2f28c4-705e-59fc-aa09-9ba6b76b07df")
+		)
+		(pin "2"
+			(uuid "fc5870b8-e634-54f5-bd83-0d34ad9c4cb3")
+		)
+		(pin "3"
+			(uuid "c8132aba-01d5-5e40-8a43-b07e072dd918")
+		)
+		(pin "4"
+			(uuid "9c2499c7-c12f-5129-8885-a70cb161872f")
+		)
+		(pin "5"
+			(uuid "04a19661-e68f-5a87-b0cc-355ccb7e41d4")
+		)
+		(pin "6"
+			(uuid "8562de7e-010c-58b2-b6c5-0aaa43459832")
+		)
+		(pin "7"
+			(uuid "78a37e83-a79d-5998-a819-941be96ece66")
+		)
+		(pin "8"
+			(uuid "eee4cd1d-1e42-5d62-b37b-0bc0316049c5")
+		)
+		(pin "9"
+			(uuid "45353d43-d520-5f02-ad6d-29df7be0cb01")
+		)
+		(pin "10"
+			(uuid "ee7a6a8e-0415-5646-bc9f-c3f383f449f0")
+		)
+		(pin "11"
+			(uuid "5f1fddf7-e73b-51b0-aa84-6eb0e2922bce")
+		)
+		(instances
+			(project "programa_lorenz_sim"
+				(path "/d2a5a926-7918-5015-b2f9-d7b01e95ff84"
+					(reference "B5")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+15V")
+		(at 287.02 90.17 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "0ff3a374-4ea0-5f8c-9d0b-d224f5ce59a4")
+		(property "Reference" "#PWR011"
+			(at 287.02 87.63 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "+15V"
+			(at 287.02 86.614 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 287.02 90.17 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 287.02 90.17 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 287.02 90.17 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "ecca77b6-8e5f-5842-bd33-b62d02ed5933")
+		)
+		(instances
+			(project "programa_lorenz_sim"
+				(path "/d2a5a926-7918-5015-b2f9-d7b01e95ff84"
+					(reference "#PWR011")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:-15V")
+		(at 285.75 275.59 180)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "150454b6-4ada-5685-a008-27e7f3e722f4")
+		(property "Reference" "#PWR016"
+			(at 285.75 273.05 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "-15V"
+			(at 285.75 279.146 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 285.75 275.59 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 285.75 275.59 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 285.75 275.59 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "46ab697e-1c61-5423-8787-983bf6b0c3e0")
+		)
+		(instances
+			(project "programa_lorenz_sim"
+				(path "/d2a5a926-7918-5015-b2f9-d7b01e95ff84"
+					(reference "#PWR016")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "programa_lorenz_sim_func:M4_SUMADOR")
+		(at 383.54 262.89 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "17b83312-6dfe-5c9d-a94d-c237e36c4422")
+		(property "Reference" "B7"
+			(at 370.84 249.43 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "M4: inversor  Z"
+			(at 370.84 251.97 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" ""
+			(at 383.54 262.89 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 383.54 262.89 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 383.54 262.89 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Sim.Library" "../modelos.lib"
+			(at 383.54 262.89 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Sim.Name" "M4_SUM"
+			(at 383.54 262.89 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Sim.Device" "SUBCKT"
+			(at 383.54 262.89 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Sim.Pins" "1=x10 2=x1a 3=x1b 4=x01a 5=x01b 6=sumin 7=out 8=vcc 9=vee"
+			(at 383.54 262.89 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "327cd38d-eb39-579c-a779-6ae21976a35e")
+		)
+		(pin "2"
+			(uuid "3a1d8d3e-8571-56ec-b7a4-a9693e2e16ca")
+		)
+		(pin "3"
+			(uuid "b0777996-b255-5823-8cd4-537230fe6143")
+		)
+		(pin "4"
+			(uuid "e28e4d84-9a45-5a81-acb4-a6c05fd77f86")
+		)
+		(pin "5"
+			(uuid "be2e482b-db3e-59f2-8f14-f2fdf5dae119")
+		)
+		(pin "6"
+			(uuid "72ccc5b7-7105-514d-a14e-4226c97299ab")
+		)
+		(pin "7"
+			(uuid "53719920-a7d3-56fc-8bea-c9aac579b63b")
+		)
+		(pin "8"
+			(uuid "7e5c0209-8d79-5fb8-8f10-0d4be2fcf775")
+		)
+		(pin "9"
+			(uuid "bb5fedfe-3c7f-59c2-994e-7eb6e99a17e6")
+		)
+		(instances
+			(project "programa_lorenz_sim"
+				(path "/d2a5a926-7918-5015-b2f9-d7b01e95ff84"
+					(reference "B7")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "programa_lorenz_sim_func:M3_INTEGRADOR")
+		(at 281.94 106.68 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "1c2c1e53-84da-5973-b70e-9839cf0eb10a")
+		(property "Reference" "B4"
+			(at 266.7 90.68 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "M3: INT1  -X"
+			(at 266.7 93.22 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" ""
+			(at 281.94 106.68 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 281.94 106.68 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 281.94 106.68 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Sim.Library" "../modelos.lib"
+			(at 281.94 106.68 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Sim.Name" "M3_INT"
+			(at 281.94 106.68 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Sim.Device" "SUBCKT"
+			(at 281.94 106.68 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Sim.Pins" "1=x1 2=x10 3=x100a 4=x100b 5=x1000 6=sumin 7=icin 8=out 9=op 10=vcc 11=vee"
+			(at 281.94 106.68 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "3633adec-1d44-585f-a80e-d5d41f962c00")
+		)
+		(pin "2"
+			(uuid "3a846aa8-c8fa-5bbc-804c-913aef4ca015")
+		)
+		(pin "3"
+			(uuid "559283c4-4cf3-59f6-b305-d115e87e1b1f")
+		)
+		(pin "4"
+			(uuid "3b8433d0-b97e-5f79-b041-d2e9f73f103b")
+		)
+		(pin "5"
+			(uuid "5a4da6d8-da74-5b87-9b5d-334278fd85b3")
+		)
+		(pin "6"
+			(uuid "46ff19a7-25ee-51d4-9975-2b8cc26e90b5")
+		)
+		(pin "7"
+			(uuid "1e986e1c-73e3-54be-b43f-30a7133988fb")
+		)
+		(pin "8"
+			(uuid "aaa7caa8-0ebb-5ff4-b48a-4a13b399b179")
+		)
+		(pin "9"
+			(uuid "fc446ef3-433c-5647-8e77-4fe9285e0207")
+		)
+		(pin "10"
+			(uuid "edb517f8-caef-52cf-a4bc-6eddc0ffe909")
+		)
+		(pin "11"
+			(uuid "e6fa449d-8870-5a9d-9b3a-9df3f2120b88")
+		)
+		(instances
+			(project "programa_lorenz_sim"
+				(path "/d2a5a926-7918-5015-b2f9-d7b01e95ff84"
+					(reference "B4")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Simulation_SPICE:VDC")
+		(at 172.72 312.42 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "23511b36-f504-5446-9d6e-86bb718b6fdc")
+		(property "Reference" "V1"
+			(at 177.04 311.15 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "15"
+			(at 177.04 313.69 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 172.72 312.42 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 172.72 312.42 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 172.72 312.42 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Sim.Device" "V"
+			(at 172.72 312.42 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Sim.Type" "DC"
+			(at 172.72 312.42 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Sim.Pins" "1=+ 2=-"
+			(at 172.72 312.42 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Sim.Params" "dc=15"
+			(at 172.72 312.42 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "d7419515-1e98-5a90-8df8-1d6c9ccf13b2")
+		)
+		(pin "2"
+			(uuid "45ff800a-c0f3-512e-85c5-ff895f7ba770")
+		)
+		(instances
+			(project "programa_lorenz_sim"
+				(path "/d2a5a926-7918-5015-b2f9-d7b01e95ff84"
+					(reference "V1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 368.3 193.04 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "26ac3685-4ca4-5506-9293-de98f3bf3783")
+		(property "Reference" "#PWR025"
+			(at 368.3 190.5 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 368.3 196.85 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 368.3 193.04 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 368.3 193.04 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 368.3 193.04 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "767e06a6-60e8-574b-a8f2-bfa37514f3b1")
+		)
+		(instances
+			(project "programa_lorenz_sim"
+				(path "/d2a5a926-7918-5015-b2f9-d7b01e95ff84"
+					(reference "#PWR025")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 345.44 180.34 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim yes)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "44268f60-2751-5ee3-869f-ad346437115f")
+		(property "Reference" "TP2"
+			(at 345.44 171.706 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "TP2 Y"
+			(at 345.44 174.246 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 345.44 180.34 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 345.44 180.34 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 345.44 180.34 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "42fbe20b-9223-5d86-bd08-f47de4e00511")
+		)
+		(instances
+			(project "programa_lorenz_sim"
+				(path "/d2a5a926-7918-5015-b2f9-d7b01e95ff84"
+					(reference "TP2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "programa_lorenz_sim_func:M7_MULTIPLICADOR")
+		(at 383.54 106.68 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "51493f9d-594f-5d9b-9a9e-51f7dda633d2")
+		(property "Reference" "B8"
+			(at 378.46 91.95 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "M7: W1 = X Z / 10"
+			(at 378.46 94.49 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" ""
+			(at 383.54 106.68 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 383.54 106.68 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 383.54 106.68 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Sim.Library" "../modelos.lib"
+			(at 383.54 106.68 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Sim.Name" "AD633"
+			(at 383.54 106.68 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Sim.Device" "SUBCKT"
+			(at 383.54 106.68 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Sim.Pins" "1=1 2=2 3=3 4=4 5=5 6=6 7=7 8=8"
+			(at 383.54 106.68 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "8cce5d9d-4768-5fa0-bcda-b8cb73ea268f")
+		)
+		(pin "2"
+			(uuid "aac0e47e-3756-57e3-bb31-c6699a119b58")
+		)
+		(pin "3"
+			(uuid "ca8ee5ed-b019-5608-8e36-f83f73d382f0")
+		)
+		(pin "4"
+			(uuid "7eb3cd19-4557-5390-86d6-03a83d621ee3")
+		)
+		(pin "5"
+			(uuid "b76db3c0-5a90-539d-94e9-0ad20d31c68d")
+		)
+		(pin "6"
+			(uuid "a25d8a85-10cb-51c8-a32b-f961a16f4541")
+		)
+		(pin "7"
+			(uuid "1ca0ac05-734a-5013-80cf-799c26b27764")
+		)
+		(pin "8"
+			(uuid "d9496179-fc5c-5390-b268-5b2522d60d24")
+		)
+		(instances
+			(project "programa_lorenz_sim"
+				(path "/d2a5a926-7918-5015-b2f9-d7b01e95ff84"
+					(reference "B8")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:-15V")
+		(at 383.54 121.92 180)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "57ed2a01-ca24-5a94-829a-a681eb843d28")
+		(property "Reference" "#PWR020"
+			(at 383.54 119.38 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "-15V"
+			(at 383.54 125.476 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 383.54 121.92 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 383.54 121.92 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 383.54 121.92 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "0ae9e264-edb5-579f-8463-da334975affa")
+		)
+		(instances
+			(project "programa_lorenz_sim"
+				(path "/d2a5a926-7918-5015-b2f9-d7b01e95ff84"
+					(reference "#PWR020")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:-15V")
+		(at 190.5 320.04 180)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "63cbd7ef-50cb-545f-ba62-21a4cd86aa60")
+		(property "Reference" "#PWR004"
+			(at 190.5 317.5 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "-15V"
+			(at 190.5 323.596 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 190.5 320.04 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 190.5 320.04 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 190.5 320.04 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "0bd95754-9e2d-5439-9fb8-48dad016d4ad")
+		)
+		(instances
+			(project "programa_lorenz_sim"
+				(path "/d2a5a926-7918-5015-b2f9-d7b01e95ff84"
+					(reference "#PWR004")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+15V")
+		(at 383.54 167.64 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "68fc0dd4-1297-56aa-b52d-88574886fbbe")
+		(property "Reference" "#PWR021"
+			(at 383.54 165.1 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "+15V"
+			(at 383.54 164.084 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 383.54 167.64 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 383.54 167.64 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 383.54 167.64 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "b0673082-44a1-5b21-851e-efad1b77d866")
+		)
+		(instances
+			(project "programa_lorenz_sim"
+				(path "/d2a5a926-7918-5015-b2f9-d7b01e95ff84"
+					(reference "#PWR021")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:-15V")
+		(at 193.04 280.67 180)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "6e537b49-ff10-52ac-bda2-6b120d77a08c")
+		(property "Reference" "#PWR010"
+			(at 193.04 278.13 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "-15V"
+			(at 193.04 284.226 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 193.04 280.67 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 193.04 280.67 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 193.04 280.67 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "a29bf1c0-a920-5eb4-b6a9-11f85f12ec5d")
+		)
+		(instances
+			(project "programa_lorenz_sim"
+				(path "/d2a5a926-7918-5015-b2f9-d7b01e95ff84"
+					(reference "#PWR010")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 368.3 116.84 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "7041a218-ab2e-5957-a3d6-1c643634b712")
+		(property "Reference" "#PWR024"
+			(at 368.3 114.3 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 368.3 120.65 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 368.3 116.84 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 368.3 116.84 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 368.3 116.84 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "dd647d3b-fc2c-5450-b2b9-cec107b7e017")
+		)
+		(instances
+			(project "programa_lorenz_sim"
+				(path "/d2a5a926-7918-5015-b2f9-d7b01e95ff84"
+					(reference "#PWR024")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 190.5 304.8 180)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "72b0dbe2-8aba-530a-886c-3a0941e1b1ce")
+		(property "Reference" "#PWR003"
+			(at 190.5 302.26 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 190.5 300.99 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 190.5 304.8 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 190.5 304.8 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 190.5 304.8 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "4e04eb2b-22ed-5f88-937f-73283f635055")
+		)
+		(instances
+			(project "programa_lorenz_sim"
+				(path "/d2a5a926-7918-5015-b2f9-d7b01e95ff84"
+					(reference "#PWR003")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:-15V")
+		(at 193.04 128.27 180)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "75a92d09-5a37-559c-9b84-abf5dc54335d")
+		(property "Reference" "#PWR006"
+			(at 193.04 125.73 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "-15V"
+			(at 193.04 131.826 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 193.04 128.27 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 193.04 128.27 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 193.04 128.27 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "6cec2f4b-6f6a-54e0-9ce6-edc193aeb5b4")
+		)
+		(instances
+			(project "programa_lorenz_sim"
+				(path "/d2a5a926-7918-5015-b2f9-d7b01e95ff84"
+					(reference "#PWR006")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+15V")
+		(at 287.02 166.37 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "769c2df9-400a-5b8c-b04e-1bffc7ca7cb6")
+		(property "Reference" "#PWR013"
+			(at 287.02 163.83 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "+15V"
+			(at 287.02 162.814 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 287.02 166.37 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 287.02 166.37 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 287.02 166.37 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "6f9c8878-976f-5bfd-824a-20f2be69b98c")
+		)
+		(instances
+			(project "programa_lorenz_sim"
+				(path "/d2a5a926-7918-5015-b2f9-d7b01e95ff84"
+					(reference "#PWR013")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 408.94 205.74 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim yes)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "7cd8ce74-47f2-5ba2-9ca4-a3feee39b80c")
+		(property "Reference" "TP3"
+			(at 412.242 202.948 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "TP3 Z"
+			(at 412.242 208.532 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 408.94 205.74 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 408.94 205.74 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 408.94 205.74 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "90541209-8047-5e3a-a3e4-59e627933a85")
+		)
+		(instances
+			(project "programa_lorenz_sim"
+				(path "/d2a5a926-7918-5015-b2f9-d7b01e95ff84"
+					(reference "TP3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 251.46 110.49 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "85acf00c-b658-5fa0-a480-8e8141d40900")
+		(property "Reference" "R1"
+			(at 251.46 107.444 270)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "100k"
+			(at 251.46 113.536 270)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
+			(at 251.46 110.49 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 251.46 110.49 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 251.46 110.49 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "1152b61d-0d63-5787-a47e-b58c6b6c6784")
+		)
+		(pin "2"
+			(uuid "983a7efd-acf8-5f77-92bd-cdbee2cda7ea")
+		)
+		(instances
+			(project "programa_lorenz_sim"
+				(path "/d2a5a926-7918-5015-b2f9-d7b01e95ff84"
+					(reference "R1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+15V")
+		(at 193.04 179.07 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "8e252256-5ec0-5688-a9cc-9c62c7310164")
+		(property "Reference" "#PWR007"
+			(at 193.04 176.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "+15V"
+			(at 193.04 175.514 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 193.04 179.07 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 193.04 179.07 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 193.04 179.07 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "d374e007-9d07-5815-81f5-a854afafe93b")
+		)
+		(instances
+			(project "programa_lorenz_sim"
+				(path "/d2a5a926-7918-5015-b2f9-d7b01e95ff84"
+					(reference "#PWR007")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 251.46 186.69 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "90be160e-ccc7-549b-b7e4-fd09540bc5c2")
+		(property "Reference" "R2"
+			(at 251.46 183.644 270)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "35.7k"
+			(at 251.46 189.736 270)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
+			(at 251.46 186.69 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 251.46 186.69 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 251.46 186.69 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "6cc7a237-124c-543c-9afd-82293b6a4c07")
+		)
+		(pin "2"
+			(uuid "710bf9bd-d392-5eb9-85ef-71cb9360f395")
+		)
+		(instances
+			(project "programa_lorenz_sim"
+				(path "/d2a5a926-7918-5015-b2f9-d7b01e95ff84"
+					(reference "R2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+15V")
+		(at 383.54 91.44 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "96d34147-c368-53f6-ab72-48beb8695497")
+		(property "Reference" "#PWR019"
+			(at 383.54 88.9 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "+15V"
+			(at 383.54 87.884 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 383.54 91.44 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 383.54 91.44 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 383.54 91.44 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "52965564-1374-5a48-8ded-e10f7920ab7c")
+		)
+		(instances
+			(project "programa_lorenz_sim"
+				(path "/d2a5a926-7918-5015-b2f9-d7b01e95ff84"
+					(reference "#PWR019")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+15V")
+		(at 386.08 248.92 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "9e1a0a44-e9af-5629-b8fb-ada004eb2d08")
+		(property "Reference" "#PWR017"
+			(at 386.08 246.38 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "+15V"
+			(at 386.08 245.364 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 386.08 248.92 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 386.08 248.92 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 386.08 248.92 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "9b5bf669-f3b2-5abe-b3aa-2cd396b50902")
+		)
+		(instances
+			(project "programa_lorenz_sim"
+				(path "/d2a5a926-7918-5015-b2f9-d7b01e95ff84"
+					(reference "#PWR017")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 205.74 68.58 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "a6cc450d-bfe6-511d-90e2-3da974bd67ad")
+		(property "Reference" "#PWR023"
+			(at 205.74 66.04 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 201.93 68.58 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 205.74 68.58 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 205.74 68.58 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 205.74 68.58 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "6104fc94-a41a-5f77-9e29-fba8de186b4b")
+		)
+		(instances
+			(project "programa_lorenz_sim"
+				(path "/d2a5a926-7918-5015-b2f9-d7b01e95ff84"
+					(reference "#PWR023")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:-15V")
+		(at 386.08 276.86 180)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "ac4d8b82-5dfa-5e4f-a5f1-949fa034a85d")
+		(property "Reference" "#PWR018"
+			(at 386.08 274.32 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "-15V"
+			(at 386.08 280.416 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 386.08 276.86 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 386.08 276.86 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 386.08 276.86 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "6dbbe9b5-c883-5526-92da-0a9f4ebe6531")
+		)
+		(instances
+			(project "programa_lorenz_sim"
+				(path "/d2a5a926-7918-5015-b2f9-d7b01e95ff84"
+					(reference "#PWR018")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 322.58 121.92 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim yes)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "bf4b747b-3ab8-554b-bbdf-c6d5a1dda62d")
+		(property "Reference" "TP1"
+			(at 325.882 119.128 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "TP1 -X"
+			(at 325.882 124.712 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 322.58 121.92 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 322.58 121.92 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 322.58 121.92 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "0859ad1f-6f71-5bfa-a5dc-32c7bb762238")
+		)
+		(instances
+			(project "programa_lorenz_sim"
+				(path "/d2a5a926-7918-5015-b2f9-d7b01e95ff84"
+					(reference "TP1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:-15V")
+		(at 193.04 204.47 180)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "c04775a9-1cf6-5770-94e2-803acfc88030")
+		(property "Reference" "#PWR008"
+			(at 193.04 201.93 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "-15V"
+			(at 193.04 208.026 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 193.04 204.47 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 193.04 204.47 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 193.04 204.47 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "d63b90bd-9616-5851-9baf-70f2f7fd20b1")
+		)
+		(instances
+			(project "programa_lorenz_sim"
+				(path "/d2a5a926-7918-5015-b2f9-d7b01e95ff84"
+					(reference "#PWR008")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+15V")
+		(at 287.02 242.57 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "c3be38ed-6065-525b-a171-b2f17c8e7cd5")
+		(property "Reference" "#PWR015"
+			(at 287.02 240.03 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "+15V"
+			(at 287.02 239.014 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 287.02 242.57 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 287.02 242.57 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 287.02 242.57 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "03cdd048-7fb3-5fb4-93fb-6618f53f55e8")
+		)
+		(instances
+			(project "programa_lorenz_sim"
+				(path "/d2a5a926-7918-5015-b2f9-d7b01e95ff84"
+					(reference "#PWR015")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Simulation_SPICE:VPWL")
+		(at 213.36 68.58 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "c431709f-e063-5964-84ba-8b9ed6d508f0")
+		(property "Reference" "V3"
+			(at 213.36 61.47 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "M1 OP: OPERAR en t = 0.1 s"
+			(at 213.36 64.01 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 213.36 68.58 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 213.36 68.58 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 213.36 68.58 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Sim.Device" "V"
+			(at 213.36 68.58 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Sim.Type" "PWL"
+			(at 213.36 68.58 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Sim.Pins" "1=+ 2=-"
+			(at 213.36 68.58 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Sim.Params" "pwl=\"0 0 0.1 0 0.101 12 40 12\""
+			(at 213.36 68.58 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "39ef202a-722b-5a63-b35b-065c2f6db412")
+		)
+		(pin "2"
+			(uuid "5599fad0-892c-50d3-9789-242750a5605c")
+		)
+		(instances
+			(project "programa_lorenz_sim"
+				(path "/d2a5a926-7918-5015-b2f9-d7b01e95ff84"
+					(reference "V3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Simulation_SPICE:VDC")
+		(at 190.5 312.42 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "c9311601-e0d6-5fb9-8819-724416530173")
+		(property "Reference" "V2"
+			(at 194.82 311.15 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "15"
+			(at 194.82 313.69 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 190.5 312.42 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 190.5 312.42 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 190.5 312.42 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Sim.Device" "V"
+			(at 190.5 312.42 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Sim.Type" "DC"
+			(at 190.5 312.42 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Sim.Pins" "1=+ 2=-"
+			(at 190.5 312.42 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Sim.Params" "dc=15"
+			(at 190.5 312.42 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "52bf2775-339e-5bcc-b6a0-9bc650fb118e")
+		)
+		(pin "2"
+			(uuid "224579d7-6a40-526d-b535-880fb1afc9a0")
+		)
+		(instances
+			(project "programa_lorenz_sim"
+				(path "/d2a5a926-7918-5015-b2f9-d7b01e95ff84"
+					(reference "V2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "programa_lorenz_sim_func:M2_CONDICION_INICIAL")
+		(at 195.58 115.57 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "ca5ee1e2-9363-5f17-8610-c4af4fc09606")
+		(property "Reference" "B1"
+			(at 188.72 114.3 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "M2: IC x = -0.1 V"
+			(at 188.72 116.84 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" ""
+			(at 195.58 115.57 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 195.58 115.57 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 195.58 115.57 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Sim.Library" "../modelos.lib"
+			(at 195.58 115.57 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Sim.Name" "M2_IC"
+			(at 195.58 115.57 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Sim.Device" "SUBCKT"
+			(at 195.58 115.57 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Sim.Pins" "1=out 2=vcc 3=vee"
+			(at 195.58 115.57 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Sim.Params" "pos=0.49667"
+			(at 195.58 115.57 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "da66d8be-11b6-5a07-ac0a-97d722254434")
+		)
+		(pin "2"
+			(uuid "46906a28-ab5c-5129-9d6e-0e4b8cad1f5c")
+		)
+		(pin "3"
+			(uuid "0d510035-0657-5382-bbca-c22df000133c")
+		)
+		(instances
+			(project "programa_lorenz_sim"
+				(path "/d2a5a926-7918-5015-b2f9-d7b01e95ff84"
+					(reference "B1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:-15V")
+		(at 285.75 123.19 180)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "db7f7080-4136-5a25-b491-71445300c5d9")
+		(property "Reference" "#PWR012"
+			(at 285.75 120.65 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "-15V"
+			(at 285.75 126.746 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 285.75 123.19 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 285.75 123.19 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 285.75 123.19 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "7e7d644f-7735-5977-8320-4fe619d0446e")
+		)
+		(instances
+			(project "programa_lorenz_sim"
+				(path "/d2a5a926-7918-5015-b2f9-d7b01e95ff84"
+					(reference "#PWR012")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+15V")
+		(at 193.04 102.87 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "e2f76adc-44c6-5bb7-a035-10760d8c58af")
+		(property "Reference" "#PWR005"
+			(at 193.04 100.33 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "+15V"
+			(at 193.04 99.314 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 193.04 102.87 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 193.04 102.87 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 193.04 102.87 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "57d7e891-cc6f-53bf-8e8e-e8c8c3232377")
+		)
+		(instances
+			(project "programa_lorenz_sim"
+				(path "/d2a5a926-7918-5015-b2f9-d7b01e95ff84"
+					(reference "#PWR005")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+15V")
+		(at 172.72 304.8 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "e3c7d01e-4570-5c75-8e11-e28c2d3a4f3a")
+		(property "Reference" "#PWR001"
+			(at 172.72 302.26 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "+15V"
+			(at 172.72 301.244 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 172.72 304.8 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 172.72 304.8 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 172.72 304.8 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "e3d52596-94e2-5f34-8451-2fd7407c2491")
+		)
+		(instances
+			(project "programa_lorenz_sim"
+				(path "/d2a5a926-7918-5015-b2f9-d7b01e95ff84"
+					(reference "#PWR001")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+15V")
+		(at 193.04 255.27 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "ea530b86-8d86-5945-a248-171e191c85e2")
+		(property "Reference" "#PWR009"
+			(at 193.04 252.73 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "+15V"
+			(at 193.04 251.714 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 193.04 255.27 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 193.04 255.27 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 193.04 255.27 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "8d1a2b0f-7c63-5026-aad7-2a71adf56da1")
+		)
+		(instances
+			(project "programa_lorenz_sim"
+				(path "/d2a5a926-7918-5015-b2f9-d7b01e95ff84"
+					(reference "#PWR009")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:-15V")
+		(at 383.54 198.12 180)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "eacaedc7-1d12-57ab-bea0-686437e718c1")
+		(property "Reference" "#PWR022"
+			(at 383.54 195.58 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "-15V"
+			(at 383.54 201.676 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 383.54 198.12 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 383.54 198.12 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 383.54 198.12 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "9c11956e-3073-5a49-810e-ed11b9483c1c")
+		)
+		(instances
+			(project "programa_lorenz_sim"
+				(path "/d2a5a926-7918-5015-b2f9-d7b01e95ff84"
+					(reference "#PWR022")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "programa_lorenz_sim_func:M3_INTEGRADOR")
+		(at 281.94 259.08 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "ec227db9-964f-5f11-acb9-5416cc14c583")
+		(property "Reference" "B6"
+			(at 297.18 243.08 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "M3: INT3  -Z"
+			(at 297.18 245.62 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 281.94 259.08 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 281.94 259.08 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 281.94 259.08 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Sim.Library" "../modelos.lib"
+			(at 281.94 259.08 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Sim.Name" "M3_INT"
+			(at 281.94 259.08 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Sim.Device" "SUBCKT"
+			(at 281.94 259.08 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Sim.Pins" "1=x1 2=x10 3=x100a 4=x100b 5=x1000 6=sumin 7=icin 8=out 9=op 10=vcc 11=vee"
+			(at 281.94 259.08 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "e525d095-4fac-5634-8907-975f1047a710")
+		)
+		(pin "2"
+			(uuid "ccb6df76-3022-5b93-973e-4aa830b88429")
+		)
+		(pin "3"
+			(uuid "40af31fa-29ea-5b10-9a54-e9ec96a709f1")
+		)
+		(pin "4"
+			(uuid "d07eae32-6756-5334-9e97-13f2b551ae02")
+		)
+		(pin "5"
+			(uuid "31603292-1734-54bf-abc5-5ce36db99ff0")
+		)
+		(pin "6"
+			(uuid "6d3c52fb-aebd-50a2-9e97-88a9c58684a9")
+		)
+		(pin "7"
+			(uuid "807ff536-adbb-5666-8145-fd2c7828657c")
+		)
+		(pin "8"
+			(uuid "cf7f9db6-3889-54db-a4bc-d9c00951f6ed")
+		)
+		(pin "9"
+			(uuid "6fc2286a-2d05-5fc7-8024-0d263aee20fb")
+		)
+		(pin "10"
+			(uuid "33bd6435-6af9-556a-be77-ed8e6db495ba")
+		)
+		(pin "11"
+			(uuid "62b31d56-f153-5a93-bda6-b2a31caf61af")
+		)
+		(instances
+			(project "programa_lorenz_sim"
+				(path "/d2a5a926-7918-5015-b2f9-d7b01e95ff84"
+					(reference "B6")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 251.46 262.89 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "f1d314fd-5153-5a4e-ad6a-d5f037121513")
+		(property "Reference" "R3"
+			(at 251.46 259.844 270)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "374k"
+			(at 251.46 265.936 270)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
+			(at 251.46 262.89 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 251.46 262.89 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 251.46 262.89 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "b330c570-773a-5ce5-ad64-2149b67385ec")
+		)
+		(pin "2"
+			(uuid "3b808f21-a335-568d-b7e2-7ba5499259d7")
+		)
+		(instances
+			(project "programa_lorenz_sim"
+				(path "/d2a5a926-7918-5015-b2f9-d7b01e95ff84"
+					(reference "R3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 172.72 320.04 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "fa05932e-be1b-5cc0-a464-0d4b44be8697")
+		(property "Reference" "#PWR002"
+			(at 172.72 317.5 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 172.72 323.85 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 172.72 320.04 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 172.72 320.04 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 172.72 320.04 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "2eb1d7ef-3248-5c31-8815-bbb620c63fe4")
+		)
+		(instances
+			(project "programa_lorenz_sim"
+				(path "/d2a5a926-7918-5015-b2f9-d7b01e95ff84"
+					(reference "#PWR002")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "programa_lorenz_sim_func:M2_CONDICION_INICIAL")
+		(at 195.58 267.97 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "fb939407-d10e-5ce9-8bdc-3f714388e7f5")
+		(property "Reference" "B3"
+			(at 188.72 266.7 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "M2: IC z = -0.1 V"
+			(at 188.72 269.24 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" ""
+			(at 195.58 267.97 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 195.58 267.97 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 195.58 267.97 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Sim.Library" "../modelos.lib"
+			(at 195.58 267.97 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Sim.Name" "M2_IC"
+			(at 195.58 267.97 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Sim.Device" "SUBCKT"
+			(at 195.58 267.97 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Sim.Pins" "1=out 2=vcc 3=vee"
+			(at 195.58 267.97 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Sim.Params" "pos=0.49667"
+			(at 195.58 267.97 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "87e53628-2d19-5c3e-938d-49c7faec6f6d")
+		)
+		(pin "2"
+			(uuid "96db04a1-db46-5487-81d9-de89bbb19dc1")
+		)
+		(pin "3"
+			(uuid "21121ada-ee25-5c4d-b6ec-a8122ceed6d2")
+		)
+		(instances
+			(project "programa_lorenz_sim"
+				(path "/d2a5a926-7918-5015-b2f9-d7b01e95ff84"
+					(reference "B3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "programa_lorenz_sim_func:M7_MULTIPLICADOR")
+		(at 383.54 182.88 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "fc1c6dee-956d-5523-9cc5-a6afc06edab1")
+		(property "Reference" "B9"
+			(at 378.46 168.15 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "M7: W2 = X Y / 10"
+			(at 378.46 170.69 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" ""
+			(at 383.54 182.88 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 383.54 182.88 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 383.54 182.88 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Sim.Library" "../modelos.lib"
+			(at 383.54 182.88 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Sim.Name" "AD633"
+			(at 383.54 182.88 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Sim.Device" "SUBCKT"
+			(at 383.54 182.88 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Sim.Pins" "1=1 2=2 3=3 4=4 5=5 6=6 7=7 8=8"
+			(at 383.54 182.88 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "b47ddf8f-0ff6-5e92-b41f-12c450b3fe66")
+		)
+		(pin "2"
+			(uuid "3d5d10dc-4da1-58bf-8aad-789b684e3a7c")
+		)
+		(pin "3"
+			(uuid "2ce94909-f097-57ac-82c5-69c680db583f")
+		)
+		(pin "4"
+			(uuid "d66260bc-cb90-5390-b879-82234c0153f8")
+		)
+		(pin "5"
+			(uuid "c21600c6-2dc7-5ed3-ae61-578ee693d8e4")
+		)
+		(pin "6"
+			(uuid "e48668bf-0ee4-5c8b-ad7d-2c0649f1078f")
+		)
+		(pin "7"
+			(uuid "8afa2fb3-ad29-543a-97e4-4c447ee66786")
+		)
+		(pin "8"
+			(uuid "9d960727-5739-5a2f-8c15-62a604db2070")
+		)
+		(instances
+			(project "programa_lorenz_sim"
+				(path "/d2a5a926-7918-5015-b2f9-d7b01e95ff84"
+					(reference "B9")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "programa_lorenz_sim_func:M2_CONDICION_INICIAL")
+		(at 195.58 191.77 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "fd17ae06-5886-5f4a-b2d6-5d1c21e4f1cc")
+		(property "Reference" "B2"
+			(at 188.72 190.5 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "M2: IC y = -0.1 V"
+			(at 188.72 193.04 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" ""
+			(at 195.58 191.77 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 195.58 191.77 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 195.58 191.77 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Sim.Library" "../modelos.lib"
+			(at 195.58 191.77 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Sim.Name" "M2_IC"
+			(at 195.58 191.77 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Sim.Device" "SUBCKT"
+			(at 195.58 191.77 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Sim.Pins" "1=out 2=vcc 3=vee"
+			(at 195.58 191.77 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Sim.Params" "pos=0.49667"
+			(at 195.58 191.77 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "745fef51-6cd9-5db6-8509-71b718653848")
+		)
+		(pin "2"
+			(uuid "ecf6c6c7-be7d-5fe2-9333-05ac6acc2ff8")
+		)
+		(pin "3"
+			(uuid "608b3ea3-c77f-55f1-b578-316c799c043f")
+		)
+		(instances
+			(project "programa_lorenz_sim"
+				(path "/d2a5a926-7918-5015-b2f9-d7b01e95ff84"
+					(reference "B2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(sheet_instances
+		(path "/"
+			(page "1")
+		)
+	)
+)

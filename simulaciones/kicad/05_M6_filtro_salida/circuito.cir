@@ -1,0 +1,9 @@
+.title KiCad schematic
+.tran 0.01m 60m
+R2 Net-_R2-Pad1_ Net-_C2-Pad1_ 10k
+C1 Net-_C1-Pad1_ GND 100n
+V2 Net-_R2-Pad1_ GND DC 0 SIN( 0 5 1k ) 
+C2 Net-_C2-Pad1_ GND 100n
+V1 Net-_R1-Pad1_ GND DC 0 SIN( 0 5 50 ) 
+R1 Net-_R1-Pad1_ Net-_C1-Pad1_ 10k
+.end

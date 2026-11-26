@@ -1,5 +1,0 @@
-Integrador: IC = -2 V, luego integra 1 V por la entrada de 1 MΩ
-
-Rampa de -1 V/s hasta saturar en -13.5 V (eso es la 'línea' de la Fig. 13).
-
-

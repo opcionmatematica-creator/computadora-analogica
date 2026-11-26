@@ -1,0 +1,4 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "m7_multiplicador_completo_func")(type "KiCad")(uri "${KIPRJMOD}/libraries/m7_multiplicador_completo_func.kicad_sym")(options "")(descr "Functional symbols written by schlib"))
+)

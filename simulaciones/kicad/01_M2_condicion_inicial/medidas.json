@@ -1,0 +1,18 @@
+{
+ "modulo": "m2_condicion_inicial",
+ "esquematico": "m2_condicion_inicial_sim.kicad_sch",
+ "puntos": [
+  {
+   "ref": "TP1",
+   "nombre": "TP1 cursor",
+   "que": "Cursor del potenciómetro (entrada del seguidor)",
+   "esperado": "-15 V + 30 V × posición: con el cursor al 70 % = +6 V"
+  },
+  {
+   "ref": "TP2",
+   "nombre": "TP2 IC_OUT",
+   "que": "Salida -Vic del seguidor",
+   "esperado": "Igual al cursor (+6 V): el seguidor copia la tensión sin cargar el potenciómetro"
+  }
+ ]
+}

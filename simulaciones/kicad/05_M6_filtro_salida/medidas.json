@@ -1,0 +1,31 @@
+{
+ "modulo": "m6_filtro_salida",
+ "esquematico": "m6_filtro_salida_sim.kicad_sch",
+ "puntos": [
+  {
+   "ref": "TP1",
+   "nombre": "TP1 X_IN",
+   "que": "Entrada X (50 Hz, debajo de fc)",
+   "esperado": "Seno de 5 V de pico"
+  },
+  {
+   "ref": "TP2",
+   "nombre": "TP2 X_OUT",
+   "que": "Salida X al BNC",
+   "esperado": "Casi igual: 4.5 V de pico (fc = 159 Hz deja pasar los 50 Hz)"
+  },
+  {
+   "ref": "TP3",
+   "nombre": "TP3 Y_IN",
+   "que": "Entrada Y (1 kHz, encima de fc)",
+   "esperado": "Seno de 5 V de pico"
+  },
+  {
+   "ref": "TP4",
+   "nombre": "TP4 Y_OUT",
+   "que": "Salida Y al BNC",
+   "esperado": "Atenuada: ≈ 0.8 V de pico (|H| = 1/√(1+(f/fc)²) = 0.157)"
+  }
+ ],
+ "desde": 0.015
+}
