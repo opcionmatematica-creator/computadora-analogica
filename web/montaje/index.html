@@ -1,0 +1,93 @@
+<meta charset="utf-8">
+<title>Montajes en protoboard · Computadora analógica</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans+Condensed:wght@600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Banco de laboratorio: lista de módulos como fichas de montaje, una columna de lectura y una rejilla de fichas */
+:root{
+  --bg:#eef1f4; --panel:#ffffff; --ink:#1d232b; --muted:#5b6672; --line:#d5dbe2;
+  --accent:#1f5fd1; --ok:#1d7a46; --ok-bg:#e3f3ea; --warn:#8a5a00; --warn-bg:#fdf3dc;
+  --rail-pos:#d23b3b; --rail-neg:#3d6fd1; --chip:#e7ecf2;
+  --f-body:'IBM Plex Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --f-head:'IBM Plex Sans Condensed','IBM Plex Sans',system-ui,sans-serif;
+  --f-mono:'IBM Plex Mono',ui-monospace,'SFMono-Regular',Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#14181d; --panel:#1c2229; --ink:#e6eaef; --muted:#9aa5b1; --line:#2e3640;
+  --accent:#6f9df0; --ok:#5fcf8e; --ok-bg:#16301f; --warn:#e6b450; --warn-bg:#33280f;
+  --rail-pos:#ef6b6b; --rail-neg:#6f9df0; --chip:#26303a; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#14181d; --panel:#1c2229; --ink:#e6eaef; --muted:#9aa5b1; --line:#2e3640;
+  --accent:#6f9df0; --ok:#5fcf8e; --ok-bg:#16301f; --warn:#e6b450; --warn-bg:#33280f;
+  --rail-pos:#ef6b6b; --rail-neg:#6f9df0; --chip:#26303a; color-scheme:dark}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.55;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:32px 48px}
+.wrap{max-width:1040px;margin:0 auto;display:grid;gap:28px}
+.kicker{font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+h1{font-family:var(--f-head);font-weight:700;font-size:clamp(26px,4vw,36px);line-height:1.15;margin:4px 0 8px;text-wrap:balance}
+h2{font-family:var(--f-head);font-weight:600;font-size:20px;margin:0 0 10px}
+p{margin:0;max-width:68ch}
+.lead{color:var(--muted)}
+.rails{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;font-family:var(--f-mono);font-size:13px}
+.rail{display:flex;align-items:center;gap:10px;background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:8px 12px}
+.rail i{display:block;width:28px;height:3px;border-radius:2px;flex:none}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}
+.mod{display:grid;grid-template-rows:auto auto 1fr auto;gap:8px;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:16px 18px;color:inherit;text-decoration:none;min-width:0}
+.mod:hover,.mod:focus-visible{border-color:var(--accent);outline:none;box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 22%,transparent)}
+.mod .id{font-family:var(--f-mono);font-weight:600;font-size:13px;color:var(--accent)}
+.mod h3{font-family:var(--f-head);font-weight:700;font-size:19px;margin:0}
+.mod p{font-size:14px;color:var(--muted)}
+.meta{display:flex;flex-wrap:wrap;gap:6px;font-family:var(--f-mono);font-size:12px;font-variant-numeric:tabular-nums}
+.meta span{background:var(--chip);border-radius:4px;padding:2px 7px}
+.meta .ok{background:var(--ok-bg);color:var(--ok);font-weight:600}
+.notes{display:grid;gap:10px}
+.note{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:14px 18px;display:grid;gap:6px}
+.note.warn{background:var(--warn-bg);border-color:transparent}
+.note.warn b{color:var(--warn)}
+code{font-family:var(--f-mono);font-size:.92em}
+footer{font-size:13px;color:var(--muted)}
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="kicker">Computadora analógica · Johnson (Georgia Tech, 2016)</div>
+    <h1>Montajes en protoboard, módulo por módulo</h1>
+    <p class="lead">Una animación paso a paso para cada módulo: huecos exactos, orientación de cada pieza, código de colores y una prueba interactiva al final. Las conexiones de cada protoboard se compararon con el netlist de su esquema de KiCad.</p>
+  </header>
+
+  <section>
+    <h2>Los mismos rieles en todos los módulos</h2>
+    <div class="rails">
+      <div class="rail"><i style="background:var(--rail-neg)"></i>Arriba, exterior: GND</div>
+      <div class="rail"><i style="background:var(--rail-pos)"></i>Arriba, interior: +15 V</div>
+      <div class="rail"><i style="background:var(--rail-neg)"></i>Abajo, interior: −15 V</div>
+      <div class="rail"><i style="background:var(--rail-pos)"></i>Abajo, exterior: GND</div>
+    </div>
+    <p class="lead" style="margin-top:10px">Así puedes poner las protoboards en fila y unir sus rieles: ese es el bus de M1 (+15, GND, −15). La línea OP va con un cable aparte de M1 a cada integrador.</p>
+  </section>
+
+  <section>
+    <h2>Módulos</h2>
+    <div class="grid">
+      <a class="mod" href="montaje_m1_fuente.html"><span class="id">M1</span><h3>Fuente ±15 V y control</h3><p>Filtrado, pilotos y regulador L7812 para la línea OP; interruptor IC/OPERAR.</p><div class="meta"><span>½ protoboard</span><span>30 piezas y cables</span><span class="ok">8 redes OK</span></div></a>
+      <a class="mod" href="montaje_m2_condicion_inicial.html"><span class="id">M2 · ×2</span><h3>Condición inicial</h3><p>Multivuelta de 10 kΩ entre ±15 V con seguidor LF412.</p><div class="meta"><span>½ protoboard</span><span>22 piezas y cables</span><span class="ok">6 redes OK</span></div></a>
+      <a class="mod" href="montaje_m3_integrador.html"><span class="id">M3 · ×3</span><h3>Integrador</h3><p>LF412, relé G5V-2 IC/OPERAR, C de 1 µF o 100 nF, red de condición inicial y buffer.</p><div class="meta"><span>2 protoboards</span><span>57 piezas y cables</span><span class="ok">17 redes OK</span></div></a>
+      <a class="mod" href="montaje_m4_sumador.html"><span class="id">M4</span><h3>Sumador inversor</h3><p>Cinco entradas ×10, ×1, ×0,1 y realimentación de 10 kΩ o 100 kΩ.</p><div class="meta"><span>40 columnas</span><span>33 piezas y cables</span><span class="ok">13 redes OK</span></div></a>
+      <a class="mod" href="montaje_m5_coeficientes.html"><span class="id">M5</span><h3>Coeficientes</h3><p>Cuatro potenciómetros con seguidor: constantes como g = −9,8 V.</p><div class="meta"><span>63 columnas</span><span>54 piezas y cables</span><span class="ok">15 redes OK</span></div></a>
+      <a class="mod" href="montaje_m6_filtro_salida.html"><span class="id">M6</span><h3>Filtro de salida</h3><p>Dos RC de 10 kΩ y 100 nF (159 Hz) hacia los BNC X/Y del osciloscopio.</p><div class="meta"><span>½ protoboard</span><span>10 piezas y cables</span><span class="ok">5 redes OK</span></div></a>
+      <a class="mod" href="montaje_m7_multiplicador.html"><span class="id">M7 · ×2</span><h3>Multiplicador</h3><p>AD633: W = (X1 − X2)(Y1 − Y2)/10 + Z, para el atractor de Lorenz.</p><div class="meta"><span>½ protoboard</span><span>21 piezas y cables</span><span class="ok">9 redes OK</span></div></a>
+    </div>
+  </section>
+
+  <section class="notes">
+    <h2>Antes de montar</h2>
+    <div class="note"><b>Interruptores como cables.</b><p>SW1 de M1 (IC/OPERAR), M3 (velocidad) y M4 (ganancia) se dibujan como un cable con un extremo fijo que se cambia de hueco. Un interruptor deslizante de 3 patas funciona igual si su pata central va al común.</p></div>
+    <div class="note"><b>Relé G5V-2 (M3).</b><p>Tiene 8 patas (1, 4, 6, 8, 9, 11, 13, 16) en las posiciones de un DIP-16; el dibujo marca las 16 posiciones y las vacías quedan libres. Confirma el pinout con la hoja de datos de Omron antes de cablearlo.</p></div>
+    <div class="note warn"><b>RV1 del sumador (M4).</b><p>En el esquema el cursor (pata 2) del trimmer de 100 kΩ no está conectado, así que RV1 vale 100 kΩ fijos y girarlo no cambia la ganancia. El montaje sigue el esquema; si quieres ganancia ajustable, hay que unir el cursor con la pata 3 en el esquema.</p></div>
+    <div class="note"><b>Conectores.</b><p>Los conectores del esquema (bus, entradas, salidas, BNC) no se montan en la protoboard: son los huecos rotulados donde entran y salen los cables.</p></div>
+  </section>
+
+  <footer>Valores de prueba calculados con las fórmulas de cada circuito y contrastados con las simulaciones ngspice del proyecto cuando las hay.</footer>
+</div>

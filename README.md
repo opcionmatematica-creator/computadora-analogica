@@ -43,6 +43,8 @@ hardware/export_proto.py     netlist de KiCad -> montaje en protoboard (web/js/p
 simulaciones/                TODAS las simulaciones ngspice, una carpeta por circuito (ver simulaciones/README.md)
 tools/probar_app.mjs         prueba la app con clics reales en una sola ventana (errores, 404, imágenes rotas)
 tools/verificar_protoboard.mjs  comprueba que cada protoboard tenga exactamente las conexiones del netlist
+tools/capturar_protoboards.mjs  captura cada montaje paso a paso terminado -> web/assets/sistema/proto/ (Sistema completo)
+web/montaje/                 montaje paso a paso de cada módulo (skill protoboard-paso-a-paso) + su .redes.json
 tools/captura_ventana.ps1    captura la ventana de la app o la pantalla
 blender/render_all.sh        render Cycles de cada placa  ->  web/assets/<módulo>/render.png
 web/                         la aplicación (HTML + JS + three.js, sin compilación)
@@ -58,6 +60,7 @@ python hardware\gen_practica5.py
 python simulaciones\ejecutar_todo.py
 python hardware\export_assets.py
 python hardware\export_proto.py
+node tools\capturar_protoboards.mjs   (después de cambiar un montaje de web/montaje/)
 node tools\verificar_protoboard.mjs
 bash blender/render_all.sh
 ```

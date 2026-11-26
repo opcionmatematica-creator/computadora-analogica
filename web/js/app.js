@@ -3,6 +3,7 @@ import { plot } from "./plot.js";
 import { SIMS } from "./sims.js";
 import { viewBoard, disposeViewer } from "./viewer3d.js";
 import { systemSvg, wireList, SYSTEMS } from "./sistema.js";
+import { protoSystemSvg, protoWireList } from "./sistema_proto.js";
 import { layout as protoLayout, render as protoRender } from "./protoboard.js";
 import { P5, P5_DOC, P5_RUBRICA_PRACTICA, measureTable } from "./practica5.js";
 
@@ -144,7 +145,7 @@ function pageModule(m, tab) {
     disposeViewer();
     tabs.forEach(b => b.classList.toggle("act", b.dataset.t === k));
     const t = $("#tab"); t.innerHTML = "";
-    ({ res: tabRes, sch: tabSch, pcb: tabPcb, sim: tabSim, mon: tabMon, proto: (t, m) => protoView(t, m.id), test: tabTest, files: tabFiles }[k])(t, m);
+    ({ res: tabRes, sch: tabSch, pcb: tabPcb, sim: tabSim, mon: tabMon, proto: (t, m) => montajeView(t, m), test: tabTest, files: tabFiles }[k])(t, m);
     history.replaceState(null, "", `#/m/${m.id}/${k}`);
     sessionStorage.setItem("tab", k);
   };
@@ -202,7 +203,7 @@ function pageSystem(tab) {
   main.append(h(`
     <header class="phead"><span class="step big">⧉</span><div><h1>Sistema completo</h1>
     <p class="muted">La máquina entera: todos los módulos, su bus de alimentación y el cableado pin a pin de cada programa, y el esquemático completo.</p></div></header>
-    <nav class="tabs"><button data-t="cableado">Conexión de módulos</button><button data-t="esquematico">Esquemático completo</button></nav>
+    <nav class="tabs"><button data-t="cableado">Conexión de módulos</button><button data-t="protoboards">Protoboards conectadas</button><button data-t="esquematico">Esquemático completo</button></nav>
     <div id="tab"></div>`));
   main.querySelectorAll(".tabs button").forEach(b => {
     b.classList.toggle("act", b.dataset.t === tab);
@@ -210,6 +211,7 @@ function pageSystem(tab) {
   });
   const t = $("#tab");
   if (tab === "esquematico") return systemSchematic(t);
+  if (tab === "protoboards") return systemProto(t);
   const progs = Object.keys(SYSTEMS);
   let prog = sessionStorage.getItem("sysprog") || progs[0];
   t.append(h(`
@@ -231,6 +233,49 @@ function pageSystem(tab) {
   $("#sysSvg").addEventListener("mouseover", e => {
     const n = e.target.dataset && e.target.dataset.net;
     $("#sysSvg").querySelectorAll("path.w").forEach(p => p.classList.toggle("dim", !!n && p.dataset.net !== n));
+  });
+  draw();
+}
+
+// todas las protoboards de un programa, con los cables que las unen (capturas de los montajes paso a paso)
+async function systemProto(t) {
+  const progs = Object.keys(SYSTEMS);
+  let prog = sessionStorage.getItem("sysprog") || progs[0];
+  t.append(h(`
+    <div class="sys-bar">${progs.map(p => `<button class="toggle${p === prog ? " on" : ""}" data-p="${p}">${SYSTEMS[p].name}</button>`).join("")}
+      <span class="grow"></span><a class="btn ghost" id="psDl" download>Descargar imagen (SVG)</a>
+      <button class="iconbtn" data-z="1.25">＋</button><button class="iconbtn" data-z="0.8">－</button><button class="iconbtn" data-z="0">⤢</button></div>
+    <div class="sys-view paper ps-view"><div id="psSvg"></div></div>
+    <p class="muted small">Cada protoboard es la del montaje paso a paso de su módulo, ya terminada (clic en una para abrir su animación).
+      Los cables salen de los bornes de arriba (salidas) y de abajo (entradas) y van por los pasillos entre protoboards; pasa el ratón por un cable
+      para resaltar su señal. Arriba, el <b>bus de alimentación</b> de M1 une los rieles +15 V, GND y −15 V de todas; la línea naranja <b>OP</b>
+      lleva el modo IC/OPERAR a cada integrador. Rueda = zoom hacia el cursor, arrastrar = mover.</p>
+    <h3>Cables entre protoboards</h3><ol class="steps check" id="psl"></ol>`));
+  const geo = await (await fetch(`${A("sistema")}/proto/geometria.json`)).json();
+  const pz = panZoom($(".ps-view"));
+  const draw = () => {
+    const svg = protoSystemSvg(prog, geo);
+    $("#psSvg").innerHTML = svg;
+    $("#psl").innerHTML = protoWireList(prog, geo).map(w => `<li><label><input type="checkbox"> ${esc(w)}</label></li>`).join("");
+    t.querySelectorAll("[data-p]").forEach(b => b.classList.toggle("on", b.dataset.p === prog));
+    // descarga: la imagen con las protoboards incrustadas, para abrirla fuera de la app
+    const a = $("#psDl");
+    a.download = `protoboards_${prog}.svg`; a.removeAttribute("href");
+    Promise.all([...new Set([...svg.matchAll(/href="([^"]+\.png)"/g)].map(m => m[1]))].map(async u =>
+      [u, await new Promise(async r => { const fr = new FileReader(); fr.onload = () => r(fr.result); fr.readAsDataURL(await (await fetch(u)).blob()); })]))
+      .then(list => { let s = svg; for (const [u, d] of list) s = s.split(`href="${u}"`).join(`href="${d}"`);
+        a.href = URL.createObjectURL(new Blob([s.replace(/<a href="#[^"]*">/g, "<a>")], { type: "image/svg+xml" })); });
+    pz.reset();
+    requestAnimationFrame(() => {   // encajar la imagen entera en la vista
+      const v = $(".ps-view"), w = $("#psSvg svg").viewBox.baseVal.width;
+      if (w) pz.zoom(Math.min(1, v.clientWidth / w));
+    });
+  };
+  t.querySelectorAll("[data-p]").forEach(b => b.onclick = () => { prog = b.dataset.p; sessionStorage.setItem("sysprog", prog); draw(); });
+  t.querySelectorAll("[data-z]").forEach(b => b.onclick = () => (+b.dataset.z ? pz.zoom(+b.dataset.z) : pz.reset()));
+  $("#psSvg").addEventListener("mouseover", e => {
+    const n = e.target.dataset && e.target.dataset.net;
+    $("#psSvg").querySelectorAll("[data-net]").forEach(p => p.classList.toggle("dim", !!n && p.dataset.net !== n));
   });
   draw();
 }
@@ -336,6 +381,18 @@ function spicePlot(box, j, id) {
   const series = j.data.series.map(s => ({ name: s.name, x: s.xs || j.data.x, y: s.y, dash: s.xs ? [6, 4] : undefined }));
   plot(c, { series, xlabel: j.meta.xlabel, ylabel: j.meta.ylabel, logx: j.data.logx, equal: j.data.xy });
   box.append(h(`<p class="caption"><b>${esc(j.meta.title)}</b> ${esc(j.meta.note || "")} <a href="../${j.meta.carpeta}/circuito.cir" download>netlist (.cir)</a> · <a href="../${j.meta.carpeta}/datos.csv" download>datos (.csv)</a> · <code>${esc(j.meta.carpeta)}</code></p>`));
+}
+
+// montaje en protoboard paso a paso (web/montaje/, hecho con la skill protoboard-paso-a-paso y verificado contra el netlist)
+function montajeView(t, m) {
+  const src = `montaje/montaje_${m.id}.html`;
+  t.append(h(`<div class="sys-bar"><span class="muted small">Animación paso a paso: ▶ o las flechas ← → avanzan; toca cualquier pieza o cable para ver
+      su ficha (qué es, en qué huecos va y a qué se une). Al final hay una prueba interactiva.</span><span class="grow"></span>
+      <a class="btn ghost" href="${src}" target="_blank">Abrir en pantalla completa</a></div>
+    <iframe class="montaje" src="${src}" title="Montaje en protoboard de ${esc(m.name)}" loading="lazy"></iframe>
+    <p class="muted small">Las conexiones de esta protoboard se compararon automáticamente con el netlist del esquemático KiCad
+      (<code>web/montaje/${m.id}.redes.json</code>): mismos nodos, sin huecos repetidos y cables rectos.
+      Cómo se une con las demás protoboards: <a href="#/sistema/protoboards">Sistema completo → Protoboards conectadas</a>.</p>`));
 }
 
 // montaje en protoboard (generado del netlist de KiCad)

@@ -215,3 +215,19 @@ svg.proto .part:hover { filter: drop-shadow(0 0 3px #39d98a); }
 tr.bad td { color: #ff6b8a; }
 table.meas input { width: 100%; min-width: 70px; background: var(--panel2); color: var(--ink); border: 1px solid var(--line); border-radius: 6px; padding: 4px 6px; font: inherit; }
 h4 { margin: 1rem 0 .3rem; }
+
+/* montaje paso a paso (iframe) y sistema de protoboards conectadas */
+iframe.montaje { width: 100%; height: min(88vh, 1100px); border: 1px solid var(--line); border-radius: var(--radius); background: #fff; display: block; }
+.ps-view { height: min(80vh, 900px); }
+svg.psys { display: block; width: auto; height: auto; }
+svg.psys .halo { fill: none; stroke: #e9edf1; stroke-width: 7; stroke-linejoin: round; }
+svg.psys .pw { fill: none; stroke-width: 3.2; stroke-linejoin: round; transition: opacity .15s; }
+svg.psys .pw:hover { stroke-width: 5.5; }
+svg.psys .dim { opacity: .1; }
+svg.psys .wl { font: 600 13px var(--mono); paint-order: stroke; stroke: #e9edf1; stroke-width: 4px; }
+svg.psys .gndsym { fill: none; stroke: #202124; stroke-width: 2.4; }
+svg.psys .bus-t { fill: #3b4652; font: 600 15px var(--mono); }
+svg.psys .ptitle { fill: #1d232b; font: 700 17px var(--mono); }
+svg.psys a:hover .ptitle { fill: #1f5fd1; text-decoration: underline; }
+svg.psys .osc-t { fill: #d9dee4; font: 600 14px var(--mono); }
+svg.psys .term-t { fill: #1d232b; font: 600 12px var(--mono); }
