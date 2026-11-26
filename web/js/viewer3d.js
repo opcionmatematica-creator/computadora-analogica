@@ -1,6 +1,6 @@
 // Visor 3D de la placa (GLB exportado por KiCad) con three.js.
 // Sobre el modelo de KiCad se añade lo que se ve en una placa de verdad: bandas de color de las
-// resistencias, rotulado de condensadores, integrados y relé, las piezas cuyo modelo no trae la
+// resistencias, el chip sobre cada zócalo, las piezas cuyo modelo no trae la
 // biblioteca de KiCad (interruptor, potenciómetros) y una etiqueta por componente con su ficha
 // (qué es, valor, encapsulado y a qué redes va cada pin). Datos: assets/<módulo>/componentes.json.
 import * as THREE from "three";
@@ -58,29 +58,6 @@ function kind(c) {
   return { tipo: p, det: v };
 }
 
-function marking(c) {
-  const f = c.huella, v = c.valor.replace("uF", "µF").replace(" film", "");
-  if (c.ref.startsWith("C") && f.startsWith("C_Disc")) return { t: { "100nF": "104", "330nF": "334" }[c.valor] || v, bg: "#d88a2a", fg: "#2a1600" };
-  if (c.ref.startsWith("C") && f.startsWith("C_Rect")) return { t: `WIMA\n${v.replace("F", "")}\nMKS2 63V`, bg: "#c8202a", fg: "#ffffff" };
-  if (c.ref.startsWith("C") && f.startsWith("CP_")) return { t: v.replace(" ", "\n"), bg: "#1d2a50", fg: "#dfe8ff" };
-  if (c.ref.startsWith("K")) return { t: "OMRON\nG5V-2\n12VDC", bg: "#1c1c1c", fg: "#e8e8e8" };
-  if (c.ref.startsWith("RV")) return { t: "103", bg: "#2a55c8", fg: "#ffffff" };
-  return null;
-}
-
-function textTexture(text, wmm, hmm, bg, fg) {
-  const k = 48, cv = document.createElement("canvas");
-  cv.width = Math.max(64, Math.round(wmm * k)); cv.height = Math.max(32, Math.round(hmm * k));
-  const g = cv.getContext("2d");
-  if (bg) { g.fillStyle = bg; g.fillRect(0, 0, cv.width, cv.height); }
-  const lines = text.split("\n");
-  const fs = Math.min(cv.height / (lines.length * 1.25), cv.width / (Math.max(...lines.map(l => l.length)) * 0.62));
-  g.fillStyle = fg; g.font = `600 ${fs}px "Segoe UI", Arial, sans-serif`; g.textAlign = "center"; g.textBaseline = "middle";
-  lines.forEach((l, i) => g.fillText(l, cv.width / 2, cv.height / 2 + (i - (lines.length - 1) / 2) * fs * 1.15));
-  const t = new THREE.CanvasTexture(cv); t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = 8;
-  return t;
-}
-
 const mat = (color, o = {}) => new THREE.MeshStandardMaterial({ color, roughness: 0.55, metalness: 0, ...o });
 
 /** Caja (en mm) centrada en (x, y) de la placa, desde la altura z0, girada `deg` alrededor de la vertical. */
@@ -93,13 +70,6 @@ function box(group, w, d, h, x, y, z0, deg, m) {
 function cyl(group, r, h, x, y, z0, m) {
   const o = new THREE.Mesh(new THREE.CylinderGeometry(r * MM, r * MM, h * MM, 32), m);
   o.position.set(x * MM, (z0 + h / 2) * MM, y * MM); group.add(o); return o;
-}
-
-function topLabel(group, text, cx, cy, ztop, w, d, deg, bg, fg) {
-  const p = new THREE.Mesh(new THREE.PlaneGeometry(w * MM, d * MM),
-    new THREE.MeshStandardMaterial({ map: textTexture(text, w, d, bg, fg), roughness: 0.7, transparent: !bg }));
-  p.rotation.x = -Math.PI / 2; p.rotation.z = THREE.MathUtils.degToRad(deg);
-  p.position.set(cx * MM, ztop * MM + 0.00005, cy * MM); group.add(p); return p;
 }
 
 /** Caja que ocupan en el GLB las mallas de la pieza (por su courtyard), en mm. */
@@ -147,7 +117,6 @@ function dress(root, data) {
       box(g, 9.5, 4.8, 10, cx, cy, top, deg, mat("#2a55c8"));
       const sc = cyl(g, 1.4, 0.8, cx, cy, top + 10, mat("#d8c070", { metalness: 0.8, roughness: 0.3 }));
       sc.rotation.z = Math.PI / 2;
-      topLabel(g, "3386P\n103", cx, cy, top + 10, 7, 3.6, deg, "#2a55c8", "#ffffff");
       h = top + 11;
     }
     const p = c.ref.replace(/\d+$/, "");
@@ -169,18 +138,10 @@ function dress(root, data) {
     if (p === "U" && c.huella.startsWith("DIP")) {
       const z0 = m ? m.top : top + 3, rot = Math.abs(((c.giro % 180) + 180) % 180 - 90) < 1 ? 0 : 90;
       const chip = box(g, rot ? 9.8 : 6.35, rot ? 6.35 : 9.8, 3.3, cx, cy, z0, 0, mat("#17181a", { roughness: 0.7 }));
-      const name = c.valor.includes("AD633") ? "AD633JN" : "LF412CN";
-      topLabel(g, `${name}\n${c.valor.includes("AD633") ? "ANALOG DEVICES" : "TI  2541"}`, cx, cy, z0 + 3.3, rot ? 8.5 : 5.4, rot ? 5.4 : 8.5, rot ? 0 : 90, null, "#d6d6d6");
       const p1 = c.pads.find(q => q.n === "1");
       if (p1) cyl(g, 0.45, 0.05, cx + (p1.x - cx) * 0.62, cy + (p1.y - cy) * 0.62, z0 + 3.3, mat("#3a3a3a"));
       h = z0 + 3.3;
       chip.userData.ref = c.ref;
-    }
-    // condensadores, relé y potenciómetros: rótulo en la cara de arriba
-    const mk = marking(c);
-    if (mk && m && !c.sin_modelo) {
-      const w = (m.x2 - m.x1) * 0.82, d = (m.y2 - m.y1) * 0.82;
-      topLabel(g, mk.t, (m.x1 + m.x2) / 2, (m.y1 + m.y2) / 2, m.top, w, d, 0, mk.bg, mk.fg);
     }
     anchors.push({ c, pos: new THREE.Vector3(cx * MM, (h + 1.5) * MM, cy * MM) });
   }
